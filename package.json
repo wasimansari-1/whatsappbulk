@@ -1,0 +1,26 @@
+{
+  "name": "whatsapp-bulk-saas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Enterprise Multi-Tenant WhatsApp Business Marketing, CRM, Automation and Communication SaaS Platform",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:user-api": "npm run dev --workspace=apps/user-api",
+    "dev:admin-api": "npm run dev --workspace=apps/admin-api",
+    "dev:user-web": "npm run dev --workspace=apps/user-web",
+    "dev:admin-web": "npm run dev --workspace=apps/admin-web",
+    "dev": "concurrently -n \"USER-API,ADMIN-API,USER-WEB,ADMIN-WEB\" -c \"blue,magenta,green,cyan\" \"npm run dev:user-api\" \"npm run dev:admin-api\" \"npm run dev:user-web\" \"npm run dev:admin-web\"",
+    "seed": "npm run seed --workspace=apps/user-api",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@whatsapp-saas/shared-validation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "zod": "^3.23.8",
+    "@whatsapp-saas/shared-constants": "^1.0.0"
+  }
+}
