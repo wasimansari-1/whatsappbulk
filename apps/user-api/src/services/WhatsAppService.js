@@ -44,7 +44,7 @@ export class WhatsAppService {
     const wabaId = process.env.META_WABA_ID || '1049968644261349';
     const envPhoneId = process.env.META_PHONE_NUMBER_ID || '1223600624165995';
 
-    console.log(`[WhatsAppService] Syncing with Meta Cloud API for WABA: ${wabaId}...`);
+    console.log(`[WhatsAppService] Live Syncing with Meta Graph API for WABA: ${wabaId}...`);
 
     // 1. Fetch Phone numbers from Meta Graph API
     let metaPhones = [];
@@ -55,7 +55,7 @@ export class WhatsAppService {
       console.warn('[WhatsAppService] Error fetching Meta phone numbers:', err.message);
     }
 
-    // 2. Fetch Templates from Meta Graph API
+    // 2. Fetch Live Templates from Meta Graph API
     let metaTemplates = [];
     try {
       const tplRes = await provider.getTemplates(wabaId);
@@ -99,25 +99,9 @@ export class WhatsAppService {
           { upsert: true }
         );
       }
-    } else {
-      // Fallback with env credentials
-      await WhatsAppPhoneNumber.findOneAndUpdate(
-        { organizationId, phoneNumberId: envPhoneId },
-        {
-          $set: {
-            whatsappAccountId: account._id,
-            displayPhoneNumber: '+91 91998 00309',
-            verifiedName: 'IGlobal Tech',
-            qualityRating: 'GREEN',
-            status: 'CONNECTED',
-            isDefault: true
-          }
-        },
-        { upsert: true }
-      );
     }
 
-    // 5. Upsert Templates synced from Meta
+    // 5. Sync Live Templates from Meta
     let syncedTemplatesCount = 0;
     if (metaTemplates.length > 0) {
       for (const tpl of metaTemplates) {
@@ -127,7 +111,7 @@ export class WhatsAppService {
             $set: {
               whatsappAccountId: account._id,
               category: tpl.category,
-              status: tpl.status,
+              status: tpl.status || TemplateStatus.APPROVED,
               components: tpl.components || [],
               providerTemplateId: tpl.id
             }
@@ -179,7 +163,7 @@ export class WhatsAppService {
   }
 
   async getTemplates(organizationId) {
-    return whatsAppRepository.getTemplates(organizationId);
+    return WhatsAppTemplate.find({ organizationId }).sort({ createdAt: -1 }).lean();
   }
 
   async createTemplate(organizationId, templateData) {
@@ -195,28 +179,90 @@ export class WhatsAppService {
     const provider = getWhatsAppProvider();
     const wabaId = account.wabaId || process.env.META_WABA_ID || '1049968644261349';
 
-    // Submit to Meta Graph API
-    let providerResult = {};
-    try {
-      providerResult = await provider.createTemplate(wabaId, {
-        name: templateData.name.toLowerCase().replace(/\s+/g, '_'),
-        category: templateData.category,
-        language: templateData.language || 'en_US',
-        components: templateData.components
-      });
-    } catch (err) {
-      console.warn('[WhatsAppService] Meta template create warning:', err.message);
+    // Format components for Meta API specification
+    const metaComponents = [];
+
+    // Header
+    if (templateData.header && templateData.header.format !== 'NONE') {
+      const headerObj = {
+        type: 'HEADER',
+        format: templateData.header.format // 'TEXT' | 'IMAGE' | 'VIDEO' | 'DOCUMENT'
+      };
+      if (templateData.header.format === 'TEXT') {
+        headerObj.text = templateData.header.text;
+      }
+      metaComponents.push(headerObj);
     }
 
+    // Body (Mandatory)
+    metaComponents.push({
+      type: 'BODY',
+      text: templateData.body?.text || templateData.body || ''
+    });
+
+    // Footer (Optional)
+    if (templateData.footer && templateData.footer.text) {
+      metaComponents.push({
+        type: 'FOOTER',
+        text: templateData.footer.text
+      });
+    }
+
+    // Buttons (Optional)
+    if (templateData.buttons && templateData.buttons.length > 0) {
+      metaComponents.push({
+        type: 'BUTTONS',
+        buttons: templateData.buttons.map((b) => {
+          if (b.type === 'QUICK_REPLY') {
+            return { type: 'QUICK_REPLY', text: b.text };
+          }
+          if (b.type === 'URL') {
+            return { type: 'URL', text: b.text, url: b.url };
+          }
+          if (b.type === 'PHONE_NUMBER') {
+            return { type: 'PHONE_NUMBER', text: b.text, phone_number: b.phoneNumber };
+          }
+          return { type: 'QUICK_REPLY', text: b.text || b.title };
+        })
+      });
+    }
+
+    const cleanName = templateData.name.toLowerCase().trim().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+
+    // Submit directly to Meta Graph API
+    let providerResult = null;
+    let initialStatus = TemplateStatus.PENDING; // Must initially be PENDING until Meta review/sync!
+    let initialCategory = templateData.category || 'MARKETING';
+
+    try {
+      providerResult = await provider.createTemplate(wabaId, {
+        name: cleanName,
+        category: initialCategory,
+        language: templateData.language || 'en_US',
+        components: metaComponents
+      });
+
+      if (providerResult?.status) {
+        initialStatus = providerResult.status;
+      }
+      if (providerResult?.category) {
+        initialCategory = providerResult.category;
+      }
+    } catch (err) {
+      console.warn('[WhatsAppService] Meta template submission note:', err.message);
+      // In case Meta returns pending or validation, we keep PENDING status
+    }
+
+    // Save to database with PENDING status
     const newTemplate = await WhatsAppTemplate.create({
       organizationId,
       whatsappAccountId: account._id,
-      name: templateData.name.toLowerCase().replace(/\s+/g, '_'),
-      category: templateData.category,
+      name: cleanName,
+      category: initialCategory,
       language: templateData.language || 'en_US',
-      components: templateData.components,
-      status: providerResult.status || TemplateStatus.APPROVED,
-      providerTemplateId: providerResult.id || `meta_tpl_${Date.now()}`
+      components: metaComponents,
+      status: initialStatus, // PENDING
+      providerTemplateId: providerResult?.id || `meta_tpl_${Date.now()}`
     });
 
     return newTemplate;
