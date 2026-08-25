@@ -23,24 +23,31 @@ export class ConversationRepository extends BaseRepository {
 
     return this.findPaginated(organizationId, {
       filter,
-      sort: { isPinned: -1, updatedAt: -1 },
+      sort: { isPinned: -1, 'lastMessage.sentAt': -1, updatedAt: -1 },
       populate: 'contactId assignedTo',
       page,
       limit
     });
   }
 
-  async getMessages(organizationId, contactId, { limit = 50, before = null }) {
+  async getMessages(organizationId, contactId, { limit = null, before = null }) {
     const filter = { organizationId, contactId };
     if (before) {
       filter.createdAt = { $lt: new Date(before) };
     }
 
-    return Message.find(filter)
-      .sort({ createdAt: 1 })
-      .limit(limit)
+    let query = Message.find(filter)
+      .sort({ createdAt: -1 })
       .populate('sentBy', 'name avatar')
       .lean();
+
+    const parsedLimit = parseInt(limit, 10);
+    if (parsedLimit > 0) {
+      query = query.limit(parsedLimit);
+    }
+
+    const messages = await query;
+    return messages.reverse();
   }
 
   async createMessage(organizationId, messageData) {
@@ -50,17 +57,20 @@ export class ConversationRepository extends BaseRepository {
     });
     await msg.save();
 
-    // Update conversation lastMessage snippet
+    const now = new Date();
+    // Update conversation lastMessage snippet and touch timestamp
     await Conversation.findOneAndUpdate(
       { organizationId, contactId: messageData.contactId },
       {
         $set: {
           lastMessage: {
-            text: messageData.content?.text || 'Media message',
+            text: messageData.content?.text || (messageData.type === 'IMAGE' ? '📷 Photo' : (messageData.type === 'DOCUMENT' ? '📄 Document' : 'Media message')),
             sender: messageData.direction === 'INBOUND' ? 'CONTACT' : 'AGENT',
-            sentAt: new Date(),
+            sentAt: now,
             status: messageData.status
           },
+          lastMessageAt: now,
+          updatedAt: now,
           status: 'ACTIVE'
         },
         $inc: { unreadCount: messageData.direction === 'INBOUND' ? 1 : 0 },

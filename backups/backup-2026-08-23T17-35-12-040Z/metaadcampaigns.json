@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a808",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "metaCampaignId": "120208492019401",
+    "metaAccountId": "act_681426903930095",
+    "name": "May 25 26",
+    "objective": "OUTCOME_LEADS",
+    "status": "ACTIVE",
+    "buyingType": "AUCTION",
+    "dailyBudget": 1500,
+    "spend": 1694.59,
+    "impressions": 10128,
+    "reach": 8420,
+    "clicks": 245,
+    "leadsCount": 96,
+    "cpl": 17.65,
+    "cpc": 6.91,
+    "cpm": 167.31,
+    "ctr": 2.42,
+    "createdAt": "2025-05-25T08:00:00.000Z",
+    "adSets": [],
+    "updatedAt": "2026-08-23T16:49:33.347Z",
+    "__v": 0
+  }
+]

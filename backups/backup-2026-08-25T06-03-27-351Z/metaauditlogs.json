@@ -1,0 +1,207 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a861",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "CAMPAIGN_SYNCED",
+    "metaObject": "CAMPAIGN",
+    "metaObjectId": "120208492019401",
+    "status": "SUCCESS",
+    "details": "Campaign \"May 25 26\" insights updated: 96 leads, ₹1,694.59 spend",
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T16:19:17.748Z",
+    "updatedAt": "2026-08-23T16:19:17.748Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a860",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "META_SYNC_COMPLETED",
+    "metaObject": "SYNC",
+    "status": "SUCCESS",
+    "details": "Synchronized campaigns, lead forms, and WABA assets from Meta Cloud API",
+    "metaResponse": {
+      "syncedCampaigns": 3,
+      "leadForms": 2,
+      "wabaId": "2959370387746581"
+    },
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T16:19:17.748Z",
+    "updatedAt": "2026-08-23T16:19:17.748Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1ddf762c93db0a447e0b",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "META_LIFETIME_SYNC_COMPLETED",
+    "metaObject": "SYNC",
+    "status": "SUCCESS",
+    "details": "Lifetime sync completed: 0 campaigns, 0 forms, 0 historical leads synchronized.",
+    "metaResponse": {
+      "syncedCampaignsCount": 0,
+      "syncedFormsCount": 0,
+      "syncedLeadsCount": 0
+    },
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T16:20:47.439Z",
+    "updatedAt": "2026-08-23T16:20:47.439Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b23bae49c158699f729bc",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "META_LIFETIME_SYNC_COMPLETED",
+    "metaObject": "SYNC",
+    "status": "SUCCESS",
+    "details": "Lifetime sync completed: 0 campaigns, 0 forms, 0 historical leads synchronized.",
+    "metaResponse": {
+      "syncedCampaignsCount": 0,
+      "syncedFormsCount": 0,
+      "syncedLeadsCount": 0
+    },
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T16:45:46.249Z",
+    "updatedAt": "2026-08-23T16:45:46.249Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2499e49c158699f72b12",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "CAMPAIGN_PAUSED",
+    "metaObject": "CAMPAIGN",
+    "metaObjectId": "120208492019401",
+    "status": "WARNING",
+    "details": "Campaign \"May 25 26\" status updated to PAUSED on Meta API",
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T16:49:29.822Z",
+    "updatedAt": "2026-08-23T16:49:29.822Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b249de49c158699f72b1c",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "CAMPAIGN_RESUMED",
+    "metaObject": "CAMPAIGN",
+    "metaObjectId": "120208492019401",
+    "status": "WARNING",
+    "details": "Campaign \"May 25 26\" status updated to ACTIVE on Meta API",
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T16:49:33.352Z",
+    "updatedAt": "2026-08-23T16:49:33.352Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b361a379c46a3ce06ecfb",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "FACEBOOK_PAGE_CONNECTED",
+    "metaObject": "PAGE",
+    "metaObjectId": "1066070962481909",
+    "status": "SUCCESS",
+    "details": "Connected Facebook Page \"Iglobal Tech Official\" and subscribed to leadgen webhooks.",
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T18:04:10.455Z",
+    "updatedAt": "2026-08-23T18:04:10.455Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b361b379c46a3ce06ecfe",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "META_LIFETIME_SYNC_COMPLETED",
+    "metaObject": "SYNC",
+    "status": "SUCCESS",
+    "details": "Lifetime sync completed: 0 campaigns, 0 forms, 0 historical leads synchronized.",
+    "metaResponse": {
+      "syncedCampaignsCount": 0,
+      "syncedFormsCount": 0,
+      "syncedLeadsCount": 0
+    },
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T18:04:11.482Z",
+    "updatedAt": "2026-08-23T18:04:11.482Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b372dd48e202169c93729",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "META_LIFETIME_SYNC_COMPLETED",
+    "metaObject": "SYNC",
+    "status": "SUCCESS",
+    "details": "Lifetime sync completed: 0 campaigns, 0 forms, 0 historical leads synchronized.",
+    "metaResponse": {
+      "syncedCampaignsCount": 0,
+      "syncedFormsCount": 0,
+      "syncedLeadsCount": 0
+    },
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T18:08:45.485Z",
+    "updatedAt": "2026-08-23T18:08:45.485Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b372ed48e202169c93740",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "META_LIFETIME_SYNC_COMPLETED",
+    "metaObject": "SYNC",
+    "status": "SUCCESS",
+    "details": "Lifetime sync completed: 0 campaigns, 0 forms, 0 historical leads synchronized.",
+    "metaResponse": {
+      "syncedCampaignsCount": 0,
+      "syncedFormsCount": 0,
+      "syncedLeadsCount": 0
+    },
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T18:08:46.639Z",
+    "updatedAt": "2026-08-23T18:08:46.639Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b39b6130f01b4759a0886",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "META_LIFETIME_SYNC_COMPLETED",
+    "metaObject": "SYNC",
+    "status": "SUCCESS",
+    "details": "Lifetime sync completed: 0 campaigns, 0 forms, 0 historical leads synchronized.",
+    "metaResponse": {
+      "syncedCampaignsCount": 0,
+      "syncedFormsCount": 0,
+      "syncedLeadsCount": 0
+    },
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T18:19:34.373Z",
+    "updatedAt": "2026-08-23T18:19:34.373Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b3b3ec60b1c20bc0150de",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "META_LIFETIME_SYNC_COMPLETED",
+    "metaObject": "SYNC",
+    "status": "SUCCESS",
+    "details": "Lifetime sync completed: 95 campaigns, 0 forms, 0 historical leads synchronized.",
+    "metaResponse": {
+      "syncedCampaignsCount": 95,
+      "syncedFormsCount": 0,
+      "syncedLeadsCount": 0
+    },
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T18:26:06.903Z",
+    "updatedAt": "2026-08-23T18:26:06.903Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8d2ebed32a4a1af2c4bda6",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "META_LIFETIME_SYNC_COMPLETED",
+    "metaObject": "SYNC",
+    "status": "SUCCESS",
+    "details": "Lifetime sync completed: 95 campaigns, 0 forms, 0 historical leads synchronized.",
+    "metaResponse": {
+      "syncedCampaignsCount": 95,
+      "syncedFormsCount": 0,
+      "syncedLeadsCount": 0
+    },
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-25T05:57:18.033Z",
+    "updatedAt": "2026-08-25T05:57:18.033Z",
+    "__v": 0
+  }
+]

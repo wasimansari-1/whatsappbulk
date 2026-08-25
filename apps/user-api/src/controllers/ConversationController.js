@@ -29,6 +29,35 @@ export class ConversationController {
     }
   }
 
+  async initiateConversation(req, res, next) {
+    try {
+      const conversation = await conversationService.initiateConversation(req.organizationId, req.body);
+      res.status(200).json(apiSuccess(conversation, 'Conversation initiated'));
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async editMessage(req, res, next) {
+    try {
+      const { text } = req.body;
+      const message = await conversationService.editMessage(req.organizationId, req.user._id, req.params.id, text);
+      res.status(200).json(apiSuccess(message, 'Message edited'));
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async deleteMessage(req, res, next) {
+    try {
+      const deleteForEveryone = req.body?.deleteForEveryone === true || req.query?.deleteForEveryone === 'true';
+      const result = await conversationService.deleteMessage(req.organizationId, req.user._id, req.params.id, { deleteForEveryone });
+      res.status(200).json(apiSuccess(result, 'Message deleted'));
+    } catch (error) {
+      next(error);
+    }
+  }
+
   async assignConversation(req, res, next) {
     try {
       const { assignedTo } = req.body;
@@ -42,3 +71,4 @@ export class ConversationController {
 
 export const conversationController = new ConversationController();
 export default conversationController;
+

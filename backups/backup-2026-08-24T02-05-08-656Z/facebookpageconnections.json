@@ -1,0 +1,40 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7fb",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "pageId": "1049968644261349",
+    "pageName": "IGlobal Tech - Official Business Page",
+    "pageCategory": "Software & Technology",
+    "adAccountId": "act_681426903930095",
+    "status": "CONNECTED",
+    "leadsSubscribed": true,
+    "connectedAt": "2026-08-23T16:19:17.723Z",
+    "createdAt": "2026-08-23T16:19:17.723Z",
+    "updatedAt": "2026-08-23T16:19:17.723Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b361a9bd1b337ac6af4dd",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "pageId": "1066070962481909",
+    "__v": 0,
+    "adAccountId": "act_681426903930095",
+    "connectedAt": "2026-08-23T18:33:36.618Z",
+    "createdAt": "2026-08-23T18:04:10.439Z",
+    "leadsSubscribed": true,
+    "pageCategory": "Software & Technology",
+    "pageName": "Iglobal Tech",
+    "status": "CONNECTED",
+    "updatedAt": "2026-08-23T18:04:10.439Z",
+    "encryptedAccessToken": {
+      "encrypted": "c7480f3283615730f1c7d7c3401ded53d03d502e351b6f710e5db4bca8ff3ac975ffcb558138ef9562f4761f21ffe6d75c082241a1e9de91778cdb2d16ae92da139cae284d4dd895ceb2d823e714e1762b52fa8ec496c8db69affbe0b1fc62cefb41f1b7eb21b7d0f23e8b6290c1e513a1bb3fb65f3fb2b991fc2ddb2da3de250b7773cffaa7540e59fd9c3c0e88f599798594ad6e27294f7530cec3f7eee5418859b417b117ef51389073484d4fdd5a94d9a1623f6e467502719c17e730abfbd605ad64a8acf74708f2e9630ff6067ddb",
+      "iv": "30f9eac85445d352709129a5b52b6584",
+      "authTag": "68fbfba77b41fe1a441cbfe8b9e6f159"
+    },
+    "encryptedPageToken": {
+      "encrypted": "c7480f3283615730f1c7d7c3401ded53d03d502e351b6f710e5db4bca8ff3ac975ffcb558138ef9562f4761f21ffe6d75c082241a1e9de91778cdb2d16ae92da139cae284d4dd895ceb2d823e714e1762b52fa8ec496c8db69affbe0b1fc62cefb41f1b7eb21b7d0f23e8b6290c1e513a1bb3fb65f3fb2b991fc2ddb2da3de250b7773cffaa7540e59fd9c3c0e88f599798594ad6e27294f7530cec3f7eee5418859b417b117ef51389073484d4fdd5a94d9a1623f6e467502719c17e730abfbd605ad64a8acf74708f2e9630ff6067ddb",
+      "iv": "30f9eac85445d352709129a5b52b6584",
+      "authTag": "68fbfba77b41fe1a441cbfe8b9e6f159"
+    }
+  }
+]

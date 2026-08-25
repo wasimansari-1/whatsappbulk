@@ -2,20 +2,32 @@ import { mockWhatsAppProvider } from './MockWhatsAppProvider.js';
 import { metaWhatsAppProvider } from './MetaWhatsAppProvider.js';
 
 /**
- * Returns the active WhatsApp provider instance based on environment settings
+ * Returns the active WhatsApp provider instance based on environment settings.
+ * Strict Production Rule: Production mode MUST use Meta Cloud API. Mock provider is forbidden in production.
  */
 export function getWhatsAppProvider() {
-  const providerType = (process.env.WHATSAPP_PROVIDER || 'mock').toLowerCase();
+  const isProduction = process.env.NODE_ENV === 'production';
+  const providerType = (process.env.WHATSAPP_PROVIDER || 'meta').toLowerCase().trim();
 
-  if (providerType === 'meta') {
-    if (metaWhatsAppProvider.isConfigured()) {
-      return metaWhatsAppProvider;
-    }
-    console.warn('[WhatsAppProvider] Meta credentials not provided in .env, falling back to MockWhatsAppProvider');
+  if (isProduction && providerType !== 'meta' && providerType !== 'cloud_api') {
+    const error = new Error(
+      `[Security / Configuration Violation] Fatal: In production mode (NODE_ENV=production), ` +
+      `WHATSAPP_PROVIDER must be configured as 'meta'. Silent fallback to MockWhatsAppProvider is strictly prohibited.`
+    );
+    error.code = 'ERR_PRODUCTION_PROVIDER_FORBIDDEN';
+    throw error;
+  }
+
+  if (providerType === 'meta' || providerType === 'cloud_api') {
+    return metaWhatsAppProvider;
+  }
+
+  if (process.env.NODE_ENV === 'test' || providerType === 'mock') {
     return mockWhatsAppProvider;
   }
 
-  return mockWhatsAppProvider;
+  // Default to Meta WhatsApp provider
+  return metaWhatsAppProvider;
 }
 
 export { MockWhatsAppProvider } from './MockWhatsAppProvider.js';

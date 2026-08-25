@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a85b",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "type": "GOOGLE_SHEETS",
+    "name": "Google Sheets Live Lead Sync",
+    "status": "CONNECTED",
+    "config": {
+      "spreadsheetId": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
+      "sheetName": "Leads"
+    },
+    "eventsSubscribed": [
+      "leads/create",
+      "leads/stage_change"
+    ],
+    "lastSyncedAt": "2026-08-23T16:19:17.747Z",
+    "createdAt": "2026-08-23T16:19:17.747Z",
+    "updatedAt": "2026-08-23T16:19:17.747Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a85a",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "type": "SHOPIFY",
+    "name": "Shopify Store (Direct Sync)",
+    "status": "CONNECTED",
+    "config": {
+      "storeDomain": "iglobaltech-store.myshopify.com",
+      "syncOrders": true,
+      "syncCustomers": true
+    },
+    "eventsSubscribed": [
+      "orders/create",
+      "orders/paid",
+      "checkouts/abandoned"
+    ],
+    "lastSyncedAt": "2026-08-23T16:19:17.747Z",
+    "createdAt": "2026-08-23T16:19:17.747Z",
+    "updatedAt": "2026-08-23T16:19:17.747Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a85c",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "type": "RAZORPAY",
+    "name": "Razorpay Auto-Recharge & Invoicing",
+    "status": "CONNECTED",
+    "config": {
+      "keyId": "rzp_live_9928101",
+      "autoRechargeEnabled": true,
+      "thresholdAmount": 500
+    },
+    "eventsSubscribed": [
+      "payment.captured",
+      "invoice.paid"
+    ],
+    "lastSyncedAt": "2026-08-23T16:19:17.747Z",
+    "createdAt": "2026-08-23T16:19:17.747Z",
+    "updatedAt": "2026-08-23T16:19:17.747Z",
+    "__v": 0
+  }
+]

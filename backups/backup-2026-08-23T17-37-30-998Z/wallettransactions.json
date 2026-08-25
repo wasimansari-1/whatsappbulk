@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7a3",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "amount": 3000,
+    "type": "CREDIT",
+    "description": "Account Wallet Top-Up via Razorpay",
+    "balanceAfter": 3000,
+    "referenceType": "PAYMENT",
+    "createdAt": "2026-08-23T16:19:17.700Z",
+    "updatedAt": "2026-08-23T16:19:17.700Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7a4",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "amount": 549.25,
+    "type": "DEBIT",
+    "description": "Usage deduction for WhatsApp Broadcast & Meta Ads",
+    "balanceAfter": 2450.75,
+    "referenceType": "CAMPAIGN",
+    "createdAt": "2026-08-23T16:19:17.700Z",
+    "updatedAt": "2026-08-23T16:19:17.700Z",
+    "__v": 0
+  }
+]

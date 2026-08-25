@@ -1,0 +1,223 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7ad",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "whatsappAccountId": "6a8b1d85d8761c6ddf09a7a9",
+    "wabaId": "2959370387746581",
+    "name": "welcome_greeting",
+    "category": "MARKETING",
+    "language": "en_US",
+    "status": "APPROVED",
+    "components": [
+      {
+        "type": "HEADER",
+        "format": "TEXT",
+        "text": "Welcome To IGLOBAL TECH SOLUTIONS",
+        "_id": "6a8b1d85d8761c6ddf09a7ae",
+        "buttons": []
+      },
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "Respected {{1}},\nWelcome to IGlobal Tech WhatsApp Business Portal. We are glad to have you here! How can we assist you today?\nPlease select from our services below:",
+        "_id": "6a8b1d85d8761c6ddf09a7af",
+        "buttons": []
+      },
+      {
+        "type": "FOOTER",
+        "format": "TEXT",
+        "text": "Reply STOP to opt-out",
+        "_id": "6a8b1d85d8761c6ddf09a7b0",
+        "buttons": []
+      },
+      {
+        "type": "BUTTONS",
+        "format": "TEXT",
+        "buttons": [
+          {
+            "type": "QUICK_REPLY",
+            "text": "Raise a Request",
+            "_id": "6a8b1d85d8761c6ddf09a7b2"
+          },
+          {
+            "type": "QUICK_REPLY",
+            "text": "Product/Service Feedback",
+            "_id": "6a8b1d85d8761c6ddf09a7b3"
+          },
+          {
+            "type": "QUICK_REPLY",
+            "text": "Exciting Offers",
+            "_id": "6a8b1d85d8761c6ddf09a7b4"
+          }
+        ],
+        "_id": "6a8b1d85d8761c6ddf09a7b1"
+      }
+    ],
+    "rejectionReason": null,
+    "metaQualityRating": "UNKNOWN",
+    "createdAt": "2026-08-23T16:19:17.705Z",
+    "updatedAt": "2026-08-23T16:19:17.705Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7b6",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "whatsappAccountId": "6a8b1d85d8761c6ddf09a7a9",
+    "wabaId": "2959370387746581",
+    "name": "chimney_service_offer",
+    "category": "MARKETING",
+    "language": "en_US",
+    "status": "APPROVED",
+    "components": [
+      {
+        "type": "HEADER",
+        "format": "TEXT",
+        "text": "🎉 Exclusive 20% Off Chimney Service",
+        "_id": "6a8b1d85d8761c6ddf09a7b7",
+        "buttons": []
+      },
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "Hello {{1}},\nKeep your kitchen fresh and smokefree! Book our certified chimney deep cleaning & motor inspection at an exclusive 20% discount this month.\n\nUse Code: CHIMNEY20",
+        "_id": "6a8b1d85d8761c6ddf09a7b8",
+        "buttons": []
+      },
+      {
+        "type": "BUTTONS",
+        "format": "TEXT",
+        "buttons": [
+          {
+            "type": "QUICK_REPLY",
+            "text": "Book Service Now",
+            "_id": "6a8b1d85d8761c6ddf09a7ba"
+          },
+          {
+            "type": "QUICK_REPLY",
+            "text": "View Pricing",
+            "_id": "6a8b1d85d8761c6ddf09a7bb"
+          }
+        ],
+        "_id": "6a8b1d85d8761c6ddf09a7b9"
+      }
+    ],
+    "rejectionReason": null,
+    "metaQualityRating": "UNKNOWN",
+    "createdAt": "2026-08-23T16:19:17.706Z",
+    "updatedAt": "2026-08-23T16:19:17.706Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7bd",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "whatsappAccountId": "6a8b1d85d8761c6ddf09a7a9",
+    "wabaId": "2959370387746581",
+    "name": "lead_followup_reminder",
+    "category": "UTILITY",
+    "language": "en_US",
+    "status": "APPROVED",
+    "components": [
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "Hello {{1}},\nThis is Wasim from IGlobal Tech following up on your inquiry for {{2}}. We would love to address any questions you have or schedule a quick 1-on-1 demo.",
+        "_id": "6a8b1d85d8761c6ddf09a7be",
+        "buttons": []
+      },
+      {
+        "type": "BUTTONS",
+        "format": "TEXT",
+        "buttons": [
+          {
+            "type": "QUICK_REPLY",
+            "text": "Schedule Demo",
+            "_id": "6a8b1d85d8761c6ddf09a7c0"
+          },
+          {
+            "type": "QUICK_REPLY",
+            "text": "Call Me Now",
+            "_id": "6a8b1d85d8761c6ddf09a7c1"
+          }
+        ],
+        "_id": "6a8b1d85d8761c6ddf09a7bf"
+      }
+    ],
+    "rejectionReason": null,
+    "metaQualityRating": "UNKNOWN",
+    "createdAt": "2026-08-23T16:19:17.707Z",
+    "updatedAt": "2026-08-23T16:19:17.707Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7c3",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "whatsappAccountId": "6a8b1d85d8761c6ddf09a7a9",
+    "wabaId": "2959370387746581",
+    "name": "order_status_update",
+    "category": "UTILITY",
+    "language": "en_US",
+    "status": "APPROVED",
+    "components": [
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "Hello {{1}},\nYour chimney service appointment #{{2}} has been confirmed for {{3}}. Our certified technician will arrive on time.",
+        "_id": "6a8b1d85d8761c6ddf09a7c4",
+        "buttons": []
+      }
+    ],
+    "rejectionReason": null,
+    "metaQualityRating": "UNKNOWN",
+    "createdAt": "2026-08-23T16:19:17.708Z",
+    "updatedAt": "2026-08-23T16:19:17.708Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7c6",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "whatsappAccountId": "6a8b1d85d8761c6ddf09a7a9",
+    "wabaId": "2959370387746581",
+    "name": "meta_lead_instant_welcome",
+    "category": "MARKETING",
+    "language": "en_US",
+    "status": "APPROVED",
+    "components": [
+      {
+        "type": "HEADER",
+        "format": "TEXT",
+        "text": "Thank you for reaching out on Facebook!",
+        "_id": "6a8b1d85d8761c6ddf09a7c7",
+        "buttons": []
+      },
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "Hi {{1}}, thanks for your inquiry through our Facebook ad for {{2}}! Our team is ready to assist you right here on WhatsApp.",
+        "_id": "6a8b1d85d8761c6ddf09a7c8",
+        "buttons": []
+      },
+      {
+        "type": "BUTTONS",
+        "format": "TEXT",
+        "buttons": [
+          {
+            "type": "QUICK_REPLY",
+            "text": "Talk to Expert",
+            "_id": "6a8b1d85d8761c6ddf09a7ca"
+          },
+          {
+            "type": "QUICK_REPLY",
+            "text": "Get Brochure",
+            "_id": "6a8b1d85d8761c6ddf09a7cb"
+          }
+        ],
+        "_id": "6a8b1d85d8761c6ddf09a7c9"
+      }
+    ],
+    "rejectionReason": null,
+    "metaQualityRating": "UNKNOWN",
+    "createdAt": "2026-08-23T16:19:17.709Z",
+    "updatedAt": "2026-08-23T16:19:17.709Z",
+    "__v": 0
+  }
+]

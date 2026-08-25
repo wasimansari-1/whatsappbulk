@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7f7",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "Delhi NCR VIP Customers",
+    "description": "High-value and recurring chimney service clients in Delhi NCR",
+    "contactsCount": 0,
+    "createdAt": "2026-08-23T16:19:17.722Z",
+    "updatedAt": "2026-08-23T16:19:17.722Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7f9",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "May 2026 Meta Ads Audience",
+    "description": "Leads and inquiries originating from Facebook & Instagram Click-to-WhatsApp ads",
+    "contactsCount": 0,
+    "createdAt": "2026-08-23T16:19:17.723Z",
+    "updatedAt": "2026-08-23T16:19:17.723Z",
+    "__v": 0
+  }
+]

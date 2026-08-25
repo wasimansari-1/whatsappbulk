@@ -28,9 +28,9 @@ export class MockWhatsAppProvider extends WhatsAppProvider {
       success: true,
       data: [
         {
-          id: 'mock_phone_num_id_1',
-          verified_name: 'Arvee Appliances',
-          display_phone_number: '+91 87009 94288',
+          id: '1223600624165995',
+          verified_name: 'IGlobal Tech',
+          display_phone_number: '+91 91998 00309',
           quality_rating: 'GREEN',
           status: 'CONNECTED',
           messaging_limit_tier: 'TIER_10K'
@@ -40,11 +40,11 @@ export class MockWhatsAppProvider extends WhatsAppProvider {
   }
 
   async createTemplate(wabaId, templateData) {
-    const providerTemplateId = `mock_tpl_${Date.now()}_${Math.random().toString(36).substring(7)}`;
+    const providerTemplateId = `meta_tpl_${Date.now()}_${Math.random().toString(36).substring(7)}`;
     return {
       success: true,
       id: providerTemplateId,
-      status: 'APPROVED',
+      status: 'PENDING',
       category: templateData.category
     };
   }
@@ -52,22 +52,7 @@ export class MockWhatsAppProvider extends WhatsAppProvider {
   async getTemplates(wabaId) {
     return {
       success: true,
-      data: [
-        {
-          id: 'mock_tpl_welcome_1',
-          name: 'welcome_offer_2026',
-          status: 'APPROVED',
-          category: 'MARKETING',
-          language: 'en_US'
-        },
-        {
-          id: 'mock_tpl_order_update_2',
-          name: 'order_status_update',
-          status: 'APPROVED',
-          category: 'UTILITY',
-          language: 'en_US'
-        }
-      ]
+      data: []
     };
   }
 
@@ -88,6 +73,28 @@ export class MockWhatsAppProvider extends WhatsAppProvider {
   }
 
   async sendTextMessage({ phoneNumberId, to, text, previewUrl = false }) {
+    const mockMessageId = `wamid.HBgL${Date.now()}${Math.random().toString(36).substring(2, 9).toUpperCase()}`;
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    return {
+      success: true,
+      messageId: mockMessageId,
+      contacts: [{ input: to, wa_id: to.replace(/\D/g, '') }],
+      messages: [{ id: mockMessageId, message_status: 'accepted' }]
+    };
+  }
+
+  async sendInteractiveButtonsMessage({ phoneNumberId, to, headerText, bodyText, footerText, buttons = [] }) {
+    const mockMessageId = `wamid.HBgL${Date.now()}${Math.random().toString(36).substring(2, 9).toUpperCase()}`;
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    return {
+      success: true,
+      messageId: mockMessageId,
+      contacts: [{ input: to, wa_id: to.replace(/\D/g, '') }],
+      messages: [{ id: mockMessageId, message_status: 'accepted' }]
+    };
+  }
+
+  async sendInteractiveListMessage({ phoneNumberId, to, headerText, bodyText, footerText, buttonText = 'Select Option', sections = [] }) {
     const mockMessageId = `wamid.HBgL${Date.now()}${Math.random().toString(36).substring(2, 9).toUpperCase()}`;
     await new Promise((resolve) => setTimeout(resolve, 20));
     return {

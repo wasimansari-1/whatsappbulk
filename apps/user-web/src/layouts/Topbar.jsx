@@ -21,10 +21,10 @@ export default function Topbar({ dashboardData }) {
   const [showOrgDropdown, setShowOrgDropdown] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
 
-  const walletBalance = dashboardData?.wallet?.balance !== undefined ? dashboardData.wallet.balance : 517.65;
-  const messagesUsed = dashboardData?.plan?.messagesUsed || 13;
-  const messagesLimit = dashboardData?.plan?.monthlyLimit || 2000;
-  const orgName = activeOrganization?.name || dashboardData?.accountProfile?.name || 'Arvee Appliances';
+  const walletBalance = dashboardData?.wallet?.balance !== undefined ? dashboardData.wallet.balance : 0;
+  const messagesUsed = dashboardData?.plan?.messagesUsed || 0;
+  const messagesLimit = dashboardData?.plan?.monthlyLimit || 5000;
+  const orgName = activeOrganization?.name || dashboardData?.accountProfile?.name || 'IGlobal Tech';
 
   return (
     <header className="h-16 bg-white border-b border-slate-200 px-4 md:px-6 flex items-center justify-between sticky top-0 z-30 shadow-sm">

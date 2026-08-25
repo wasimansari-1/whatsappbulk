@@ -88,9 +88,8 @@ META_APP_SECRET=your_meta_app_secret
 META_ACCESS_TOKEN=your_system_user_permanent_token
 META_BUSINESS_ID=your_business_manager_id
 META_WABA_ID=your_waba_id
-META_PHONE_NUMBER_ID=your_phone_number_id
 META_WEBHOOK_VERIFY_TOKEN=your_secure_verify_token
-META_API_VERSION=v20.0
+META_GRAPH_API_VERSION=v20.0
 ```
 When running in development with `WHATSAPP_PROVIDER=mock`, the system will smoothly emulate template message dispatch, delivery receipts (`SENT` -> `DELIVERED` -> `READ`), and customer replies without needing active Meta credentials.
 

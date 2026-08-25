@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7ab",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "whatsappAccountId": "6a8b1d85d8761c6ddf09a7a9",
+    "phoneNumberId": "1252085087993302",
+    "displayPhoneNumber": "+91 91555 34309",
+    "verifiedName": "Iglobal Tech",
+    "platformType": "CLOUD_API",
+    "qualityRating": "GREEN",
+    "status": "CONNECTED",
+    "coexistenceEligible": true,
+    "coexistenceStatus": "ACTIVE",
+    "messagingLimitTier": "TIER_10K",
+    "isDefault": true,
+    "createdAt": "2026-08-23T16:19:17.702Z",
+    "updatedAt": "2026-08-23T17:28:29.024Z",
+    "__v": 0,
+    "wabaId": "1066070962481909",
+    "lastWebhookAt": "2026-08-23T17:28:29.023Z"
+  }
+]

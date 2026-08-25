@@ -1,0 +1,92 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a861",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "CAMPAIGN_SYNCED",
+    "metaObject": "CAMPAIGN",
+    "metaObjectId": "120208492019401",
+    "status": "SUCCESS",
+    "details": "Campaign \"May 25 26\" insights updated: 96 leads, ₹1,694.59 spend",
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T16:19:17.748Z",
+    "updatedAt": "2026-08-23T16:19:17.748Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a860",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "META_SYNC_COMPLETED",
+    "metaObject": "SYNC",
+    "status": "SUCCESS",
+    "details": "Synchronized campaigns, lead forms, and WABA assets from Meta Cloud API",
+    "metaResponse": {
+      "syncedCampaigns": 3,
+      "leadForms": 2,
+      "wabaId": "2959370387746581"
+    },
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T16:19:17.748Z",
+    "updatedAt": "2026-08-23T16:19:17.748Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1ddf762c93db0a447e0b",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "META_LIFETIME_SYNC_COMPLETED",
+    "metaObject": "SYNC",
+    "status": "SUCCESS",
+    "details": "Lifetime sync completed: 0 campaigns, 0 forms, 0 historical leads synchronized.",
+    "metaResponse": {
+      "syncedCampaignsCount": 0,
+      "syncedFormsCount": 0,
+      "syncedLeadsCount": 0
+    },
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T16:20:47.439Z",
+    "updatedAt": "2026-08-23T16:20:47.439Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b23bae49c158699f729bc",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "META_LIFETIME_SYNC_COMPLETED",
+    "metaObject": "SYNC",
+    "status": "SUCCESS",
+    "details": "Lifetime sync completed: 0 campaigns, 0 forms, 0 historical leads synchronized.",
+    "metaResponse": {
+      "syncedCampaignsCount": 0,
+      "syncedFormsCount": 0,
+      "syncedLeadsCount": 0
+    },
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T16:45:46.249Z",
+    "updatedAt": "2026-08-23T16:45:46.249Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2499e49c158699f72b12",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "CAMPAIGN_PAUSED",
+    "metaObject": "CAMPAIGN",
+    "metaObjectId": "120208492019401",
+    "status": "WARNING",
+    "details": "Campaign \"May 25 26\" status updated to PAUSED on Meta API",
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T16:49:29.822Z",
+    "updatedAt": "2026-08-23T16:49:29.822Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b249de49c158699f72b1c",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "action": "CAMPAIGN_RESUMED",
+    "metaObject": "CAMPAIGN",
+    "metaObjectId": "120208492019401",
+    "status": "WARNING",
+    "details": "Campaign \"May 25 26\" status updated to ACTIVE on Meta API",
+    "performedBy": "SYSTEM",
+    "createdAt": "2026-08-23T16:49:33.352Z",
+    "updatedAt": "2026-08-23T16:49:33.352Z",
+    "__v": 0
+  }
+]

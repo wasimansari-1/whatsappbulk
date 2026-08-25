@@ -10,6 +10,8 @@ import TemplatesPage from './pages/TemplatesPage';
 import BillingPage from './pages/BillingPage';
 import AutomationPage from './pages/AutomationPage';
 import AnalyticsPage from './pages/AnalyticsPage';
+import CatalogPage from './pages/CatalogPage';
+import IntegrationsPage from './pages/IntegrationsPage';
 import SettingsPage from './pages/SettingsPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -52,6 +54,8 @@ export default function App() {
         <Route path="billing" element={<BillingPage />} />
         <Route path="automation" element={<AutomationPage />} />
         <Route path="analytics" element={<AnalyticsPage />} />
+        <Route path="catalog" element={<CatalogPage />} />
+        <Route path="integrations" element={<IntegrationsPage />} />
         <Route path="settings" element={<SettingsPage />} />
       </Route>
 

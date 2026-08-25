@@ -1,0 +1,31 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7a9",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "Iglobal Tech WABA",
+    "wabaId": "1066070962481909",
+    "businessId": "993604119807437",
+    "provider": "META",
+    "onboardingMethod": "EMBEDDED_SIGNUP",
+    "status": "CONNECTED",
+    "coexistenceStatus": "ACTIVE",
+    "accountReviewStatus": "APPROVED",
+    "createdAt": "2026-08-23T16:19:17.702Z",
+    "updatedAt": "2026-08-23T16:19:17.702Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2e81a9d4d4777e40f134",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "IGlobal Tech",
+    "wabaId": "2959370387746581",
+    "provider": "META",
+    "onboardingMethod": "EMBEDDED_SIGNUP",
+    "status": "CONNECTED",
+    "coexistenceStatus": "ENABLED",
+    "accountReviewStatus": "APPROVED",
+    "createdAt": "2026-08-23T17:31:45.002Z",
+    "updatedAt": "2026-08-23T17:31:45.002Z",
+    "__v": 0
+  }
+]

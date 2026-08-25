@@ -26,6 +26,15 @@ const userSchema = new mongoose.Schema(
       type: String,
       trim: true
     },
+    countryCode: {
+      type: String,
+      default: '91',
+      trim: true
+    },
+    companyName: {
+      type: String,
+      trim: true
+    },
     avatar: {
       type: String
     },
@@ -52,11 +61,16 @@ const userSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ['ACTIVE', 'SUSPENDED', 'PENDING'],
-      default: 'ACTIVE'
+      enum: ['ACTIVE', 'SUSPENDED', 'PENDING', 'DEACTIVATED'],
+      default: 'ACTIVE',
+      index: true
     },
     lastLoginAt: {
       type: Date
+    },
+    metadata: {
+      type: mongoose.Schema.Types.Mixed,
+      default: {}
     },
     refreshTokenHash: {
       type: String,

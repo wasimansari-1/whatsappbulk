@@ -13,68 +13,209 @@ import {
   ShoppingBag,
   ExternalLink,
   ChevronRight,
-  TrendingUp
+  TrendingUp,
+  Smartphone,
+  RefreshCw,
+  Instagram,
+  CheckCircle2,
+  Zap,
+  Layers,
+  Send
 } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import api from '../services/api';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMetaEmbeddedSignup } from '../hooks/useMetaEmbeddedSignup';
+import { Facebook, Sparkles, ShieldCheck } from 'lucide-react';
 
 export default function DashboardPage() {
   const { dashboardData } = useOutletContext();
+  const queryClient = useQueryClient();
 
   const greeting = dashboardData?.greeting || {
-    userName: 'Wasim',
+    userName: 'Admin',
     subtext: 'Turn customer engagement into real business growth.'
   };
 
   const stats = dashboardData?.topStats || {
-    totalCustomers: 2223,
+    totalCustomers: 0,
     leads: 0,
-    activeChatbots: 3,
-    formResponses: 67,
-    whatsappTemplates: 23
+    activeChatbots: 0,
+    formResponses: 0,
+    whatsappTemplates: 0
   };
 
   const account = dashboardData?.accountProfile || {
-    status: 'CONNECTED',
-    name: 'Arvee Appliances',
-    industry: 'OTHER',
-    displayPhoneNumber: '+918700994288'
+    status: 'DISCONNECTED',
+    name: 'WhatsApp Account',
+    industry: 'TECHNOLOGY',
+    displayPhoneNumber: 'Not Connected',
+    wabaId: 'N/A',
+    coexistenceStatus: 'NOT_APPLICABLE'
   };
 
   const wallet = dashboardData?.wallet || {
-    balance: 517.65,
-    usedCredits: 1481.49
+    balance: 0,
+    usedCredits: 0
   };
 
   const plan = dashboardData?.plan || {
-    name: 'Basic',
-    billingInterval: 'Quarterly',
-    expiresOn: '19 Nov 26, 4:20 pm'
+    name: 'Starter Trial',
+    billingInterval: 'MONTHLY',
+    expiresOn: 'Active',
+    messagesUsed: 0,
+    monthlyLimit: 5000
   };
 
   const messagesAnalysis = dashboardData?.messagesAnalysis || {
-    totalMessages: 12814,
+    totalMessages: 0,
     breakdown: [
-      { name: 'Utility', count: 10268, percentage: 80, color: '#10b981' },
-      { name: 'Service', count: 2258, percentage: 18, color: '#3b82f6' },
-      { name: 'Marketing', count: 288, percentage: 2, color: '#8b5cf6' },
+      { name: 'Utility', count: 0, percentage: 0, color: '#10b981' },
+      { name: 'Service', count: 0, percentage: 0, color: '#3b82f6' },
+      { name: 'Marketing', count: 0, percentage: 0, color: '#8b5cf6' },
       { name: 'Authentication', count: 0, percentage: 0, color: '#f59e0b' }
     ]
   };
 
+  const isWhatsAppConnected = account.status === 'CONNECTED' && Boolean(account.displayPhoneNumber);
+  const isCoexistenceActive = account.coexistenceStatus === 'ENABLED' || account.coexistenceStatus === 'ACTIVE';
+
+  // Meta Business Overview Query
+  const { data: metaBusinessRes } = useQuery({
+    queryKey: ['meta-business-overview'],
+    queryFn: () => api.get('/meta-ads/business')
+  });
+  const metaBusiness = metaBusinessRes?.data || { isConnected: false, pages: [], adAccountId: '' };
+  const isFacebookConnected = Boolean(metaBusiness.isConnected && metaBusiness.pages?.length > 0);
+  const isAdAccountConnected = Boolean(metaBusiness.adAccountId);
+
+  // 1. Meta Embedded Signup Hook
+  const { launchEmbeddedSignup, isConnecting } = useMetaEmbeddedSignup({
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['dashboard-data'] });
+      queryClient.invalidateQueries({ queryKey: ['profile'] });
+      alert('🎉 WhatsApp Business App connected with Cloud API Coexistence successfully!');
+    },
+    onError: (err) => alert(`Notice: ${err.message}`)
+  });
+
+  // 2. Sync from Meta Mutation
+  const syncMutation = useMutation({
+    mutationFn: () => api.post('/whatsapp/sync'),
+    onSuccess: (res) => {
+      queryClient.invalidateQueries({ queryKey: ['dashboard-data'] });
+      queryClient.invalidateQueries({ queryKey: ['profile'] });
+      queryClient.invalidateQueries({ queryKey: ['templates'] });
+      alert(`Meta Sync Successful! ${res.data?.syncedPhones || 1} phone number and ${res.data?.syncedTemplates || 0} templates synced.`);
+    }
+  });
+
   return (
-    <div className="p-4 md:p-8 max-w-[1600px] mx-auto space-y-6">
+    <div className="p-4 md:p-8 max-w-[1600px] mx-auto space-y-6 pb-16">
       {/* 1. Header Greeting */}
-      <div>
-        <h1 className="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-          Good Afternoon, {greeting.userName} <span className="animate-pulse">👋</span>
-        </h1>
-        <p className="text-xs md:text-sm text-slate-500 mt-0.5">{greeting.subtext}</p>
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
+            Welcome back, {greeting.userName} <span className="animate-pulse">👋</span>
+          </h1>
+          <p className="text-xs md:text-sm text-slate-500 mt-0.5">{greeting.subtext}</p>
+        </div>
+
+        {/* Plan Pill */}
+        <div className="flex items-center space-x-2">
+          <span className="px-3.5 py-1.5 bg-slate-900 text-white rounded-xl text-xs font-black shadow-xs">
+            Plan: {plan.name}
+          </span>
+        </div>
       </div>
 
-      {/* 2. Top 5 Metric Cards (Matching reference screenshot pastel cards) */}
+      {/* 2. META CONNECTION STATUS BAR (Section 3 & 24) */}
+      <div className="bg-white rounded-2xl border border-slate-200 p-4 md:p-5 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="space-y-1">
+          <div className="flex items-center space-x-2">
+            <ShieldCheck className="w-4 h-4 text-blue-600" />
+            <h2 className="text-xs font-black uppercase text-slate-900 tracking-wider">Meta Ecosystem Connection Status</h2>
+          </div>
+          <div className="flex items-center space-x-3 flex-wrap gap-y-1 pt-1 text-xs">
+            {/* WhatsApp Status */}
+            <div className="flex items-center space-x-1.5">
+              <span className={`w-2 h-2 rounded-full ${isWhatsAppConnected ? 'bg-emerald-500 animate-pulse' : 'bg-rose-400'}`} />
+              <span className="font-bold text-slate-700">WhatsApp:</span>
+              <span className={`font-semibold ${isWhatsAppConnected ? 'text-emerald-700' : 'text-slate-400'}`}>
+                {isWhatsAppConnected ? account.displayPhoneNumber || 'Connected' : 'Not Connected'}
+              </span>
+            </div>
+
+            <span className="text-slate-300">|</span>
+
+            {/* Facebook Page Status */}
+            <div className="flex items-center space-x-1.5">
+              <span className={`w-2 h-2 rounded-full ${isFacebookConnected ? 'bg-blue-500 animate-pulse' : 'bg-rose-400'}`} />
+              <span className="font-bold text-slate-700">Facebook:</span>
+              <span className={`font-semibold ${isFacebookConnected ? metaBusiness.pages?.[0]?.name || 'Connected' : 'Not Connected'}`}>
+                {isFacebookConnected ? metaBusiness.pages?.[0]?.name || 'Connected' : 'Not Connected'}
+              </span>
+            </div>
+
+            <span className="text-slate-300">|</span>
+
+            {/* Instagram Status */}
+            <div className="flex items-center space-x-1.5">
+              <span className={`w-2 h-2 rounded-full ${isFacebookConnected ? 'bg-purple-500 animate-pulse' : 'bg-slate-300'}`} />
+              <span className="font-bold text-slate-700">Instagram:</span>
+              <span className={`font-semibold ${isFacebookConnected ? 'Linked to Page' : 'Not Connected'}`}>
+                {isFacebookConnected ? 'Linked to Page' : 'Not Connected'}
+              </span>
+            </div>
+
+            <span className="text-slate-300">|</span>
+
+            {/* Ad Account Status */}
+            <div className="flex items-center space-x-1.5">
+              <span className={`w-2 h-2 rounded-full ${isAdAccountConnected ? 'bg-amber-500 animate-pulse' : 'bg-slate-300'}`} />
+              <span className="font-bold text-slate-700">Ad Account:</span>
+              <span className={`font-semibold ${isAdAccountConnected ? 'Active' : 'Not Connected'}`}>
+                {isAdAccountConnected ? 'Active' : 'Not Connected'}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex items-center space-x-2 shrink-0">
+          {!isWhatsAppConnected && (
+            <Link
+              to="/integrations"
+              className="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-xs transition flex items-center space-x-1.5"
+            >
+              <Smartphone className="w-3.5 h-3.5" />
+              <span>Connect WhatsApp</span>
+            </Link>
+          )}
+
+          {!isFacebookConnected && (
+            <Link
+              to="/leads"
+              className="px-3 py-2 bg-[#1877F2] hover:bg-[#166fe5] text-white rounded-xl text-xs font-bold shadow-xs transition flex items-center space-x-1.5"
+            >
+              <Facebook className="w-3.5 h-3.5" />
+              <span>Connect Facebook</span>
+            </Link>
+          )}
+
+          <Link
+            to="/leads"
+            className="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition flex items-center space-x-1"
+          >
+            <span>Manage Meta Ads CRM →</span>
+          </Link>
+        </div>
+      </div>
+
+      {/* 2. Top 5 Real-Time Stat Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
         {/* Total Customers */}
-        <Link to="/contacts" className="bg-blue-50/60 hover:bg-blue-50 border border-blue-100 rounded-2xl p-4 transition-all group shadow-sm flex items-center space-x-3.5">
+        <Link to="/contacts" className="bg-blue-50/60 hover:bg-blue-50 border border-blue-100 rounded-2xl p-4 transition-all group shadow-xs flex items-center space-x-3.5">
           <div className="w-11 h-11 rounded-xl bg-blue-500 text-white flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
             <Users className="w-5 h-5" />
           </div>
@@ -85,29 +226,29 @@ export default function DashboardPage() {
         </Link>
 
         {/* Leads */}
-        <Link to="/leads" className="bg-purple-50/60 hover:bg-purple-50 border border-purple-100 rounded-2xl p-4 transition-all group shadow-sm flex items-center space-x-3.5">
+        <Link to="/leads" className="bg-purple-50/60 hover:bg-purple-50 border border-purple-100 rounded-2xl p-4 transition-all group shadow-xs flex items-center space-x-3.5">
           <div className="w-11 h-11 rounded-xl bg-purple-500 text-white flex items-center justify-center shadow-md shadow-purple-500/20 group-hover:scale-105 transition-transform">
             <Target className="w-5 h-5" />
           </div>
           <div>
             <p className="text-xl font-black text-slate-900 leading-none">{stats.leads}</p>
-            <p className="text-xs font-semibold text-slate-500 mt-1">Leads</p>
+            <p className="text-xs font-semibold text-slate-500 mt-1">CRM Leads</p>
           </div>
         </Link>
 
         {/* Active Chatbot */}
-        <Link to="/automation" className="bg-emerald-50/60 hover:bg-emerald-50 border border-emerald-100 rounded-2xl p-4 transition-all group shadow-sm flex items-center space-x-3.5">
+        <Link to="/automation" className="bg-emerald-50/60 hover:bg-emerald-50 border border-emerald-100 rounded-2xl p-4 transition-all group shadow-xs flex items-center space-x-3.5">
           <div className="w-11 h-11 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
             <Bot className="w-5 h-5" />
           </div>
           <div>
             <p className="text-xl font-black text-slate-900 leading-none">{stats.activeChatbots}</p>
-            <p className="text-xs font-semibold text-slate-500 mt-1">Active Chatbot</p>
+            <p className="text-xs font-semibold text-slate-500 mt-1">Active Chatbots</p>
           </div>
         </Link>
 
         {/* Form Responses */}
-        <div className="bg-amber-50/60 border border-amber-100 rounded-2xl p-4 shadow-sm flex items-center space-x-3.5">
+        <div className="bg-amber-50/60 border border-amber-100 rounded-2xl p-4 shadow-xs flex items-center space-x-3.5">
           <div className="w-11 h-11 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-md shadow-amber-500/20">
             <FileCheck2 className="w-5 h-5" />
           </div>
@@ -118,7 +259,7 @@ export default function DashboardPage() {
         </div>
 
         {/* WhatsApp Templates */}
-        <Link to="/templates" className="bg-sky-50/60 hover:bg-sky-50 border border-sky-100 rounded-2xl p-4 transition-all group shadow-sm flex items-center space-x-3.5 col-span-2 sm:col-span-1">
+        <Link to="/templates" className="bg-sky-50/60 hover:bg-sky-50 border border-sky-100 rounded-2xl p-4 transition-all group shadow-xs flex items-center space-x-3.5 col-span-2 sm:col-span-1">
           <div className="w-11 h-11 rounded-xl bg-sky-500 text-white flex items-center justify-center shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
             <MessageCircle className="w-5 h-5" />
           </div>
@@ -129,94 +270,104 @@ export default function DashboardPage() {
         </Link>
       </div>
 
-      {/* 3. Middle Section (Account Profile, Quick Actions, Wallet, Subscription) */}
+      {/* 3. Middle Section: Live Account Profile, Quick Actions, Wallet, Subscription */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Account Profile Card */}
-        <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+        {/* Real Live Account Profile Card */}
+        <div className="bg-white rounded-3xl p-5 border border-slate-200/90 shadow-xs flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-600">Account Profile</span>
-            <Link to="/settings" className="text-[11px] font-semibold text-slate-500 hover:text-brand-600 flex items-center">
-              View Profile
+            <span className="text-xs font-bold text-slate-700">Account Profile</span>
+            <Link to="/settings" className="text-[11px] font-semibold text-emerald-600 hover:underline">
+              Settings
             </Link>
           </div>
 
-          <div className="flex items-center space-x-4 my-3">
-            <div className="w-14 h-14 rounded-xl border border-slate-200 flex items-center justify-center bg-slate-50 p-2">
-              <span className="text-xs font-black text-slate-700 tracking-tighter text-center">CHIMNEY SOLUTIONS</span>
+          <div className="space-y-2 text-xs">
+            <div className="flex items-center space-x-2">
+              <span className="text-slate-400">Status:</span>
+              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${isWhatsAppConnected ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'}`}>
+                {account.status}
+              </span>
             </div>
-            <div className="text-xs space-y-1">
-              <div className="flex items-center space-x-2">
-                <span className="text-slate-400">Account Status:</span>
-                <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">{account.status}</span>
-              </div>
-              <div>
-                <span className="text-slate-400">Name:</span> <span className="font-semibold text-slate-800">{account.name}</span>
-              </div>
-              <div>
-                <span className="text-slate-400">Industry:</span> <span className="text-slate-700">{account.industry}</span>
-              </div>
-              <div>
-                <span className="text-slate-400">Number:</span> <span className="font-mono text-slate-800 font-semibold">{account.displayPhoneNumber}</span>
-              </div>
+            <div>
+              <span className="text-slate-400">Business:</span> <span className="font-bold text-slate-800">{account.name}</span>
             </div>
+            <div>
+              <span className="text-slate-400">Number:</span> <span className="font-mono text-emerald-800 font-bold">{account.displayPhoneNumber}</span>
+            </div>
+            <div>
+              <span className="text-slate-400">WABA:</span> <span className="font-mono text-slate-600 text-[11px]">{account.wabaId}</span>
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
+            <span className="text-slate-400">Coexistence:</span>
+            <span className="font-bold text-emerald-700">{isCoexistenceActive ? 'Active (📱+☁️)' : 'Standard'}</span>
           </div>
         </div>
 
-        {/* Quick Actions */}
-        <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between">
-          <span className="text-xs font-bold text-slate-600">Quick Actions</span>
-          <div className="space-y-2 mt-2">
+        {/* Quick Actions (Real Action Links) */}
+        <div className="bg-white rounded-3xl p-5 border border-slate-200/90 shadow-xs flex flex-col justify-between">
+          <span className="text-xs font-bold text-slate-700">Quick Actions</span>
+          <div className="space-y-2 my-2">
             <Link
               to="/contacts"
-              className="w-full flex items-center space-x-2.5 px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-slate-100/80 text-xs font-semibold text-slate-700 transition"
+              className="w-full flex items-center space-x-2 px-3 py-2 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-slate-100 text-xs font-semibold text-slate-700 transition"
             >
-              <Users className="w-4 h-4 text-brand-600" />
-              <span>Import Customers</span>
+              <Users className="w-3.5 h-3.5 text-blue-600" />
+              <span>Import / Add Customers</span>
             </Link>
-            <button
-              onClick={() => alert('WhatsApp QR code generator created!')}
-              className="w-full flex items-center space-x-2.5 px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-slate-100/80 text-xs font-semibold text-slate-700 transition"
+
+            <Link
+              to="/templates"
+              className="w-full flex items-center space-x-2 px-3 py-2 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-slate-100 text-xs font-semibold text-slate-700 transition"
             >
-              <QrCode className="w-4 h-4 text-slate-600" />
-              <span>Create WhatsApp Button/QR Code</span>
-            </button>
+              <MessageCircle className="w-3.5 h-3.5 text-sky-600" />
+              <span>Create Meta Template</span>
+            </Link>
+
             <Link
               to="/automation"
-              className="w-full flex items-center space-x-2.5 px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-slate-100/80 text-xs font-semibold text-slate-700 transition"
+              className="w-full flex items-center space-x-2 px-3 py-2 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-slate-100 text-xs font-semibold text-slate-700 transition"
             >
-              <Bot className="w-4 h-4 text-emerald-600" />
-              <span>Create Chatbot</span>
+              <Bot className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Create Chatbot Rule</span>
+            </Link>
+
+            <Link
+              to="/campaigns"
+              className="w-full flex items-center space-x-2 px-3 py-2 rounded-xl border border-emerald-300 bg-emerald-50/60 hover:bg-emerald-100 text-xs font-bold text-emerald-800 transition"
+            >
+              <Send className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Launch Broadcast</span>
             </Link>
           </div>
         </div>
 
-        {/* Wallet Balance */}
-        <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+        {/* Live Wallet Balance */}
+        <div className="bg-white rounded-3xl p-5 border border-slate-200/90 shadow-xs flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-600">Wallet Balance</span>
+            <span className="text-xs font-bold text-slate-700">Prepaid Wallet</span>
             <Link
               to="/billing"
               className="px-2.5 py-1 rounded-lg border border-emerald-300 text-emerald-700 hover:bg-emerald-50 text-[11px] font-bold transition"
             >
-              Buy More
+              Add Credits
             </Link>
           </div>
           <div className="my-2">
             <p className="text-2xl font-black text-slate-900">₹ {Number(wallet.balance).toFixed(2)}</p>
+            <p className="text-[11px] text-slate-400 mt-0.5">Used Credits: ₹{Number(wallet.usedCredits).toFixed(2)}</p>
           </div>
           <div className="flex items-center justify-between pt-2 border-t border-slate-100 text-xs">
-            <div>
-              <span className="text-slate-400">Used Credits</span>
-              <p className="font-bold text-slate-700">₹ {Number(wallet.usedCredits).toFixed(2)}</p>
-            </div>
+            <span className="text-slate-400">Rate: ₹0.40 / msg</span>
             <Link to="/billing" className="text-[11px] font-semibold text-emerald-600 hover:underline">
-              View Details
+              Ledger
             </Link>
           </div>
         </div>
 
-        {/* Subscription Plan */}
-        <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+        {/* Active Subscription Tier */}
+        <div className="bg-white rounded-3xl p-5 border border-slate-200/90 shadow-xs flex flex-col justify-between">
           <div className="flex items-center justify-between">
             <span className="text-sm font-extrabold text-slate-800">{plan.name}</span>
             <span className="text-[10px] font-bold uppercase bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full border border-blue-100">
@@ -224,120 +375,94 @@ export default function DashboardPage() {
             </span>
           </div>
           <div className="my-2 text-xs text-slate-500">
-            <span>Expires on:</span>
+            <span>Billing Period:</span>
             <p className="font-semibold text-slate-700 mt-0.5">{plan.expiresOn}</p>
           </div>
           <Link
             to="/billing"
-            className="w-full text-center py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-xs shadow-md shadow-brand-500/20 transition"
+            className="w-full text-center py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-xs shadow-md shadow-emerald-500/20 transition"
           >
-            Upgrade Now
+            Upgrade Plan
           </Link>
         </div>
       </div>
 
-      {/* 4. Bottom Row: Promo Cards & Messages Analysis Donut Chart */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-        {/* Live Meta Ads Promo Card */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col items-center text-center justify-between min-h-[260px]">
-          <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2">
-            <Megaphone className="w-8 h-8 stroke-[1.5]" />
-          </div>
-          <div>
-            <h3 className="text-sm font-bold text-slate-800">Live Meta Ads</h3>
-            <p className="text-xs text-slate-400 mt-1 max-w-[200px]">
-              Track your Facebook & Instagram ad performance right from your dashboard.
-            </p>
-          </div>
-          <Link
-            to="/billing"
-            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-xs transition"
-          >
-            Upgrade to Premium
-          </Link>
-        </div>
-
-        {/* Leads Management Promo Card */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col items-center text-center justify-between min-h-[260px]">
-          <div className="w-16 h-16 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center mb-2">
-            <Target className="w-8 h-8 stroke-[1.5]" />
-          </div>
-          <div>
-            <h3 className="text-sm font-bold text-slate-800">Leads Management</h3>
-            <p className="text-xs text-slate-400 mt-1 max-w-[200px]">
-              Leads captured from ads, forms, and integrations will show up here.
-            </p>
-          </div>
-          <Link
-            to="/leads"
-            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-xs transition"
-          >
-            Create Lead
-          </Link>
-        </div>
-
-        {/* Recent Orders / Catalog Promo Card */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col items-center text-center justify-between min-h-[260px]">
-          <div className="w-16 h-16 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center mb-2">
-            <ShoppingBag className="w-8 h-8 stroke-[1.5]" />
-          </div>
-          <div>
-            <h3 className="text-sm font-bold text-slate-800">Recent Orders</h3>
-            <p className="text-xs text-slate-400 mt-1 max-w-[200px]">
-              Connect your product catalog in Integrations to start tracking orders here.
-            </p>
-          </div>
-          <button
-            onClick={() => alert('WhatsApp Product Catalog connect wizard!')}
-            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-xs transition"
-          >
-            Connect Catalog
-          </button>
-        </div>
-
-        {/* Messages Analysis Donut Chart (Matching reference screenshot) */}
-        <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between min-h-[260px]">
+      {/* 4. Bottom Row: Real Messages Analysis Donut Chart */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        {/* Messages Analysis Donut Chart */}
+        <div className="lg:col-span-2 bg-white rounded-3xl p-6 border border-slate-200/90 shadow-xs flex flex-col justify-between space-y-4">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-700">Messages Analysis</span>
+            <div>
+              <h3 className="text-sm font-bold text-slate-800">Messages Analysis & Deliverability</h3>
+              <p className="text-xs text-slate-400">Category breakdown of all dispatched WhatsApp messages this month.</p>
+            </div>
             <Link to="/analytics" className="text-[11px] font-semibold text-emerald-600 hover:underline">
-              View More
+              View Analytics
             </Link>
           </div>
 
-          <div className="relative h-40 flex items-center justify-center">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={messagesAnalysis.breakdown}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={45}
-                  outerRadius={65}
-                  paddingAngle={2}
-                  dataKey="count"
-                >
-                  {messagesAnalysis.breakdown.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-            {/* Center label */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-              <span className="text-[10px] font-semibold text-slate-400 uppercase">Total Messages</span>
-              <span className="text-sm font-black text-slate-800">{messagesAnalysis.totalMessages.toLocaleString()}</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 items-center gap-4">
+            <div className="relative h-44 flex items-center justify-center">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={messagesAnalysis.breakdown}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={50}
+                    outerRadius={70}
+                    paddingAngle={2}
+                    dataKey="count"
+                  >
+                    {messagesAnalysis.breakdown.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                </PieChart>
+              </ResponsiveContainer>
+              <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                <span className="text-[10px] font-semibold text-slate-400 uppercase">Total Messages</span>
+                <span className="text-lg font-black text-slate-800">{messagesAnalysis.totalMessages.toLocaleString()}</span>
+              </div>
+            </div>
+
+            {/* Breakdown Legend */}
+            <div className="space-y-2 text-xs">
+              {messagesAnalysis.breakdown.map((b) => (
+                <div key={b.name} className="flex items-center justify-between p-2 bg-slate-50 rounded-xl border border-slate-100">
+                  <div className="flex items-center space-x-2">
+                    <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: b.color }} />
+                    <span className="font-semibold text-slate-700">{b.name}</span>
+                  </div>
+                  <span className="font-bold text-slate-900">{b.count.toLocaleString()} ({b.percentage}%)</span>
+                </div>
+              ))}
             </div>
           </div>
+        </div>
 
-          {/* Chart Legends */}
-          <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-slate-600 pt-2 border-t border-slate-100">
-            {messagesAnalysis.breakdown.map((b) => (
-              <div key={b.name} className="flex items-center space-x-1.5">
-                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: b.color }} />
-                <span>{b.name}: {b.count.toLocaleString()}</span>
-              </div>
-            ))}
+        {/* Coexistence & Multi-Channel Guide Tile */}
+        <div className="bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-3xl p-6 shadow-xl flex flex-col justify-between space-y-4">
+          <div className="space-y-2">
+            <div className="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+              <Zap className="w-5 h-5" />
+            </div>
+            <h3 className="text-base font-extrabold">Meta Multi-Channel Hub</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Connect your WhatsApp Business App and Instagram account to manage conversations, broadcasts, and AI chatbots in one unified team inbox.
+            </p>
+          </div>
+
+          <div className="space-y-2 pt-2 border-t border-slate-800 text-xs">
+            <div className="flex items-center justify-between text-slate-300">
+              <span>WhatsApp Coexistence:</span>
+              <span className="text-emerald-400 font-bold">{isWhatsAppConnected ? 'Active' : 'Ready'}</span>
+            </div>
+            <div className="flex items-center justify-between text-slate-300">
+              <span>Instagram Messaging:</span>
+              <span className="text-purple-400 font-bold">Supported</span>
+            </div>
           </div>
         </div>
       </div>

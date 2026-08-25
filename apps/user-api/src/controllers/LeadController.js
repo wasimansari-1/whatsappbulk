@@ -13,7 +13,7 @@ export class LeadController {
 
   async getStageCounts(req, res, next) {
     try {
-      const counts = await leadService.getStageCounts(req.organizationId);
+      const counts = await leadService.getStageCounts(req.organizationId, req.query);
       res.status(200).json(apiSuccess(counts));
     } catch (error) {
       next(error);
@@ -43,6 +43,26 @@ export class LeadController {
       const { stage } = req.body;
       const lead = await leadService.updateLeadStage(req.organizationId, req.params.id, stage);
       res.status(200).json(apiSuccess(lead, 'Lead stage updated'));
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async bulkUpdateStage(req, res, next) {
+    try {
+      const { leadIds, stage } = req.body;
+      const result = await leadService.bulkUpdateStage(req.organizationId, leadIds, stage);
+      res.status(200).json(apiSuccess(result, `Updated ${result.updatedCount} leads to ${stage}`));
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async bulkSendBroadcast(req, res, next) {
+    try {
+      const { leadIds, messageText, templateName } = req.body;
+      const result = await leadService.bulkSendBroadcast(req.organizationId, leadIds, { messageText, templateName });
+      res.status(200).json(apiSuccess(result, `Bulk message dispatched to ${result.dispatchedCount} leads`));
     } catch (error) {
       next(error);
     }

@@ -1,0 +1,186 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a81c",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "contactId": "6a8b1d85d8761c6ddf09a7d9",
+    "channel": "WHATSAPP",
+    "status": "ACTIVE",
+    "isPinned": true,
+    "unreadCount": 0,
+    "assignedTo": "6a8b1d85d8761c6ddf09a798",
+    "lastMessage": {
+      "text": "Great, thanks! Please schedule technician for 10:30 AM.",
+      "sender": "CONTACT",
+      "sentAt": "2026-08-23T16:09:17.733Z",
+      "status": "DELIVERED"
+    },
+    "createdAt": "2026-08-23T16:19:17.733Z",
+    "updatedAt": "2026-08-23T16:54:16.588Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a82b",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "contactId": "6a8b1d85d8761c6ddf09a7e7",
+    "channel": "WHATSAPP",
+    "status": "ACTIVE",
+    "isPinned": true,
+    "unreadCount": 0,
+    "assignedTo": "6a8b1d85d8761c6ddf09a798",
+    "lastMessage": {
+      "text": "I am in Dwarka Sector 12. Can you send someone tomorrow morning?",
+      "sender": "CONTACT",
+      "sentAt": "2026-08-23T15:59:17.738Z",
+      "status": "DELIVERED"
+    },
+    "createdAt": "2026-08-23T16:19:17.738Z",
+    "updatedAt": "2026-08-23T16:20:04.599Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a833",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "contactId": "6a8b1d85d8761c6ddf09a7dd",
+    "channel": "WHATSAPP",
+    "status": "ACTIVE",
+    "isPinned": false,
+    "unreadCount": 0,
+    "assignedTo": "6a8b1d85d8761c6ddf09a798",
+    "lastMessage": {
+      "text": "Yes please apply the VIP20 discount coupon.",
+      "sender": "CONTACT",
+      "sentAt": "2026-08-23T15:39:17.740Z",
+      "status": "DELIVERED"
+    },
+    "createdAt": "2026-08-23T16:19:17.740Z",
+    "updatedAt": "2026-08-23T16:20:05.544Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a83b",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "contactId": "6a8b1d85d8761c6ddf09a7ed",
+    "channel": "WHATSAPP",
+    "status": "ACTIVE",
+    "isPinned": false,
+    "unreadCount": 0,
+    "assignedTo": "6a8b1d85d8761c6ddf09a798",
+    "lastMessage": {
+      "text": "Hi Wasim, I have shared the details with my team. We will finalize by Friday.",
+      "sender": "CONTACT",
+      "sentAt": "2026-08-23T14:49:17.742Z",
+      "status": "DELIVERED"
+    },
+    "createdAt": "2026-08-23T16:19:17.742Z",
+    "updatedAt": "2026-08-23T16:19:17.742Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1e0c762c93db0a447e62",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "contactId": "6a8b1e0c762c93db0a447e5f",
+    "channel": "WHATSAPP",
+    "status": "ACTIVE",
+    "isPinned": false,
+    "unreadCount": 0,
+    "lastMessage": {
+      "text": "Hii",
+      "sender": "CONTACT",
+      "sentAt": "2026-08-23T16:58:22.649Z",
+      "status": "SENT"
+    },
+    "createdAt": "2026-08-23T16:21:32.053Z",
+    "updatedAt": "2026-08-23T17:28:29.050Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b28009bd1b337ac6af4d2",
+    "contactId": "6a8b2800d2f73e0459b6cf13",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "__v": 0,
+    "channel": "WHATSAPP",
+    "createdAt": "2026-08-23T17:04:00.551Z",
+    "isPinned": false,
+    "lastMessage": {
+      "text": "hiii",
+      "sender": "AGENT",
+      "sentAt": "2026-08-23T17:04:05.982Z",
+      "status": "READ"
+    },
+    "status": "ACTIVE",
+    "unreadCount": 0,
+    "updatedAt": "2026-08-23T17:19:57.161Z"
+  },
+  {
+    "_id": "6a8b2df39bd1b337ac6af4d3",
+    "contactId": "6a8b2df3b3b163bfdef67c53",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "__v": 0,
+    "channel": "WHATSAPP",
+    "createdAt": "2026-08-23T17:29:23.786Z",
+    "isPinned": false,
+    "lastMessage": {
+      "text": "Wasim.boi",
+      "sender": "CONTACT",
+      "sentAt": "2026-08-23T17:29:24.225Z",
+      "status": "DELIVERED"
+    },
+    "status": "ACTIVE",
+    "unreadCount": 2,
+    "updatedAt": "2026-08-23T17:29:24.225Z"
+  },
+  {
+    "_id": "6a8b2dfa9bd1b337ac6af4d4",
+    "contactId": "6a8b2dfab3b163bfdef67c6f",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "__v": 0,
+    "channel": "WHATSAPP",
+    "createdAt": "2026-08-23T17:29:30.229Z",
+    "isPinned": false,
+    "lastMessage": {
+      "text": "Live Verification Inbound Message #5",
+      "sender": "CONTACT",
+      "sentAt": "2026-08-23T17:35:11.037Z",
+      "status": "DELIVERED"
+    },
+    "status": "ACTIVE",
+    "unreadCount": 7,
+    "updatedAt": "2026-08-23T17:35:11.037Z"
+  },
+  {
+    "_id": "6a8b2fac9bd1b337ac6af4d9",
+    "contactId": "6a8b2f9f1fcf9c6321c53ee3",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "__v": 0,
+    "channel": "WHATSAPP",
+    "createdAt": "2026-08-23T17:36:44.860Z",
+    "isPinned": false,
+    "lastMessage": {
+      "text": "Live Verification Inbound Message #5",
+      "sender": "CONTACT",
+      "sentAt": "2026-08-23T17:37:30.383Z",
+      "status": "READ"
+    },
+    "status": "ACTIVE",
+    "unreadCount": 10,
+    "updatedAt": "2026-08-23T17:37:30.397Z"
+  },
+  {
+    "_id": "6a8b2fc59bd1b337ac6af4da",
+    "contactId": "6a8b2fc421892a7b49154bdc",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "__v": 0,
+    "channel": "WHATSAPP",
+    "createdAt": "2026-08-23T17:37:09.166Z",
+    "isPinned": false,
+    "lastMessage": {
+      "text": "Media message",
+      "sender": "AGENT",
+      "sentAt": "2026-08-23T17:37:30.351Z",
+      "status": "FAILED"
+    },
+    "status": "ACTIVE",
+    "unreadCount": 0,
+    "updatedAt": "2026-08-23T17:37:30.907Z"
+  }
+]

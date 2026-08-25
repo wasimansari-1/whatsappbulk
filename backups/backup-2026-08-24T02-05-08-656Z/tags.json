@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7cd",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "VIP Customer",
+    "color": "#8b5cf6",
+    "createdAt": "2026-08-23T16:19:17.709Z",
+    "updatedAt": "2026-08-23T16:19:17.709Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7cf",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "Chimney Service",
+    "color": "#10b981",
+    "createdAt": "2026-08-23T16:19:17.710Z",
+    "updatedAt": "2026-08-23T16:19:17.710Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7d1",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "Hot Lead",
+    "color": "#ef4444",
+    "createdAt": "2026-08-23T16:19:17.710Z",
+    "updatedAt": "2026-08-23T16:19:17.710Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7d3",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "Facebook Ads Lead",
+    "color": "#3b82f6",
+    "createdAt": "2026-08-23T16:19:17.711Z",
+    "updatedAt": "2026-08-23T16:19:17.711Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7d5",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "High Value",
+    "color": "#f59e0b",
+    "createdAt": "2026-08-23T16:19:17.711Z",
+    "updatedAt": "2026-08-23T16:19:17.711Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7d7",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "Delhi NCR",
+    "color": "#06b6d4",
+    "createdAt": "2026-08-23T16:19:17.712Z",
+    "updatedAt": "2026-08-23T16:19:17.712Z",
+    "__v": 0
+  }
+]

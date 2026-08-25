@@ -66,6 +66,64 @@ export class ContactController {
     }
   }
 
+  async importContactsDirect(req, res, next) {
+    try {
+      const { contacts, defaultGroup, defaultTags, assignedTo } = req.body;
+      const result = await contactService.importContactsDirect(req.organizationId, contacts || [], {
+        defaultGroup,
+        defaultTags,
+        assignedTo
+      });
+      res.status(200).json(apiSuccess(result, `Successfully imported ${result.totalProcessed} customers!`));
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async getGroups(req, res, next) {
+    try {
+      const groups = await contactService.getGroups(req.organizationId);
+      res.status(200).json(apiSuccess(groups));
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async createGroup(req, res, next) {
+    try {
+      const { name, description } = req.body;
+      const group = await contactService.createGroup(req.organizationId, name, description);
+      res.status(201).json(apiSuccess(group, 'Customer group created successfully'));
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async bulkAssignGroup(req, res, next) {
+    try {
+      const { contactIds, groupName } = req.body;
+      const result = await contactService.bulkAssignGroup(req.organizationId, contactIds, groupName);
+      res.status(200).json(apiSuccess(result, `Assigned ${result.updatedCount} customers to ${groupName}`));
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async bulkSendGroupBroadcast(req, res, next) {
+    try {
+      const { groupName, contactIds, messageText, templateName } = req.body;
+      const result = await contactService.bulkSendGroupBroadcast(req.organizationId, {
+        groupName,
+        contactIds,
+        messageText,
+        templateName
+      });
+      res.status(200).json(apiSuccess(result, `Dispatched bulk WhatsApp broadcast to ${result.dispatchedCount} customers`));
+    } catch (error) {
+      next(error);
+    }
+  }
+
   async getTags(req, res, next) {
     try {
       const tags = await contactService.getTags(req.organizationId);

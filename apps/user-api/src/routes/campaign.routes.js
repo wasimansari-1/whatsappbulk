@@ -13,6 +13,9 @@ router.use(authGuard);
 router.get('/', rbacGuard(Permissions.CAMPAIGNS_READ), campaignController.getCampaigns);
 router.get('/:id', rbacGuard(Permissions.CAMPAIGNS_READ), campaignController.getCampaign);
 router.post('/', rbacGuard(Permissions.CAMPAIGNS_CREATE), validateBody(createCampaignSchema), campaignController.createCampaign);
+router.post('/:id/pause', rbacGuard(Permissions.CAMPAIGNS_PAUSE), campaignController.pauseCampaign);
+router.post('/:id/resume', rbacGuard(Permissions.CAMPAIGNS_PAUSE), campaignController.resumeCampaign);
+router.post('/:id/retry', rbacGuard(Permissions.CAMPAIGNS_CREATE), campaignController.retryCampaign);
 router.post('/:id/cancel', rbacGuard(Permissions.CAMPAIGNS_PAUSE), campaignController.cancelCampaign);
 
 export default router;

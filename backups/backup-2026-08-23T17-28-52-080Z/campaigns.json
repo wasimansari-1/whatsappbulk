@@ -1,0 +1,119 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a814",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "Independence Day Special Mega Offer 2026",
+    "channel": "WHATSAPP",
+    "whatsappPhoneNumberId": "6a8b1d85d8761c6ddf09a7ab",
+    "templateId": "6a8b1d85d8761c6ddf09a7ad",
+    "status": "COMPLETED",
+    "audienceType": "TAGS",
+    "targetTags": [
+      "Chimney Service"
+    ],
+    "targetListIds": [],
+    "variableMapping": {},
+    "stats": {
+      "totalRecipients": 2223,
+      "queued": 0,
+      "sent": 2223,
+      "delivered": 2150,
+      "read": 1840,
+      "failed": 73
+    },
+    "startedAt": "2026-08-22T16:19:17.729Z",
+    "completedAt": "2026-08-22T17:19:17.729Z",
+    "createdBy": "6a8b1d85d8761c6ddf09a798",
+    "sendSpeedPerMinute": 120,
+    "createdAt": "2026-08-23T16:19:17.729Z",
+    "updatedAt": "2026-08-23T16:19:17.729Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a816",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "May 25 Meta Leads Retargeting Broadcast",
+    "channel": "WHATSAPP",
+    "whatsappPhoneNumberId": "6a8b1d85d8761c6ddf09a7ab",
+    "templateId": "6a8b1d85d8761c6ddf09a7b6",
+    "status": "COMPLETED",
+    "audienceType": "TAGS",
+    "targetTags": [
+      "Facebook Ads Lead"
+    ],
+    "targetListIds": [],
+    "variableMapping": {},
+    "stats": {
+      "totalRecipients": 1450,
+      "queued": 0,
+      "sent": 1450,
+      "delivered": 1410,
+      "read": 1230,
+      "failed": 40
+    },
+    "startedAt": "2026-08-21T16:19:17.730Z",
+    "completedAt": "2026-08-21T17:19:17.730Z",
+    "createdBy": "6a8b1d85d8761c6ddf09a798",
+    "sendSpeedPerMinute": 60,
+    "createdAt": "2026-08-23T16:19:17.730Z",
+    "updatedAt": "2026-08-23T16:19:17.730Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a818",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "VIP Customer Exclusive Maintenance Blast",
+    "channel": "WHATSAPP",
+    "whatsappPhoneNumberId": "6a8b1d85d8761c6ddf09a7ab",
+    "templateId": "6a8b1d85d8761c6ddf09a7bd",
+    "status": "COMPLETED",
+    "audienceType": "TAGS",
+    "targetTags": [
+      "VIP Customer"
+    ],
+    "targetListIds": [],
+    "variableMapping": {},
+    "stats": {
+      "totalRecipients": 520,
+      "queued": 0,
+      "sent": 520,
+      "delivered": 512,
+      "read": 490,
+      "failed": 8
+    },
+    "startedAt": "2026-08-20T16:19:17.731Z",
+    "completedAt": "2026-08-20T17:19:17.731Z",
+    "createdBy": "6a8b1d85d8761c6ddf09a798",
+    "sendSpeedPerMinute": 60,
+    "createdAt": "2026-08-23T16:19:17.731Z",
+    "updatedAt": "2026-08-23T16:19:17.731Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a81a",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "Weekend Flash Sale 40% OFF Special",
+    "channel": "WHATSAPP",
+    "whatsappPhoneNumberId": "6a8b1d85d8761c6ddf09a7ab",
+    "templateId": "6a8b1d85d8761c6ddf09a7b6",
+    "status": "SCHEDULED",
+    "audienceType": "ALL",
+    "targetTags": [],
+    "targetListIds": [],
+    "variableMapping": {},
+    "stats": {
+      "totalRecipients": 3500,
+      "queued": 3500,
+      "sent": 0,
+      "delivered": 0,
+      "read": 0,
+      "failed": 0
+    },
+    "scheduledAt": "2026-08-24T16:19:17.731Z",
+    "createdBy": "6a8b1d85d8761c6ddf09a798",
+    "sendSpeedPerMinute": 60,
+    "createdAt": "2026-08-23T16:19:17.732Z",
+    "updatedAt": "2026-08-23T16:19:17.732Z",
+    "__v": 0
+  }
+]

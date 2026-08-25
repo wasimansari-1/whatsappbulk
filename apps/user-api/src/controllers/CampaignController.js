@@ -29,6 +29,33 @@ export class CampaignController {
     }
   }
 
+  async pauseCampaign(req, res, next) {
+    try {
+      const campaign = await campaignService.pauseCampaign(req.organizationId, req.params.id);
+      res.status(200).json(apiSuccess(campaign, 'Campaign paused successfully'));
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async resumeCampaign(req, res, next) {
+    try {
+      const campaign = await campaignService.resumeCampaign(req.organizationId, req.params.id);
+      res.status(200).json(apiSuccess(campaign, 'Campaign resumed successfully'));
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async retryCampaign(req, res, next) {
+    try {
+      const campaign = await campaignService.retryCampaign(req.organizationId, req.params.id);
+      res.status(200).json(apiSuccess(campaign, 'Campaign retry initiated for failed recipients'));
+    } catch (error) {
+      next(error);
+    }
+  }
+
   async cancelCampaign(req, res, next) {
     try {
       const campaign = await campaignService.cancelCampaign(req.organizationId, req.params.id);

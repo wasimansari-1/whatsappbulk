@@ -15,24 +15,32 @@ const whatsAppTemplateSchema = new mongoose.Schema(
       required: true,
       index: true
     },
+    wabaId: {
+      type: String,
+      trim: true,
+      index: true
+    },
     name: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
+      index: true
     },
     category: {
       type: String,
-      enum: Object.values(TemplateCategory),
-      default: TemplateCategory.MARKETING
+      enum: ['MARKETING', 'UTILITY', 'AUTHENTICATION'],
+      default: 'MARKETING',
+      index: true
     },
     language: {
       type: String,
-      default: 'en_US'
+      default: 'en_US',
+      index: true
     },
     status: {
       type: String,
-      enum: Object.values(TemplateStatus),
-      default: TemplateStatus.APPROVED,
+      enum: ['DRAFT', 'PENDING', 'APPROVED', 'REJECTED', 'PAUSED', 'DISABLED', 'FLAGGED', 'DELETED'],
+      default: 'PENDING',
       index: true
     },
     components: [
@@ -44,7 +52,7 @@ const whatsAppTemplateSchema = new mongoose.Schema(
         },
         format: {
           type: String,
-          enum: ['TEXT', 'IMAGE', 'VIDEO', 'DOCUMENT', 'LOCATION'],
+          enum: ['TEXT', 'IMAGE', 'VIDEO', 'DOCUMENT', 'LOCATION', 'NONE'],
           default: 'TEXT'
         },
         text: String,
@@ -53,11 +61,12 @@ const whatsAppTemplateSchema = new mongoose.Schema(
           {
             type: {
               type: String,
-              enum: ['QUICK_REPLY', 'URL', 'PHONE_NUMBER']
+              enum: ['QUICK_REPLY', 'URL', 'PHONE_NUMBER', 'COPY_CODE', 'OTP']
             },
             text: String,
             url: String,
-            phoneNumber: String
+            phoneNumber: String,
+            example: mongoose.Schema.Types.Mixed
           }
         ]
       }
@@ -67,7 +76,16 @@ const whatsAppTemplateSchema = new mongoose.Schema(
       index: true
     },
     rejectionReason: {
-      type: String
+      type: String,
+      default: null
+    },
+    metaQualityRating: {
+      type: String,
+      default: 'UNKNOWN'
+    },
+    metaResponse: {
+      type: mongoose.Schema.Types.Mixed,
+      default: {}
     }
   },
   {

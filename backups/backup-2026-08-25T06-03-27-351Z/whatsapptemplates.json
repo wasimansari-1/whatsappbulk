@@ -1,0 +1,256 @@
+[
+  {
+    "_id": "6a8b2f8b9bd1b337ac6af4d6",
+    "name": "hello_world",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "category": "UTILITY",
+    "components": [
+      {
+        "type": "HEADER",
+        "format": "TEXT",
+        "text": "Hello World",
+        "_id": "6a8d2f37d32a4a1af2c4c05d",
+        "buttons": []
+      },
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.",
+        "_id": "6a8d2f37d32a4a1af2c4c05e",
+        "buttons": []
+      },
+      {
+        "type": "FOOTER",
+        "format": "TEXT",
+        "text": "WhatsApp Business Platform sample message",
+        "_id": "6a8d2f37d32a4a1af2c4c05f",
+        "buttons": []
+      }
+    ],
+    "language": "en_US",
+    "providerTemplateId": "2077874359472471",
+    "status": "APPROVED",
+    "updatedAt": "2026-08-25T05:59:19.927Z",
+    "wabaId": "1066070962481909",
+    "whatsappAccountId": "6a8b1d85d8761c6ddf09a7a9"
+  },
+  {
+    "_id": "6a8b2f8b9bd1b337ac6af4d7",
+    "name": "iglobal_welcome_msg",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "category": "MARKETING",
+    "components": [
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "Hello! Thank you for connecting with Iglobal Tech. We are here to assist you.",
+        "_id": "6a8d2f37d32a4a1af2c4c05a",
+        "buttons": []
+      }
+    ],
+    "language": "en_US",
+    "providerTemplateId": "1086715630367859",
+    "status": "APPROVED",
+    "updatedAt": "2026-08-25T05:59:19.924Z",
+    "wabaId": "1066070962481909",
+    "whatsappAccountId": "6a8b1d85d8761c6ddf09a7a9"
+  },
+  {
+    "_id": "6a8b689f9bd1b337ac6af53d",
+    "name": "test",
+    "language": "hi",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "__v": 0,
+    "category": "MARKETING",
+    "components": [
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "hello testing",
+        "_id": "6a8d2f37d32a4a1af2c4c057",
+        "buttons": []
+      }
+    ],
+    "createdAt": "2026-08-23T21:39:43.370Z",
+    "metaQualityRating": "UNKNOWN",
+    "metaResponse": {
+      "id": "1377289387206839",
+      "status": "PENDING",
+      "category": "MARKETING"
+    },
+    "providerTemplateId": "1377289387206839",
+    "rejectionReason": null,
+    "status": "APPROVED",
+    "updatedAt": "2026-08-25T05:59:19.921Z",
+    "wabaId": "1066070962481909",
+    "whatsappAccountId": "6a8b1d85d8761c6ddf09a7a9"
+  },
+  {
+    "_id": "6a8b69279bd1b337ac6af54b",
+    "name": "hello_world",
+    "organizationId": "6a8b210d762c93db0a447ed5",
+    "__v": 0,
+    "category": "UTILITY",
+    "components": [
+      {
+        "type": "HEADER",
+        "format": "TEXT",
+        "text": "Hello World",
+        "_id": "6a8b69273ba392aa18c22ed4",
+        "buttons": []
+      },
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.",
+        "_id": "6a8b69273ba392aa18c22ed5",
+        "buttons": []
+      },
+      {
+        "type": "FOOTER",
+        "format": "TEXT",
+        "text": "WhatsApp Business Platform sample message",
+        "_id": "6a8b69273ba392aa18c22ed6",
+        "buttons": []
+      }
+    ],
+    "language": "en_US",
+    "status": "APPROVED"
+  },
+  {
+    "_id": "6a8b69279bd1b337ac6af54c",
+    "name": "iglobal_welcome_msg",
+    "organizationId": "6a8b210d762c93db0a447ed5",
+    "__v": 0,
+    "category": "MARKETING",
+    "components": [
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "Hello! Thank you for connecting with Iglobal Tech. We are here to assist you.",
+        "_id": "6a8b69273ba392aa18c22ed1",
+        "buttons": []
+      }
+    ],
+    "language": "en_US",
+    "status": "APPROVED"
+  },
+  {
+    "_id": "6a8b69279bd1b337ac6af54d",
+    "name": "test",
+    "organizationId": "6a8b210d762c93db0a447ed5",
+    "__v": 0,
+    "category": "MARKETING",
+    "components": [
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "hello testing",
+        "_id": "6a8b69273ba392aa18c22ece",
+        "buttons": []
+      }
+    ],
+    "language": "hi",
+    "status": "APPROVED"
+  },
+  {
+    "_id": "6a8b69279bd1b337ac6af553",
+    "name": "hello_world",
+    "organizationId": "6a8b2f5036cbdb99fa817e99",
+    "__v": 0,
+    "category": "UTILITY",
+    "components": [
+      {
+        "type": "HEADER",
+        "format": "TEXT",
+        "text": "Hello World",
+        "_id": "6a8b69273ba392aa18c22ed4",
+        "buttons": []
+      },
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.",
+        "_id": "6a8b69273ba392aa18c22ed5",
+        "buttons": []
+      },
+      {
+        "type": "FOOTER",
+        "format": "TEXT",
+        "text": "WhatsApp Business Platform sample message",
+        "_id": "6a8b69273ba392aa18c22ed6",
+        "buttons": []
+      }
+    ],
+    "language": "en_US",
+    "status": "APPROVED"
+  },
+  {
+    "_id": "6a8b69279bd1b337ac6af554",
+    "name": "iglobal_welcome_msg",
+    "organizationId": "6a8b2f5036cbdb99fa817e99",
+    "__v": 0,
+    "category": "MARKETING",
+    "components": [
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "Hello! Thank you for connecting with Iglobal Tech. We are here to assist you.",
+        "_id": "6a8b69273ba392aa18c22ed1",
+        "buttons": []
+      }
+    ],
+    "language": "en_US",
+    "status": "APPROVED"
+  },
+  {
+    "_id": "6a8b69279bd1b337ac6af555",
+    "name": "test",
+    "organizationId": "6a8b2f5036cbdb99fa817e99",
+    "__v": 0,
+    "category": "MARKETING",
+    "components": [
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "hello testing",
+        "_id": "6a8b69273ba392aa18c22ece",
+        "buttons": []
+      }
+    ],
+    "language": "hi",
+    "status": "APPROVED"
+  },
+  {
+    "_id": "6a8d2f3726cbae608d5500c8",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "language": "en_US",
+    "name": "iglobal_welcome_sample",
+    "__v": 0,
+    "category": "MARKETING",
+    "components": [
+      {
+        "type": "BODY",
+        "format": "TEXT",
+        "text": "Hello {{1}}, Welcome to IGlobal Tech! Thank you for reaching out to us. How can we help you today?",
+        "example": {
+          "body_text": [
+            [
+              "Wasim"
+            ]
+          ]
+        },
+        "_id": "6a8d2f37d32a4a1af2c4c055",
+        "buttons": []
+      }
+    ],
+    "createdAt": "2026-08-25T05:59:19.917Z",
+    "metaQualityRating": "UNKNOWN",
+    "metaResponse": {},
+    "providerTemplateId": "3158635564328115",
+    "rejectionReason": null,
+    "status": "PENDING",
+    "updatedAt": "2026-08-25T05:59:19.917Z",
+    "whatsappAccountId": "6a8b1d85d8761c6ddf09a7a9"
+  }
+]

@@ -47,19 +47,22 @@ export default function CampaignsPage() {
 
   const campaigns = campaignsRes?.data || [];
 
+  // Canonical WhatsApp Connection Status
+  const { data: statusRes, isLoading: isLoadingStatus } = useQuery({
+    queryKey: ['whatsapp-status'],
+    queryFn: () => api.get('/whatsapp/status')
+  });
+  const statusData = statusRes?.data || null;
+  const isWhatsAppConnected = statusData?.connected === true;
+
   // 2. Fetch Templates & Phone numbers for builder
   const { data: templatesRes } = useQuery({
     queryKey: ['templates'],
-    queryFn: () => api.get('/whatsapp/templates')
-  });
-
-  const { data: profileRes } = useQuery({
-    queryKey: ['profile'],
-    queryFn: () => api.get('/whatsapp/profile')
+    queryFn: () => api.get('/whatsapp/templates'),
+    enabled: Boolean(isWhatsAppConnected)
   });
 
   const templates = templatesRes?.data || [];
-  const activePhoneNumber = profileRes?.data?.activePhoneNumber || null;
   const selectedTemplate = templates.find((t) => t._id === formData.templateId) || templates[0] || null;
 
   // 3. Socket.IO Real-time Campaign Progress Listeners
@@ -103,6 +106,42 @@ export default function CampaignsPage() {
       sendSpeedPerMinute: formData.sendSpeedPerMinute
     });
   };
+
+  // IF WHATSAPP IS NOT CONNECTED: SHOW CLEAN EXPLICIT CONNECT GATE (Section 24)
+  if (!isLoadingStatus && !isWhatsAppConnected) {
+    return (
+      <div className="min-h-[calc(100vh-64px)] flex items-center justify-center bg-slate-50/70 p-4 md:p-8">
+        <div className="max-w-md w-full bg-white rounded-3xl p-8 border border-slate-200 shadow-2xl text-center space-y-6">
+          <div className="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
+            <Megaphone className="w-8 h-8" />
+          </div>
+
+          <div className="space-y-1.5">
+            <h2 className="text-xl font-black text-slate-900 tracking-tight">WhatsApp Campaigns</h2>
+            <p className="text-xs font-bold text-rose-600">No WhatsApp Business account connected.</p>
+            <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed pt-1">
+              Connect your WhatsApp Business account to create and dispatch bulk WhatsApp broadcast campaigns.
+            </p>
+          </div>
+
+          <div className="p-3.5 bg-emerald-50/60 rounded-2xl border border-emerald-100 flex items-start space-x-2.5 text-left text-xs font-semibold text-emerald-950">
+            <Smartphone className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+            <p className="text-[11px] leading-relaxed">
+              Campaign delivery uses the official Meta Cloud API with high throughput and real-time delivery tracking.
+            </p>
+          </div>
+
+          <a
+            href="/integrations"
+            className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl text-xs font-black shadow-lg shadow-emerald-500/25 transition flex items-center justify-center space-x-2"
+          >
+            <Smartphone className="w-4 h-4" />
+            <span>Connect WhatsApp Business</span>
+          </a>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="p-4 md:p-8 max-w-[1600px] mx-auto space-y-6 pb-16">

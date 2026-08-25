@@ -21,11 +21,16 @@ const whatsAppPhoneNumberSchema = new mongoose.Schema(
     },
     displayPhoneNumber: {
       type: String,
-      required: true // e.g. "+91 87009 94288"
+      required: true // e.g. "+91 91998 00309"
     },
     verifiedName: {
       type: String,
       default: 'Business Account'
+    },
+    platformType: {
+      type: String,
+      enum: ['CLOUD_API', 'WHATSAPP_BUSINESS_APP', 'ON_PREMISE', 'UNKNOWN'],
+      default: 'CLOUD_API'
     },
     qualityRating: {
       type: String,
@@ -34,12 +39,24 @@ const whatsAppPhoneNumberSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ['CONNECTED', 'DISCONNECTED', 'PENDING', 'FLAGGED'],
+      enum: ['CONNECTED', 'DISCONNECTED', 'PENDING', 'FLAGGED', 'RESTRICTED'],
       default: 'CONNECTED'
+    },
+    coexistenceEligible: {
+      type: Boolean,
+      default: false
+    },
+    coexistenceStatus: {
+      type: String,
+      enum: ['ACTIVE', 'ELIGIBLE', 'NOT_ELIGIBLE', 'PENDING', 'DISABLED'],
+      default: 'NOT_ELIGIBLE'
     },
     messagingLimitTier: {
       type: String,
-      default: 'TIER_1K' // TIER_50, TIER_250, TIER_1K, TIER_10K, TIER_100K, TIER_UNLIMITED
+      default: 'TIER_10K' // TIER_50, TIER_250, TIER_1K, TIER_10K, TIER_100K, TIER_UNLIMITED
+    },
+    lastWebhookAt: {
+      type: Date
     },
     isDefault: {
       type: Boolean,

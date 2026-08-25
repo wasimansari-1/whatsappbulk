@@ -43,6 +43,8 @@ const messageSchema = new mongoose.Schema(
       text: String,
       mediaUrl: String,
       caption: String,
+      filename: String,
+      location: mongoose.Schema.Types.Mixed,
       templateName: String,
       templateLanguage: String,
       templateVariables: [String],
@@ -54,6 +56,10 @@ const messageSchema = new mongoose.Schema(
         }
       ]
     },
+    isEdited: { type: Boolean, default: false },
+    editedAt: { type: Date },
+    isDeleted: { type: Boolean, default: false },
+    deletedForEveryone: { type: Boolean, default: false },
     status: {
       type: String,
       enum: Object.values(MessageStatus),
@@ -62,6 +68,8 @@ const messageSchema = new mongoose.Schema(
     },
     providerMessageId: {
       type: String,
+      unique: true,
+      sparse: true,
       index: true
     },
     isChatbotResponse: {
@@ -79,7 +87,7 @@ const messageSchema = new mongoose.Schema(
 );
 
 messageSchema.index({ organizationId: 1, contactId: 1, createdAt: -1 });
-messageSchema.index({ organizationId: 1, providerMessageId: 1 });
+messageSchema.index({ organizationId: 1, providerMessageId: 1 }, { unique: true, partialFilterExpression: { providerMessageId: { $type: 'string' } } });
 messageSchema.index({ organizationId: 1, createdAt: -1 });
 
 export const Message = mongoose.model('Message', messageSchema);

@@ -94,13 +94,16 @@ export const createTemplateSchema = z.object({
 export const createCampaignSchema = z.object({
   name: z.string().min(1, 'Campaign name is required').max(150),
   channel: z.nativeEnum(ChannelType).default(ChannelType.WHATSAPP),
-  whatsappPhoneNumberId: z.string().min(1, 'WhatsApp phone number is required'),
+  whatsappPhoneNumberId: z.string().optional().nullable(),
   templateId: z.string().min(1, 'Template selection is required'),
-  audienceType: z.enum(['ALL', 'TAGS', 'LISTS', 'CUSTOM']),
+  templateName: z.string().optional(),
+  audienceType: z.enum(['ALL', 'TAGS', 'LISTS', 'CUSTOM']).default('ALL'),
+  targetTag: z.string().optional(),
   targetTags: z.array(z.string()).default([]),
   targetListIds: z.array(z.string()).default([]),
   variableMapping: z.record(z.string()).default({}),
-  scheduledAt: z.string().datetime().optional().nullable(),
+  scheduleDate: z.string().optional().nullable(),
+  scheduledAt: z.string().optional().nullable(),
   sendSpeedPerMinute: z.number().int().positive().default(60)
 });
 

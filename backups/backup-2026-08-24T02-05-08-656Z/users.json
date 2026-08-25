@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a798",
+    "name": "Wasim Ansari",
+    "email": "wasim@arvee.com",
+    "password": "$2a$10$cS8oTP.YoLSMrrBbzN7WyuKAbX64iXbAECnzhrJtyWWt6ImrqkZOm",
+    "phone": "+91 91998 00309",
+    "isEmailVerified": true,
+    "status": "ACTIVE",
+    "createdAt": "2026-08-23T16:19:17.606Z",
+    "updatedAt": "2026-08-23T19:52:51.386Z",
+    "__v": 0,
+    "currentOrganizationId": "6a8b1d85d8761c6ddf09a79a",
+    "lastLoginAt": "2026-08-23T19:52:51.374Z",
+    "countryCode": "91"
+  },
+  {
+    "_id": "6a8b210d762c93db0a447ed2",
+    "name": "khan",
+    "email": "khan1234@gmail.com",
+    "password": "$2a$10$HVUXRrUG2CzJLiAgNNhIVu248n42z56JAHcYzjuGrhIDfJhTsdu72",
+    "phone": "08287916046",
+    "isEmailVerified": false,
+    "status": "ACTIVE",
+    "createdAt": "2026-08-23T16:34:21.640Z",
+    "updatedAt": "2026-08-23T16:34:21.731Z",
+    "__v": 0,
+    "currentOrganizationId": "6a8b210d762c93db0a447ed5"
+  }
+]

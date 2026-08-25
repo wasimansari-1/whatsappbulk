@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7a7",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "period": "2026-08",
+    "periodStart": "2026-07-31T18:30:00.000Z",
+    "periodEnd": "2026-08-31T18:29:59.000Z",
+    "messagesSent": 13314,
+    "messagesDelivered": 12983,
+    "messagesRead": 9843,
+    "messagesFailed": 84,
+    "marketingMessages": 8450,
+    "utilityMessages": 3420,
+    "serviceMessages": 1210,
+    "authenticationMessages": 234,
+    "activeContactsCount": 0,
+    "campaignsRun": 0,
+    "createdAt": "2026-08-23T16:19:17.701Z",
+    "updatedAt": "2026-08-23T17:19:57.131Z",
+    "__v": 0
+  }
+]

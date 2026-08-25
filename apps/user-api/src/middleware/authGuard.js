@@ -15,7 +15,10 @@ export async function authGuard(req, res, next) {
       return res.status(401).json(apiError(ErrorCodes.UNAUTHORIZED, 'Authentication token is required'));
     }
 
-    const jwtSecret = process.env.JWT_SECRET || 'super_secret_jwt_key_enterprise_whatsapp_saas_2026_production_grade';
+    const jwtSecret = process.env.JWT_SECRET;
+    if (!jwtSecret) {
+      return res.status(500).json(apiError(ErrorCodes.INTERNAL_ERROR, 'Server authentication configuration error'));
+    }
     let decoded;
     try {
       decoded = jwt.verify(token, jwtSecret);
@@ -33,7 +36,10 @@ export async function authGuard(req, res, next) {
 
     if (!organizationId) {
       // Find first active membership
-      const membership = await OrganizationMember.findOne({ userId: user._id, status: 'ACTIVE' }).lean();
+      const membership = await OrganizationMember.findOne({
+        userId: { $in: [user._id, user._id.toString()] },
+        status: 'ACTIVE'
+      }).lean();
       if (membership) {
         organizationId = membership.organizationId;
       }
@@ -45,8 +51,8 @@ export async function authGuard(req, res, next) {
 
     // Validate membership
     const member = await OrganizationMember.findOne({
-      userId: user._id,
-      organizationId,
+      userId: { $in: [user._id, user._id.toString()] },
+      organizationId: { $in: [organizationId, organizationId.toString()] },
       status: 'ACTIVE'
     }).lean();
 

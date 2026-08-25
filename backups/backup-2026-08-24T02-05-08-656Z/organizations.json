@@ -1,0 +1,46 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a79a",
+    "name": "IGlobal Tech",
+    "slug": "iglobal-tech",
+    "ownerId": "6a8b1d85d8761c6ddf09a798",
+    "status": "ACTIVE",
+    "planId": "6a8b1d85d8761c6ddf09a794",
+    "timezone": "Asia/Kolkata",
+    "currency": "INR",
+    "settings": {
+      "defaultCountryCode": "91",
+      "autoReplyEnabled": false
+    },
+    "deletedAt": null,
+    "createdAt": "2026-08-23T16:19:17.689Z",
+    "updatedAt": "2026-08-23T16:19:17.689Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b210d762c93db0a447ed5",
+    "name": "cs",
+    "slug": "cs-1724",
+    "ownerId": "6a8b210d762c93db0a447ed2",
+    "status": "ACTIVE",
+    "planId": "6a8b1d85d8761c6ddf09a792",
+    "timezone": "Asia/Kolkata",
+    "currency": "INR",
+    "settings": {
+      "defaultCountryCode": "91",
+      "autoReplyEnabled": false
+    },
+    "deletedAt": null,
+    "createdAt": "2026-08-23T16:34:21.725Z",
+    "updatedAt": "2026-08-23T16:34:21.725Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2f5036cbdb99fa817e99",
+    "name": "Tenant B Isolated Workspace",
+    "slug": "tenant-b-isolated",
+    "status": "ACTIVE",
+    "createdAt": "2026-08-23T17:35:12.035Z",
+    "updatedAt": "2026-08-23T17:35:12.035Z"
+  }
+]

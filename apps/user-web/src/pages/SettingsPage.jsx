@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import api from '../services/api';
+import { useToast } from '../context/ToastContext';
+import { useMetaEmbeddedSignup } from '../hooks/useMetaEmbeddedSignup';
+import ManualWhatsAppModal from '../components/ManualWhatsAppModal';
 import {
   Smartphone,
   Users,
@@ -12,67 +15,101 @@ import {
   Plus,
   RefreshCw,
   Zap,
-  Save
+  Save,
+  Unlink,
+  Check,
+  AlertCircle,
+  ExternalLink,
+  Layers,
+  Sparkles,
+  Lock
 } from 'lucide-react';
 
 export default function SettingsPage() {
   const queryClient = useQueryClient();
+  const toast = useToast();
   const [activeTab, setActiveTab] = useState('whatsapp');
+  const [isManualModalOpen, setIsManualModalOpen] = useState(false);
 
+  // Fetch Business Profile & Connection Status
   const { data: profileRes, isLoading } = useQuery({
     queryKey: ['profile'],
     queryFn: () => api.get('/whatsapp/profile')
   });
 
   const profileData = profileRes?.data || null;
+  const isConnected = profileData?.profile?.status === 'CONNECTED';
+  const isCoexistenceActive = profileData?.profile?.coexistenceStatus === 'ACTIVE' || profileData?.profile?.coexistenceStatus === 'ENABLED';
 
-  // Form state for Meta Configuration
-  const [metaForm, setMetaForm] = useState({
-    wabaId: '1049968644261349',
-    phoneNumberId: '1223600624165995',
-    displayPhoneNumber: '+91 91998 00309',
-    verifiedName: 'IGlobal Tech',
-    accessToken: ''
+  // 1. Meta Embedded Signup / Direct OAuth Hook (Feature Flagged)
+  const { launchEmbeddedSignup, isConnecting, metaConfig } = useMetaEmbeddedSignup({
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ['profile'] });
+      queryClient.invalidateQueries({ queryKey: ['dashboard-data'] });
+      queryClient.invalidateQueries({ queryKey: ['templates'] });
+      toast.success('WhatsApp Business connected successfully!', 'Connected');
+    },
+    onError: (err) => {
+      toast.error(err.message, 'Connection Error');
+    }
   });
 
-  // Sync with Meta Mutation
+  // Test Connection Mutation
+  const testWhatsAppMutation = useMutation({
+    mutationFn: () => api.post('/whatsapp/test-connection'),
+    onSuccess: (res) => {
+      const data = res.data || res;
+      if (data.isConnected) {
+        toast.success(`Meta Graph API Verified! WABA: ${data.details?.wabaName}, Quality: ${data.details?.qualityRating}`, 'Test Passed 🟢');
+      } else {
+        toast.error(data.errors?.[0] || 'Meta API verification check failed.', 'Test Notice');
+      }
+    },
+    onError: (err) => {
+      toast.error(err.response?.data?.message || err.message, 'Test Failed');
+    }
+  });
+
+  // 2. Sync from Meta Mutation
   const syncMutation = useMutation({
     mutationFn: () => api.post('/whatsapp/sync'),
     onSuccess: (res) => {
       queryClient.invalidateQueries({ queryKey: ['profile'] });
       queryClient.invalidateQueries({ queryKey: ['templates'] });
       queryClient.invalidateQueries({ queryKey: ['dashboard-data'] });
-      alert(`Meta Sync Successful! ${res.data?.syncedPhones || 1} phone number and ${res.data?.syncedTemplates || 0} templates synced from Meta Cloud API.`);
+      alert(`Meta Sync Successful! ${res.data?.syncedPhones || 1} phone number and ${res.data?.syncedTemplates || 0} templates synced from Meta.`);
     },
     onError: (err) => {
       alert(`Meta Sync failed: ${err.message}`);
     }
   });
 
-  // Save Meta Configuration Mutation
-  const saveMetaMutation = useMutation({
-    mutationFn: (data) => api.post('/whatsapp/connect', data),
+  // 3. Disconnect Mutation
+  const disconnectMutation = useMutation({
+    mutationFn: () => api.post('/whatsapp/disconnect'),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['profile'] });
       queryClient.invalidateQueries({ queryKey: ['dashboard-data'] });
-      alert('Meta WhatsApp Account configuration saved successfully!');
+      alert('WhatsApp connection disconnected cleanly.');
     }
   });
 
   return (
-    <div className="p-4 md:p-8 max-w-[1600px] mx-auto space-y-6">
+    <div className="p-4 md:p-8 max-w-[1600px] mx-auto space-y-6 pb-20">
       <div>
         <h1 className="text-xl font-extrabold text-slate-900 tracking-tight">Organization Settings</h1>
-        <p className="text-xs text-slate-500 mt-0.5">Manage Meta WhatsApp Cloud API connection, team members, and webhooks.</p>
+        <p className="text-xs text-slate-500 mt-0.5">
+          Manage Meta WhatsApp Cloud API connection, Coexistence status, team members, and webhooks.
+        </p>
       </div>
 
       {/* Navigation Tabs */}
       <div className="flex space-x-2 border-b border-slate-200">
         {[
-          { id: 'whatsapp', label: 'Meta WhatsApp Connect', icon: Smartphone },
+          { id: 'whatsapp', label: 'WhatsApp & Coexistence', icon: Smartphone },
           { id: 'team', label: 'Team & RBAC', icon: Users },
           { id: 'apikeys', label: 'API Keys', icon: Key },
-          { id: 'webhooks', label: 'Webhooks', icon: Webhook }
+          { id: 'webhooks', label: 'Webhooks & Compliance', icon: Webhook }
         ].map((tab) => (
           <button
             key={tab.id}
@@ -89,143 +126,160 @@ export default function SettingsPage() {
         ))}
       </div>
 
-      {/* Tab 1: Meta WhatsApp Connection & Number Settings */}
+      {/* TAB 1: WHATSAPP EMBEDDED SIGNUP & COEXISTENCE */}
       {activeTab === 'whatsapp' && (
         <div className="space-y-6">
-          {/* Status Card with Live Sync Button */}
-          <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          {/* Main Connection Card */}
+          <div className="bg-white rounded-3xl p-6 md:p-8 border border-slate-200/90 shadow-sm space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="space-y-1">
-                <div className="flex items-center space-x-2">
-                  <h3 className="text-sm font-bold text-slate-900">Official Meta WhatsApp Cloud API Status</h3>
-                  <span className="px-2.5 py-0.5 bg-emerald-50 text-emerald-700 text-[10px] font-bold rounded-full border border-emerald-200">
-                    LIVE CONNECTED
+                <div className="flex items-center space-x-2.5">
+                  <h3 className="text-base font-extrabold text-slate-900">WhatsApp Business Platform Connection</h3>
+                  <span
+                    className={`px-2.5 py-0.5 text-[10px] font-bold rounded-full border ${
+                      isConnected
+                        ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                        : 'bg-rose-50 text-rose-700 border-rose-200'
+                    }`}
+                  >
+                    {isConnected ? 'LIVE CONNECTED' : 'DISCONNECTED'}
                   </span>
                 </div>
-                <p className="text-xs text-slate-500">Connected to Meta Graph API v20.0 with automatic template & messaging sync.</p>
+                <p className="text-xs text-slate-500">
+                  Official Meta Cloud API integration with seamless WhatsApp Business App coexistence.
+                </p>
               </div>
 
-              <button
-                onClick={() => syncMutation.mutate()}
-                disabled={syncMutation.isPending}
-                className="flex items-center space-x-2 px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-xs font-bold shadow-md shadow-brand-500/20 disabled:opacity-50 transition"
-              >
-                <RefreshCw className={`w-3.5 h-3.5 ${syncMutation.isPending ? 'animate-spin' : ''}`} />
-                <span>{syncMutation.isPending ? 'Syncing with Meta...' : 'Sync from Meta'}</span>
-              </button>
-            </div>
+              {/* Action Buttons: Connect / Reconnect / Sync / Test */}
+              <div className="flex flex-wrap items-center gap-2">
+                {isConnected && (
+                  <>
+                    <button
+                      onClick={() => testWhatsAppMutation.mutate()}
+                      disabled={testWhatsAppMutation.isPending}
+                      className="flex items-center space-x-1.5 px-3.5 py-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-xl text-xs font-bold text-emerald-800 transition"
+                      title="Run live Meta Graph API verification check"
+                    >
+                      <RefreshCw className={`w-3.5 h-3.5 ${testWhatsAppMutation.isPending ? 'animate-spin' : ''}`} />
+                      <span>{testWhatsAppMutation.isPending ? 'Testing...' : 'Test Connection'}</span>
+                    </button>
 
-            {/* Live Number Details Card */}
-            <div className="p-5 rounded-2xl bg-emerald-50/40 border border-emerald-200 space-y-3">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-xs font-bold text-slate-800">{profileData?.profile?.businessName || 'IGlobal Tech'}</p>
-                  <p className="text-xs font-mono text-emerald-800 font-semibold mt-0.5">{profileData?.profile?.displayPhoneNumber || '+91 91998 00309'}</p>
-                </div>
-                <div className="text-right text-xs">
-                  <span className="text-slate-400 text-[10px]">Quality Rating</span>
-                  <p className="font-bold text-emerald-600">GREEN</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-3 border-t border-emerald-200/60 text-xs">
-                <div>
-                  <span className="text-slate-400 text-[10px]">WABA ID:</span>
-                  <p className="font-mono text-slate-700 font-semibold">{profileData?.profile?.wabaId || '1049968644261349'}</p>
-                </div>
-                <div>
-                  <span className="text-slate-400 text-[10px]">Phone Number ID:</span>
-                  <p className="font-mono text-slate-700 font-semibold">{profileData?.profile?.phoneNumberId || '1223600624165995'}</p>
-                </div>
-                <div>
-                  <span className="text-slate-400 text-[10px]">Messaging Limit:</span>
-                  <p className="font-bold text-slate-700">10,000 / 24 hrs</p>
-                </div>
-                <div>
-                  <span className="text-slate-400 text-[10px]">Cloud API Version:</span>
-                  <p className="font-bold text-emerald-700">v20.0</p>
-                </div>
-              </div>
-            </div>
-          </div>
+                    <button
+                      onClick={() => syncMutation.mutate()}
+                      disabled={syncMutation.isPending}
+                      className="flex items-center space-x-1.5 px-3.5 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 transition"
+                      title="Sync profile from Meta"
+                    >
+                      <RefreshCw className={`w-3.5 h-3.5 ${syncMutation.isPending ? 'animate-spin' : ''}`} />
+                      <span>{syncMutation.isPending ? 'Syncing...' : 'Sync Meta'}</span>
+                    </button>
+                  </>
+                )}
 
-          {/* Connect / Update WhatsApp Credentials Form */}
-          <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm space-y-4">
-            <h3 className="text-sm font-bold text-slate-900">Update Meta Credentials & Phone Number</h3>
-            <p className="text-xs text-slate-500">Configure or change your official Meta WhatsApp Business account credentials:</p>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                saveMetaMutation.mutate(metaForm);
-              }}
-              className="space-y-4"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">WhatsApp Business Account ID (WABA ID)</label>
-                  <input
-                    type="text"
-                    required
-                    value={metaForm.wabaId}
-                    onChange={(e) => setMetaForm({ ...metaForm, wabaId: e.target.value })}
-                    className="w-full p-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-brand-500 font-mono"
-                    placeholder="1049968644261349"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Phone Number ID</label>
-                  <input
-                    type="text"
-                    required
-                    value={metaForm.phoneNumberId}
-                    onChange={(e) => setMetaForm({ ...metaForm, phoneNumberId: e.target.value })}
-                    className="w-full p-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-brand-500 font-mono"
-                    placeholder="1223600624165995"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Display Phone Number (with country code)</label>
-                  <input
-                    type="text"
-                    required
-                    value={metaForm.displayPhoneNumber}
-                    onChange={(e) => setMetaForm({ ...metaForm, displayPhoneNumber: e.target.value })}
-                    className="w-full p-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-brand-500"
-                    placeholder="+91 91998 00309"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Verified Business Name</label>
-                  <input
-                    type="text"
-                    required
-                    value={metaForm.verifiedName}
-                    onChange={(e) => setMetaForm({ ...metaForm, verifiedName: e.target.value })}
-                    className="w-full p-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-brand-500"
-                    placeholder="IGlobal Tech"
-                  />
-                </div>
-              </div>
-
-              <div className="flex justify-end pt-2">
+                {/* Primary Connect Manually Button */}
                 <button
-                  type="submit"
-                  disabled={saveMetaMutation.isPending}
-                  className="flex items-center space-x-1.5 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-500/20 transition"
+                  onClick={() => setIsManualModalOpen(true)}
+                  className="flex items-center space-x-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-black shadow-lg shadow-emerald-500/25 transition"
                 >
-                  <Save className="w-3.5 h-3.5" />
-                  <span>{saveMetaMutation.isPending ? 'Saving...' : 'Save Meta Configuration'}</span>
+                  <Zap className="w-4 h-4" />
+                  <span>{isConnected ? 'Edit Manual Config' : 'Connect Manually'}</span>
                 </button>
               </div>
-            </form>
+            </div>
+
+            {/* COEXISTENCE STATUS BANNER */}
+            <div className="p-5 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-teal-50/50 to-blue-50/50 border border-emerald-200/80 space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex items-center space-x-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shadow-md shadow-emerald-600/30">
+                    📱+☁️
+                  </div>
+                  <div>
+                    <div className="flex items-center space-x-2">
+                      <h4 className="text-xs font-bold text-emerald-950">WhatsApp Business App Coexistence</h4>
+                      <span className="px-2 py-0.5 bg-emerald-600 text-white text-[9px] font-black rounded-full uppercase tracking-wider">
+                        ACTIVE
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-emerald-800 mt-0.5">
+                      Your number is active on both your physical phone's WhatsApp Business App and this Cloud SaaS simultaneously.
+                    </p>
+                  </div>
+                </div>
+
+                {isConnected && (
+                  <button
+                    onClick={() => {
+                      if (confirm('Disconnect WhatsApp connection? (Your mobile WhatsApp Business App will continue to work normally)')) {
+                        disconnectMutation.mutate();
+                      }
+                    }}
+                    className="flex items-center space-x-1 px-3 py-1.5 bg-white hover:bg-rose-50 border border-rose-200 text-rose-600 rounded-xl text-xs font-semibold shadow-xs transition"
+                  >
+                    <Unlink className="w-3.5 h-3.5" />
+                    <span>Disconnect</span>
+                  </button>
+                )}
+              </div>
+
+              {/* Grid of Verified Connection Details */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-emerald-200/60 text-xs">
+                <div>
+                  <span className="text-slate-400 text-[10px] uppercase font-bold block">Business Name</span>
+                  <p className="font-bold text-slate-800 mt-0.5">{profileData?.profile?.businessName || (isConnected ? 'WhatsApp Business' : 'Not Connected')}</p>
+                </div>
+                <div>
+                  <span className="text-slate-400 text-[10px] uppercase font-bold block">Connected Number</span>
+                  <p className="font-mono text-emerald-800 font-bold mt-0.5">{profileData?.profile?.displayPhoneNumber || 'Not Connected'}</p>
+                </div>
+                <div>
+                  <span className="text-slate-400 text-[10px] uppercase font-bold block">WABA ID</span>
+                  <p className="font-mono text-slate-700 font-semibold mt-0.5">{profileData?.profile?.wabaId || 'Not Connected'}</p>
+                </div>
+                <div>
+                  <span className="text-slate-400 text-[10px] uppercase font-bold block">Phone Number ID</span>
+                  <p className="font-mono text-slate-700 font-semibold mt-0.5">{profileData?.profile?.phoneNumberId || 'Not Connected'}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Key Advantages / Coexistence Info Guide */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-600">
+              <div className="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-1">
+                <div className="flex items-center space-x-1.5 font-bold text-slate-800">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <span>No Phone De-registration</span>
+                </div>
+                <p className="text-[11px] text-slate-500">
+                  You do NOT need to delete or migrate away from your mobile WhatsApp Business App.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-1">
+                <div className="flex items-center space-x-1.5 font-bold text-slate-800">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <span>2-Way Live Sync</span>
+                </div>
+                <p className="text-[11px] text-slate-500">
+                  Messages and conversations stay synchronized in real time between your mobile app and SaaS inbox.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-1">
+                <div className="flex items-center space-x-1.5 font-bold text-slate-800">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <span>High-Speed Campaigns</span>
+                </div>
+                <p className="text-[11px] text-slate-500">
+                  Broadcasts are dispatched via official Meta Cloud API with carrier-level deliverability.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       )}
 
-      {/* Tab 2: Team */}
+      {/* TAB 2: TEAM */}
       {activeTab === 'team' && (
         <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm space-y-4">
           <div className="flex justify-between items-center">
@@ -246,7 +300,7 @@ export default function SettingsPage() {
         </div>
       )}
 
-      {/* Tab 3: API Keys */}
+      {/* TAB 3: API KEYS */}
       {activeTab === 'apikeys' && (
         <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm space-y-4">
           <div className="flex justify-between items-center">
@@ -264,41 +318,83 @@ export default function SettingsPage() {
         </div>
       )}
 
-      {/* Tab 4: Webhooks */}
+      {/* TAB 4: WEBHOOKS & COMPLIANCE */}
       {activeTab === 'webhooks' && (
-        <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm space-y-4">
-          <h3 className="text-sm font-bold text-slate-900">Meta Webhook Ingestion Configuration</h3>
-          <p className="text-xs text-slate-500">Configure these exact values in your Meta App Dashboard (**WhatsApp > Configuration**):</p>
-          
-          <div className="space-y-3 pt-2 text-xs font-mono">
-            <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-1">
-              <span className="text-slate-400 text-[10px] uppercase font-bold block">Callback URL</span>
-              <div className="flex items-center justify-between">
-                <span className="text-slate-800 font-bold">https://minimal-departmental-deliver-freedom.trycloudflare.com/api/v1/webhooks/whatsapp</span>
-                <button onClick={() => {
-                  navigator.clipboard.writeText('https://minimal-departmental-deliver-freedom.trycloudflare.com/api/v1/webhooks/whatsapp');
-                  alert('Callback URL Copied!');
-                }} className="p-1 hover:bg-slate-200 rounded text-slate-600">
-                  <Copy className="w-4 h-4" />
-                </button>
+        <div className="space-y-6">
+          <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm space-y-4">
+            <h3 className="text-sm font-bold text-slate-900">Meta Webhook Ingestion Configuration</h3>
+            <p className="text-xs text-slate-500">Configure these exact values in your Meta App Dashboard (WhatsApp &gt; Configuration):</p>
+
+            <div className="space-y-3 pt-2 text-xs font-mono">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-1">
+                <span className="text-slate-400 text-[10px] uppercase font-bold block">Callback URL</span>
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-800 font-bold">https://minimal-departmental-deliver-freedom.trycloudflare.com/api/v1/webhooks/whatsapp</span>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText('https://minimal-departmental-deliver-freedom.trycloudflare.com/api/v1/webhooks/whatsapp');
+                      alert('Callback URL Copied!');
+                    }}
+                    className="p-1 hover:bg-slate-200 rounded text-slate-600"
+                  >
+                    <Copy className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-1">
+                <span className="text-slate-400 text-[10px] uppercase font-bold block">Verify Token</span>
+                <div className="flex items-center justify-between">
+                  <span className="text-emerald-700 font-bold">whatsapp_bulk_saas_verify_token_2026</span>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText('whatsapp_bulk_saas_verify_token_2026');
+                      alert('Verify Token Copied!');
+                    }}
+                    className="p-1 hover:bg-slate-200 rounded text-slate-600"
+                  >
+                    <Copy className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
             </div>
+          </div>
 
-            <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-1">
-              <span className="text-slate-400 text-[10px] uppercase font-bold block">Verify Token</span>
-              <div className="flex items-center justify-between">
-                <span className="text-emerald-700 font-bold">whatsapp_bulk_saas_verify_token_2026</span>
-                <button onClick={() => {
-                  navigator.clipboard.writeText('whatsapp_bulk_saas_verify_token_2026');
-                  alert('Verify Token Copied!');
-                }} className="p-1 hover:bg-slate-200 rounded text-slate-600">
-                  <Copy className="w-4 h-4" />
-                </button>
+          {/* Meta App Review Compliance Endpoints */}
+          <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm space-y-3">
+            <h3 className="text-sm font-bold text-slate-900">Meta App Review Compliance Endpoints</h3>
+            <div className="space-y-2 text-xs text-slate-600">
+              <div className="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <span className="font-semibold">Data Deletion Callback:</span>
+                <span className="font-mono text-slate-800">https://minimal-departmental-deliver-freedom.trycloudflare.com/api/v1/compliance/data-deletion</span>
+              </div>
+              <div className="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <span className="font-semibold">Privacy Policy:</span>
+                <span className="font-mono text-slate-800">https://minimal-departmental-deliver-freedom.trycloudflare.com/api/v1/compliance/privacy-policy</span>
+              </div>
+              <div className="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <span className="font-semibold">Terms of Service:</span>
+                <span className="font-mono text-slate-800">https://minimal-departmental-deliver-freedom.trycloudflare.com/api/v1/compliance/terms</span>
               </div>
             </div>
           </div>
         </div>
       )}
+
+      {/* Manual WhatsApp Connection Wizard Modal */}
+      <ManualWhatsAppModal
+        isOpen={isManualModalOpen}
+        onClose={() => setIsManualModalOpen(false)}
+        initialData={
+          isConnected
+            ? {
+                wabaId: profileData?.profile?.wabaId,
+                phoneNumberId: profileData?.profile?.phoneNumberId,
+                displayPhoneNumber: profileData?.profile?.displayPhoneNumber
+              }
+            : null
+        }
+      />
     </div>
   );
 }

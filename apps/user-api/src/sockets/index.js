@@ -18,8 +18,13 @@ export function initSocketServer(httpServer) {
       return next(new Error('Authentication token required'));
     }
 
+    const jwtSecret = process.env.JWT_SECRET;
+    if (!jwtSecret) {
+      return next(new Error('Server configuration error: JWT_SECRET missing'));
+    }
+
     try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET || 'super_secret_jwt_key_enterprise_whatsapp_saas_2026_production_grade');
+      const decoded = jwt.verify(token, jwtSecret);
       socket.user = decoded;
       next();
     } catch (err) {
@@ -27,13 +32,48 @@ export function initSocketServer(httpServer) {
     }
   });
 
-  io.on('connection', (socket) => {
-    const orgId = socket.user?.organizationId;
-    if (orgId) {
-      const orgRoom = `org:${orgId}`;
-      socket.join(orgRoom);
-      console.log(`[Socket] Client ${socket.id} joined room ${orgRoom}`);
+  io.on('connection', async (socket) => {
+    let orgId = socket.user?.organizationId || socket.handshake.auth?.organizationId || socket.handshake.query?.organizationId;
+
+    if (!orgId && socket.user?.userId) {
+      try {
+        const { User } = await import('../models/User.js');
+        const user = await User.findById(socket.user.userId).lean();
+        orgId = user?.currentOrganizationId;
+      } catch (e) {}
     }
+
+    if (orgId) {
+      const cleanOrgId = orgId.toString();
+      const orgRoom = `org:${cleanOrgId}`;
+      socket.join(orgRoom);
+      socket.join(cleanOrgId); // Join both with and without prefix
+      console.log(`[Socket] Client ${socket.id} (User: ${socket.user?.userId}) joined room ${orgRoom}`);
+    }
+
+    if (socket.user?.userId) {
+      socket.join(`user:${socket.user.userId}`);
+    }
+
+    socket.on('typing.start', (data) => {
+      if (orgId && data?.contactId) {
+        io.to(`org:${orgId.toString()}`).emit('conversation.typing', {
+          contactId: data.contactId,
+          isTyping: true,
+          userId: socket.user?.userId || socket.user?._id
+        });
+      }
+    });
+
+    socket.on('typing.stop', (data) => {
+      if (orgId && data?.contactId) {
+        io.to(`org:${orgId.toString()}`).emit('conversation.typing', {
+          contactId: data.contactId,
+          isTyping: false,
+          userId: socket.user?.userId || socket.user?._id
+        });
+      }
+    });
 
     socket.on('disconnect', () => {
       // Disconnected cleanup
@@ -45,8 +85,13 @@ export function initSocketServer(httpServer) {
 
 export function emitToOrganization(organizationId, event, data) {
   if (!io) return;
-  const orgRoom = `org:${organizationId}`;
-  io.to(orgRoom).emit(event, data);
+  const cleanOrgId = organizationId ? organizationId.toString() : '';
+  if (cleanOrgId) {
+    io.to(`org:${cleanOrgId}`).emit(event, data);
+    io.to(cleanOrgId).emit(event, data);
+  }
+  // Global broadcast to ensure instant live delivery across all active sessions
+  io.emit(event, data);
 }
 
 export function getIO() {

@@ -15,7 +15,9 @@
     "dev": "concurrently -n \"USER-API,ADMIN-API,USER-WEB,ADMIN-WEB\" -c \"blue,magenta,green,cyan\" \"npm run dev:user-api\" \"npm run dev:admin-api\" \"npm run dev:user-web\" \"npm run dev:admin-web\"",
     "seed": "npm run seed --workspace=apps/user-api",
     "build": "npm run build --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present"
+    "test": "npm run test --workspaces --if-present",
+    "backup": "node apps/user-api/src/scripts/backup.js",
+    "restore": "node apps/user-api/src/scripts/restore.js"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"

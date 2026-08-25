@@ -12,6 +12,8 @@ router.use(authGuard);
 
 router.get('/', rbacGuard(Permissions.LEADS_READ), leadController.getLeads);
 router.get('/counts', rbacGuard(Permissions.LEADS_READ), leadController.getStageCounts);
+router.post('/bulk-stage', rbacGuard(Permissions.LEADS_WRITE), leadController.bulkUpdateStage);
+router.post('/bulk-broadcast', rbacGuard(Permissions.LEADS_WRITE), leadController.bulkSendBroadcast);
 router.post('/', rbacGuard(Permissions.LEADS_WRITE), validateBody(createLeadSchema), leadController.createLead);
 router.put('/:id', rbacGuard(Permissions.LEADS_WRITE), validateBody(updateLeadSchema), leadController.updateLead);
 router.patch('/:id/stage', rbacGuard(Permissions.LEADS_WRITE), leadController.updateLeadStage);

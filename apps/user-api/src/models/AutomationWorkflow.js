@@ -16,13 +16,41 @@ const automationWorkflowSchema = new mongoose.Schema(
     description: {
       type: String
     },
+    channel: {
+      type: String,
+      enum: ['WHATSAPP', 'INSTAGRAM', 'MESSENGER'],
+      default: 'WHATSAPP',
+      index: true
+    },
+    type: {
+      type: String,
+      enum: ['AUTOMATION', 'DRIP', 'LIBRARY'],
+      default: 'AUTOMATION'
+    },
+    isDefault: {
+      type: Boolean,
+      default: false
+    },
     triggerType: {
       type: String,
-      enum: ['KEYWORD', 'BUTTON_CLICK', 'CONTACT_CREATED', 'TAG_ADDED', 'LEAD_STAGE_CHANGED', 'CAMPAIGN_REPLIED'],
-      required: true
+      enum: [
+        'TEMPLATE',
+        'KEYWORD',
+        'ANY_MESSAGE',
+        'CATCH_ALL',
+        'BUTTON_CLICK',
+        'WELCOME_MESSAGE',
+        'CONTACT_CREATED',
+        'TAG_ADDED',
+        'LEAD_STAGE_CHANGED',
+        'CAMPAIGN_REPLIED'
+      ],
+      default: 'KEYWORD'
     },
     triggerConfig: {
       keyword: String,
+      templateId: String,
+      templateName: String,
       tag: String,
       stage: String,
       buttonPayload: String
@@ -32,9 +60,37 @@ const automationWorkflowSchema = new mongoose.Schema(
         id: String,
         type: {
           type: String,
-          enum: ['SEND_MESSAGE', 'SEND_BUTTONS', 'SEND_TEMPLATE', 'ADD_TAG', 'ASSIGN_USER', 'DELAY', 'UPDATE_LEAD_STAGE', 'CONVERT_LEAD']
+          enum: [
+            'START_TRIGGER',
+            'SEND_MESSAGE',
+            'TEXT_MESSAGE',
+            'LIST_MESSAGE',
+            'SEND_BUTTONS',
+            'BUTTON_MESSAGE',
+            'SEND_TEMPLATE',
+            'SEND_IMAGE',
+            'IMAGE',
+            'MEDIA_BUTTON',
+            'ADD_TAG',
+            'ASSIGN_USER',
+            'DELAY',
+            'UPDATE_LEAD_STAGE',
+            'CONVERT_LEAD'
+          ]
+        },
+        position: {
+          x: { type: Number, default: 100 },
+          y: { type: Number, default: 100 }
         },
         config: mongoose.Schema.Types.Mixed
+      }
+    ],
+    connections: [
+      {
+        fromNodeId: String,
+        fromPort: String,
+        toNodeId: String,
+        toPort: String
       }
     ],
     isActive: {
@@ -45,12 +101,19 @@ const automationWorkflowSchema = new mongoose.Schema(
     executionCount: {
       type: Number,
       default: 0
+    },
+    createdBy: {
+      type: String,
+      default: 'WA'
     }
   },
   {
     timestamps: true
   }
 );
+
+automationWorkflowSchema.index({ organizationId: 1, channel: 1 });
+automationWorkflowSchema.index({ organizationId: 1, isActive: 1 });
 
 export const AutomationWorkflow = mongoose.model('AutomationWorkflow', automationWorkflowSchema);
 export default AutomationWorkflow;

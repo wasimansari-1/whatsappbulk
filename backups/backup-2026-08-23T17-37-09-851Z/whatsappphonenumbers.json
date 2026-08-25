@@ -1,0 +1,39 @@
+[
+  {
+    "_id": "6a8b2e819bd1b337ac6af4d5",
+    "phoneNumberId": "1252085087993302",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "__v": 0,
+    "coexistenceEligible": true,
+    "coexistenceStatus": "ACTIVE",
+    "createdAt": "2026-08-23T17:31:45.004Z",
+    "displayPhoneNumber": "+91 91555 34309",
+    "isDefault": true,
+    "messagingLimitTier": "TIER_10K",
+    "platformType": "CLOUD_API",
+    "qualityRating": "GREEN",
+    "status": "CONNECTED",
+    "updatedAt": "2026-08-23T17:37:09.230Z",
+    "verifiedName": "IGlobal Tech",
+    "whatsappAccountId": "6a8b2e81a9d4d4777e40f134",
+    "lastWebhookAt": "2026-08-23T17:37:09.230Z"
+  },
+  {
+    "_id": "6a8b2fa49bd1b337ac6af4d8",
+    "phoneNumberId": "1252085087993302",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "__v": 0,
+    "coexistenceEligible": true,
+    "coexistenceStatus": "ACTIVE",
+    "createdAt": "2026-08-23T17:36:36.666Z",
+    "displayPhoneNumber": "+91 91555 34309",
+    "isDefault": true,
+    "messagingLimitTier": "TIER_10K",
+    "platformType": "CLOUD_API",
+    "qualityRating": "GREEN",
+    "status": "CONNECTED",
+    "updatedAt": "2026-08-23T17:36:36.666Z",
+    "verifiedName": "IGlobal Tech",
+    "whatsappAccountId": "6a8b1d85d8761c6ddf09a7a9"
+  }
+]

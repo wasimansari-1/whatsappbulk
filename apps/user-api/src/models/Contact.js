@@ -31,6 +31,36 @@ const contactSchema = new mongoose.Schema(
       enum: Object.values(ChannelType),
       default: ChannelType.WHATSAPP
     },
+    whatsappStatus: {
+      type: String,
+      enum: ['VALID', 'UNVERIFIED', 'INVALID', 'BLOCKED'],
+      default: 'VALID'
+    },
+    metaComplianceNote: {
+      type: String
+    },
+    groupName: {
+      type: String,
+      default: 'General',
+      trim: true,
+      index: true
+    },
+    city: {
+      type: String,
+      trim: true
+    },
+    gender: {
+      type: String,
+      trim: true
+    },
+    age: {
+      type: String,
+      trim: true
+    },
+    designation: {
+      type: String,
+      trim: true
+    },
     tags: [
       {
         type: String,
@@ -57,6 +87,16 @@ const contactSchema = new mongoose.Schema(
     },
     lastRepliedAt: {
       type: Date
+    },
+    optOutAt: {
+      type: Date
+    },
+    optOutKeyword: {
+      type: String
+    },
+    optOutSource: {
+      type: String,
+      default: 'WHATSAPP_INBOUND'
     },
     deletedAt: {
       type: Date,

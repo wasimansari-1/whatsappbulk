@@ -1,0 +1,40 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a79f",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "planId": "6a8b1d85d8761c6ddf09a794",
+    "status": "ACTIVE",
+    "currentPeriodStart": "2026-08-23T16:19:17.698Z",
+    "currentPeriodEnd": "2026-11-21T16:19:17.698Z",
+    "cancelAtPeriodEnd": false,
+    "createdAt": "2026-08-23T16:19:17.698Z",
+    "updatedAt": "2026-08-23T16:19:17.698Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b210d762c93db0a447ed9",
+    "organizationId": "6a8b210d762c93db0a447ed5",
+    "planId": "6a8b1d85d8761c6ddf09a792",
+    "status": "TRIAL",
+    "currentPeriodEnd": "2026-09-06T16:34:21.728Z",
+    "cancelAtPeriodEnd": false,
+    "trialEndsAt": "2026-09-06T16:34:21.728Z",
+    "currentPeriodStart": "2026-08-23T16:34:21.729Z",
+    "createdAt": "2026-08-23T16:34:21.729Z",
+    "updatedAt": "2026-08-23T16:34:21.729Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b23d1e49c158699f729e4",
+    "organizationId": "6a8b23d1e49c158699f729e0",
+    "planId": "6a8b1d85d8761c6ddf09a792",
+    "status": "TRIAL",
+    "currentPeriodEnd": "2026-09-06T16:46:09.042Z",
+    "cancelAtPeriodEnd": false,
+    "trialEndsAt": "2026-09-06T16:46:09.042Z",
+    "currentPeriodStart": "2026-08-23T16:46:09.042Z",
+    "createdAt": "2026-08-23T16:46:09.042Z",
+    "updatedAt": "2026-08-23T16:46:09.042Z",
+    "__v": 0
+  }
+]

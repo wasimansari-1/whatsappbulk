@@ -1,0 +1,36 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7a9",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "Iglobal Tech WABA",
+    "wabaId": "1066070962481909",
+    "businessId": "993604119807437",
+    "provider": "META",
+    "onboardingMethod": "EMBEDDED_SIGNUP",
+    "status": "CONNECTED",
+    "coexistenceStatus": "ENABLED",
+    "accountReviewStatus": "APPROVED",
+    "createdAt": "2026-08-23T16:19:17.702Z",
+    "updatedAt": "2026-08-25T05:59:19.897Z",
+    "__v": 0,
+    "encryptedAccessToken": {
+      "encrypted": "4d2a8ef07c8897a8557b2017acaba1bd6242c102317890d3666b68c162ae4f3d740261d58985635da215cc9795225f8d2581d98aabd6f908bf0652672c756b6b2e7441d61a1d4ba7d62af9eabcc0026e936964e238ed96a8f18b4d05ea7a2871216b4dcc964f46c0f18f904f30ddffe5f6d791d565e7d92e49c63727e064e8f14d3318cfd3ceb4e5468b960770f5402b2c93499f1bdbda60bfd75258378ce9e1460bb89de39929c6db8e97985e2aeb401a4bce06044c600bd493e299cf5ab8940bbaf0df6c112365",
+      "iv": "7d6d41ce20914935b9ecc5b28b5c65b5",
+      "authTag": "c76472de662f3da3c3800523f930893f"
+    }
+  },
+  {
+    "_id": "6a8b2e81a9d4d4777e40f134",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "IGlobal Tech",
+    "wabaId": "2959370387746581",
+    "provider": "META",
+    "onboardingMethod": "EMBEDDED_SIGNUP",
+    "status": "CONNECTED",
+    "coexistenceStatus": "ENABLED",
+    "accountReviewStatus": "APPROVED",
+    "createdAt": "2026-08-23T17:31:45.002Z",
+    "updatedAt": "2026-08-23T17:31:45.002Z",
+    "__v": 0
+  }
+]

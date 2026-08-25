@@ -12,6 +12,7 @@ router.use(authGuard);
 
 router.get('/plans', billingController.getPlans);
 router.get('/overview', rbacGuard(Permissions.BILLING_READ), billingController.getOverview);
+router.get('/wallet', rbacGuard(Permissions.BILLING_READ), billingController.getOverview);
 router.post('/credits', rbacGuard(Permissions.BILLING_MANAGE), validateBody(addWalletCreditsSchema), billingController.addCredits);
 router.post('/upgrade', rbacGuard(Permissions.BILLING_MANAGE), billingController.upgradePlan);
 

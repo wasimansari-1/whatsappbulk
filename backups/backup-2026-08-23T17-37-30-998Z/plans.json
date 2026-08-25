@@ -1,0 +1,83 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a792",
+    "name": "Starter Trial",
+    "slug": "starter",
+    "price": 0,
+    "currency": "INR",
+    "billingInterval": "MONTHLY",
+    "maxUsers": 2,
+    "maxContacts": 1000,
+    "maxWhatsAppNumbers": 1,
+    "monthlyMessageLimit": 1000,
+    "maxCampaigns": 50,
+    "features": {
+      "automationEnabled": false,
+      "analyticsEnabled": true,
+      "apiEnabled": false,
+      "teamInboxEnabled": true,
+      "crmEnabled": true,
+      "whiteLabelEnabled": false
+    },
+    "supportLevel": "Standard",
+    "isPopular": false,
+    "isActive": true,
+    "createdAt": "2026-08-23T16:19:17.599Z",
+    "updatedAt": "2026-08-23T16:19:17.599Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a794",
+    "name": "Professional Enterprise",
+    "slug": "professional",
+    "price": 2999,
+    "currency": "INR",
+    "billingInterval": "MONTHLY",
+    "maxUsers": 10,
+    "maxContacts": 25000,
+    "maxWhatsAppNumbers": 1,
+    "monthlyMessageLimit": 25000,
+    "maxCampaigns": 50,
+    "features": {
+      "automationEnabled": true,
+      "analyticsEnabled": true,
+      "apiEnabled": true,
+      "teamInboxEnabled": true,
+      "crmEnabled": true,
+      "whiteLabelEnabled": false
+    },
+    "supportLevel": "Standard",
+    "isPopular": true,
+    "isActive": true,
+    "createdAt": "2026-08-23T16:19:17.604Z",
+    "updatedAt": "2026-08-23T16:19:17.604Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b1d85d8761c6ddf09a796",
+    "name": "Scale & Growth",
+    "slug": "enterprise",
+    "price": 9999,
+    "currency": "INR",
+    "billingInterval": "YEARLY",
+    "maxUsers": 50,
+    "maxContacts": 100000,
+    "maxWhatsAppNumbers": 1,
+    "monthlyMessageLimit": 100000,
+    "maxCampaigns": 50,
+    "features": {
+      "automationEnabled": false,
+      "analyticsEnabled": true,
+      "apiEnabled": false,
+      "teamInboxEnabled": true,
+      "crmEnabled": true,
+      "whiteLabelEnabled": false
+    },
+    "supportLevel": "Standard",
+    "isPopular": false,
+    "isActive": true,
+    "createdAt": "2026-08-23T16:19:17.605Z",
+    "updatedAt": "2026-08-23T16:19:17.605Z",
+    "__v": 0
+  }
+]

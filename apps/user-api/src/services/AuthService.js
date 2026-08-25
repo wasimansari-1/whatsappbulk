@@ -12,6 +12,10 @@ import { UserRole, TemplateCategory, TemplateStatus, SubscriptionStatus } from '
 
 export class AuthService {
   generateTokens(user, organizationId) {
+    if (!process.env.JWT_SECRET || !process.env.JWT_REFRESH_SECRET) {
+      throw new Error('[Security Configuration Error] JWT_SECRET and JWT_REFRESH_SECRET must be configured in environment.');
+    }
+
     const payload = {
       userId: user._id.toString(),
       email: user.email,
@@ -20,33 +24,49 @@ export class AuthService {
 
     const accessToken = jwt.sign(
       payload,
-      process.env.JWT_SECRET || 'super_secret_jwt_key_enterprise_whatsapp_saas_2026_production_grade',
+      process.env.JWT_SECRET,
       { expiresIn: process.env.JWT_EXPIRES_IN || '15m' }
     );
 
     const refreshToken = jwt.sign(
       payload,
-      process.env.JWT_REFRESH_SECRET || 'super_secret_jwt_refresh_key_enterprise_whatsapp_saas_2026',
+      process.env.JWT_REFRESH_SECRET,
       { expiresIn: process.env.JWT_REFRESH_EXPIRES_IN || '7d' }
     );
 
     return { accessToken, refreshToken };
   }
 
-  async register({ name, email, password, organizationName, phone }) {
-    const existingUser = await User.findOne({ email: email.toLowerCase() });
+  async register({ name, email, password, organizationName, phone, countryCode }) {
+    const existingUser = await User.findOne({ email: email.toLowerCase().trim() });
     if (existingUser) {
       const error = new Error('A user with this email already exists');
       error.statusCode = 409;
       throw error;
     }
 
-    // 1. Create User
+    // Normalize phone and country code
+    let parsedCountryCode = countryCode || '91';
+    let cleanPhone = (phone || '').replace(/\D/g, '');
+    if (cleanPhone.startsWith('91') && cleanPhone.length > 10) {
+      parsedCountryCode = '91';
+      cleanPhone = cleanPhone.slice(2);
+    }
+
+    // 1. Create User with all persistent metadata
     const user = new User({
-      name,
-      email: email.toLowerCase(),
+      name: name.trim(),
+      email: email.toLowerCase().trim(),
       password,
-      phone
+      phone: cleanPhone ? `+${parsedCountryCode} ${cleanPhone}` : (phone || ''),
+      countryCode: parsedCountryCode,
+      companyName: organizationName ? organizationName.trim() : 'My Workspace',
+      status: 'ACTIVE',
+      metadata: {
+        registeredIp: 'local',
+        userAgent: 'Web SaaS Portal',
+        signupTimestamp: new Date()
+      }
     });
     await user.save();
 
@@ -101,72 +121,8 @@ export class AuthService {
       usedCredits: 0.0
     });
 
-    // 7. Initialize default WhatsApp Account and Phone Number (Mock connected)
-    const waba = await WhatsAppAccount.create({
-      organizationId: organization._id,
-      name: `${organizationName} WABA`,
-      wabaId: `waba_${Date.now()}`,
-      provider: 'MOCK',
-      status: 'CONNECTED'
-    });
-
-    await WhatsAppPhoneNumber.create({
-      organizationId: organization._id,
-      whatsappAccountId: waba._id,
-      phoneNumberId: `phone_id_${Date.now()}`,
-      displayPhoneNumber: phone || '+91 87009 94288',
-      verifiedName: organizationName,
-      status: 'CONNECTED',
-      qualityRating: 'GREEN'
-    });
-
-    // 8. Seed standard starter templates for the tenant
-    await WhatsAppTemplate.create([
-      {
-        organizationId: organization._id,
-        whatsappAccountId: waba._id,
-        name: 'welcome_greeting',
-        category: TemplateCategory.MARKETING,
-        language: 'en_US',
-        status: TemplateStatus.APPROVED,
-        components: [
-          {
-            type: 'HEADER',
-            format: 'TEXT',
-            text: 'Welcome to {{1}}! 🎉'
-          },
-          {
-            type: 'BODY',
-            text: 'Hi {{2}}, thank you for connecting with us! Explore our catalog and exclusive offers.'
-          },
-          {
-            type: 'FOOTER',
-            text: 'Reply STOP to opt out'
-          },
-          {
-            type: 'BUTTONS',
-            buttons: [
-              { type: 'QUICK_REPLY', text: 'View Catalog' },
-              { type: 'QUICK_REPLY', text: 'Chat with Agent' }
-            ]
-          }
-        ]
-      },
-      {
-        organizationId: organization._id,
-        whatsappAccountId: waba._id,
-        name: 'order_status_update',
-        category: TemplateCategory.UTILITY,
-        language: 'en_US',
-        status: TemplateStatus.APPROVED,
-        components: [
-          {
-            type: 'BODY',
-            text: 'Hello {{1}}, your order #{{2}} is now out for delivery. Track it live here: {{3}}'
-          }
-        ]
-      }
-    ]);
+    // NOTE: WhatsApp Account and Phone Numbers are NEVER created automatically from user.phone.
+    // They are ONLY created after explicit Meta WhatsApp Embedded Signup.
 
     // Update current org on user
     user.currentOrganizationId = organization._id;
@@ -236,7 +192,10 @@ export class AuthService {
   }
 
   async refreshToken(token) {
-    const jwtRefreshSecret = process.env.JWT_REFRESH_SECRET || 'super_secret_jwt_refresh_key_enterprise_whatsapp_saas_2026';
+    const jwtRefreshSecret = process.env.JWT_REFRESH_SECRET;
+    if (!jwtRefreshSecret) {
+      throw new Error('[Security Configuration Error] JWT_REFRESH_SECRET must be configured in environment.');
+    }
     let decoded;
     try {
       decoded = jwt.verify(token, jwtRefreshSecret);

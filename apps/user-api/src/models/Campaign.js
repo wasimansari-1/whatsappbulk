@@ -37,7 +37,7 @@ const campaignSchema = new mongoose.Schema(
     },
     audienceType: {
       type: String,
-      enum: ['ALL', 'TAGS', 'LISTS', 'CUSTOM'],
+      enum: ['ALL', 'TAGS', 'LISTS', 'CUSTOM', 'GROUP', 'CONTACTS'],
       default: 'ALL'
     },
     targetTags: [String],

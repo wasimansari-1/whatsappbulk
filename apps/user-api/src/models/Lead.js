@@ -1,5 +1,15 @@
 import mongoose from 'mongoose';
-import { LeadStage } from '@whatsapp-saas/shared-constants';
+
+export const CRMLeadStage = {
+  NEW: 'NEW',
+  CONTACTED: 'CONTACTED',
+  INTERESTED: 'INTERESTED',
+  NOT_INTERESTED: 'NOT_INTERESTED',
+  QUALIFIED: 'QUALIFIED',
+  FOLLOW_UP: 'FOLLOW_UP',
+  CONVERTED: 'CONVERTED',
+  LOST: 'LOST'
+};
 
 const leadSchema = new mongoose.Schema(
   {
@@ -9,11 +19,19 @@ const leadSchema = new mongoose.Schema(
       required: true,
       index: true
     },
+    // Primary External Meta Lead ID (Enforces idempotent webhook de-duplication)
+    metaLeadId: {
+      type: String,
+      index: true,
+      sparse: true
+    },
     name: {
       type: String,
       required: true,
       trim: true
     },
+    firstName: String,
+    lastName: String,
     phone: {
       type: String,
       required: true,
@@ -23,15 +41,26 @@ const leadSchema = new mongoose.Schema(
       type: String,
       trim: true
     },
+    city: String,
+    state: String,
+    country: {
+      type: String,
+      default: 'IN'
+    },
     source: {
       type: String,
-      default: 'WhatsApp'
+      default: 'Meta Click-to-WhatsApp'
     },
     stage: {
       type: String,
-      enum: Object.values(LeadStage),
-      default: LeadStage.NEW,
+      enum: Object.values(CRMLeadStage),
+      default: CRMLeadStage.NEW,
       index: true
+    },
+    priority: {
+      type: String,
+      enum: ['HIGH', 'MEDIUM', 'LOW'],
+      default: 'MEDIUM'
     },
     dealValue: {
       type: Number,
@@ -40,14 +69,45 @@ const leadSchema = new mongoose.Schema(
     notes: {
       type: String
     },
+    // Meta Source Attribution (Preserves exact Meta origin)
+    pageId: String,
+    pageName: String,
+    metaCampaignId: {
+      type: String,
+      index: true
+    },
+    metaCampaignName: String,
+    metaAdSetId: String,
+    metaAdSetName: String,
+    metaAdId: String,
+    metaAdName: String,
+    metaFormId: String,
+    metaFormName: String,
+    rawMetaFields: {
+      type: mongoose.Schema.Types.Mixed
+    },
+    disqualificationReason: String,
+    followUpDate: Date,
+    lastContactedAt: Date,
     assignedTo: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     },
-    contactId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Contact'
-    }
+    assignedName: {
+      type: String,
+      default: 'Unassigned'
+    },
+    activityHistory: [
+      {
+        action: String,
+        performedBy: String,
+        timestamp: {
+          type: Date,
+          default: Date.now
+        },
+        note: String
+      }
+    ]
   },
   {
     timestamps: true
@@ -55,6 +115,7 @@ const leadSchema = new mongoose.Schema(
 );
 
 leadSchema.index({ organizationId: 1, stage: 1, createdAt: -1 });
+leadSchema.index({ organizationId: 1, metaLeadId: 1 }, { unique: true, sparse: true });
 
 export const Lead = mongoose.model('Lead', leadSchema);
 export default Lead;
