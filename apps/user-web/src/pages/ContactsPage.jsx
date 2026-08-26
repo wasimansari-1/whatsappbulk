@@ -66,6 +66,7 @@ export default function ContactsPage() {
   const [isStep2CampaignModalOpen, setIsStep2CampaignModalOpen] = useState(false);
   const [broadcastName, setBroadcastName] = useState('');
   const [step1Error, setStep1Error] = useState('');
+  const [broadcastError, setBroadcastError] = useState('');
 
   // Step 2 Campaign Form State
   const { data: profileRes } = useQuery({
@@ -293,13 +294,20 @@ export default function ContactsPage() {
     onSuccess: (res) => {
       setIsStep2CampaignModalOpen(false);
       setSelectedContactIds([]);
+      setBroadcastError('');
       toast.success(
         `Campaign "${broadcastName}" dispatched to ${selectedCount} customers via Meta Cloud API!`,
         'Broadcast Launched'
       );
     },
     onError: (err) => {
-      toast.error(err.response?.data?.message || err.message, 'Campaign Launch Failed');
+      const errorMsg =
+        err.response?.data?.message ||
+        err.response?.data?.error?.message ||
+        err.message ||
+        'Campaign Launch Failed';
+      setBroadcastError(errorMsg);
+      toast.error(errorMsg, 'Campaign Launch Failed');
     }
   });
 
@@ -862,8 +870,8 @@ export default function ContactsPage() {
               </div>
 
               <div className="bg-slate-50/80 p-3.5 rounded-2xl border border-slate-200 space-y-0.5">
-                <p className="text-base font-black text-slate-900 font-mono">₹ {walletAmount.toFixed(0)}</p>
-                <p className="text-[11px] font-bold text-slate-400">Wallet Balance</p>
+                <p className="text-sm font-black text-blue-700 font-mono">Meta Direct</p>
+                <p className="text-[11px] font-bold text-slate-400">Billing Channel</p>
               </div>
 
               <div className="bg-slate-50/80 p-3.5 rounded-2xl border border-slate-200 space-y-0.5">
@@ -1061,10 +1069,24 @@ export default function ContactsPage() {
               </div>
             </div>
 
+            {/* EXACT META CLOUD API / SYSTEM ERROR BANNER */}
+            {broadcastError && (
+              <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-2xl space-y-1 animate-in fade-in duration-150">
+                <div className="flex items-center space-x-2 text-rose-800 font-bold text-xs">
+                  <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                  <span>Meta Cloud API Dispatch Blocked</span>
+                </div>
+                <p className="text-xs text-rose-700 font-mono break-all pl-6">
+                  {broadcastError}
+                </p>
+              </div>
+            )}
+
             {/* Bottom Full-Width Send Button */}
             <div className="pt-3 border-t border-slate-100">
               <button
                 onClick={() => {
+                  setBroadcastError('');
                   launchCampaignMutation.mutate({
                     groupName: selectedGroup !== 'ALL' ? selectedGroup : 'All Customers',
                     contactIds: selectedContactIds.length > 0 ? selectedContactIds : contacts.map((c) => c._id),

@@ -1058,7 +1058,12 @@ export default function InboxPage() {
                                     ) : msg.status === 'DELIVERED' ? (
                                       <CheckCheck className="w-3.5 h-3.5 text-slate-500" title="Delivered to phone" />
                                     ) : msg.status === 'FAILED' ? (
-                                      <span className="px-1 py-0.2 bg-rose-500 text-white rounded text-[8px] font-bold" title="Failed">FAILED</span>
+                                       <span
+                                         className="px-1.5 py-0.5 bg-rose-500 hover:bg-rose-600 text-white rounded text-[8px] font-extrabold cursor-help transition"
+                                         title={msg.errorMessage || 'Meta Cloud API delivery failure (Payment method required or recipient unreachable)'}
+                                       >
+                                         FAILED
+                                       </span>
                                     ) : (
                                       <Check className="w-3.5 h-3.5 text-slate-500" title="Sent via Meta Cloud API" />
                                     )}

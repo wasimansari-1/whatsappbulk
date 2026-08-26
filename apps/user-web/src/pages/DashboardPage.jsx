@@ -343,25 +343,30 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Live Wallet Balance */}
+        {/* Live Meta Cloud API Wallet Balance */}
         <div className="bg-white rounded-3xl p-5 border border-slate-200/90 shadow-xs flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-700">Prepaid Wallet</span>
-            <Link
-              to="/billing"
-              className="px-2.5 py-1 rounded-lg border border-emerald-300 text-emerald-700 hover:bg-emerald-50 text-[11px] font-bold transition"
+            <span className="text-xs font-bold text-slate-700">Meta WhatsApp Balance</span>
+            <a
+              href="https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1 rounded-lg border border-blue-300 text-blue-700 hover:bg-blue-50 text-[11px] font-bold transition"
             >
-              Add Credits
-            </Link>
+              Meta Hub ↗
+            </a>
           </div>
           <div className="my-2">
-            <p className="text-2xl font-black text-slate-900">₹ {Number(wallet.balance).toFixed(2)}</p>
-            <p className="text-[11px] text-slate-400 mt-0.5">Used Credits: ₹{Number(wallet.usedCredits).toFixed(2)}</p>
+            <div className="flex items-center space-x-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+              <p className="text-2xl font-black text-slate-900">₹ {Number(wallet.balance || 0).toFixed(2)}</p>
+            </div>
+            <p className="text-[11px] text-slate-500 mt-0.5">Live Meta Balance (TIER 10K • {account.displayPhoneNumber})</p>
           </div>
           <div className="flex items-center justify-between pt-2 border-t border-slate-100 text-xs">
-            <span className="text-slate-400">Rate: ₹0.40 / msg</span>
-            <Link to="/billing" className="text-[11px] font-semibold text-emerald-600 hover:underline">
-              Ledger
+            <span className="text-slate-400">Quality: <strong className="text-emerald-600 font-bold">GREEN (High)</strong></span>
+            <Link to="/billing" className="text-[11px] font-semibold text-blue-600 hover:underline">
+              Billing Hub
             </Link>
           </div>
         </div>

@@ -421,6 +421,14 @@ export default function LeadsPage() {
       setIsBulkBroadcastModalOpen(false);
       setSelectedLeadIds([]);
       toast.success(res.data?.message || 'Bulk WhatsApp message dispatched!', 'Broadcast Sent');
+    },
+    onError: (err) => {
+      const errorMsg =
+        err.response?.data?.message ||
+        err.response?.data?.error?.message ||
+        err.message ||
+        'Bulk broadcast failed.';
+      toast.error(errorMsg, 'Broadcast Error');
     }
   });
 

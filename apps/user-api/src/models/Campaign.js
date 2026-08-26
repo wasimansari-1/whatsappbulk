@@ -60,6 +60,10 @@ const campaignSchema = new mongoose.Schema(
       read: { type: Number, default: 0 },
       failed: { type: Number, default: 0 }
     },
+    lastErrorMessage: {
+      type: String,
+      default: null
+    },
     scheduledAt: {
       type: Date
     },

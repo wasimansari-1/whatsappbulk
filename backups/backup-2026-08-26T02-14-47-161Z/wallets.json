@@ -1,0 +1,48 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7a1",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "balance": 2442.1999999999935,
+    "usedCredits": 557.7999999999984,
+    "currency": "INR",
+    "autoRecharge": false,
+    "autoRechargeThreshold": 100,
+    "autoRechargeAmount": 500,
+    "createdAt": "2026-08-23T16:19:17.699Z",
+    "updatedAt": "2026-08-25T12:30:05.463Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b210d762c93db0a447edb",
+    "organizationId": "6a8b210d762c93db0a447ed5",
+    "balance": 500,
+    "usedCredits": 0,
+    "currency": "INR",
+    "autoRecharge": false,
+    "autoRechargeThreshold": 100,
+    "autoRechargeAmount": 500,
+    "createdAt": "2026-08-23T16:34:21.730Z",
+    "updatedAt": "2026-08-23T16:34:21.730Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b23d1e49c158699f729e6",
+    "organizationId": "6a8b23d1e49c158699f729e0",
+    "balance": 500,
+    "usedCredits": 0,
+    "currency": "INR",
+    "autoRecharge": false,
+    "autoRechargeThreshold": 100,
+    "autoRechargeAmount": 500,
+    "createdAt": "2026-08-23T16:46:09.043Z",
+    "updatedAt": "2026-08-23T16:46:09.043Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b69049bd1b337ac6af540",
+    "organizationId": "6a8b2f5036cbdb99fa817e99",
+    "__v": 0,
+    "balance": 5000,
+    "currency": "INR"
+  }
+]

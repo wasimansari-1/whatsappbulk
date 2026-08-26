@@ -28,6 +28,17 @@ export class CampaignService {
     return campaignRepository.getCampaignWithDetails(organizationId, id);
   }
 
+  async getCampaignRecipients(organizationId, id, { status, limit = 50 }) {
+    const filter = { organizationId, campaignId: id };
+    if (status && status !== 'ALL') {
+      filter.status = status;
+    }
+    return CampaignRecipient.find(filter)
+      .sort({ updatedAt: -1 })
+      .limit(Number(limit))
+      .lean();
+  }
+
   async createCampaign(organizationId, userId, data) {
     // 1. Verify template exists
     const template = await WhatsAppTemplate.findOne({

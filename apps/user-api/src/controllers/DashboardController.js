@@ -62,6 +62,16 @@ export class DashboardController {
 
       const isConnected = whatsAppAccount?.status === 'CONNECTED' || Boolean(phoneNumber);
 
+      const { getWhatsAppProvider } = await import('../providers/whatsapp/index.js');
+      const { whatsAppService } = await import('../services/WhatsAppService.js');
+      let metaLiveBal = 0;
+      try {
+        const provider = getWhatsAppProvider();
+        const token = await whatsAppService.getTenantToken(organizationId);
+        const metaRes = await provider.getMetaBillingBalance(process.env.META_AD_ACCOUNT_ID, token);
+        if (metaRes?.success) metaLiveBal = metaRes.balance;
+      } catch (e) {}
+
       const dashboardPayload = {
         greeting: {
           userName: user?.name ? user.name.split(' ')[0] : 'Admin',
@@ -84,9 +94,10 @@ export class DashboardController {
           coexistenceStatus: whatsAppAccount?.coexistenceStatus || 'NOT_APPLICABLE'
         },
         wallet: {
-          balance: wallet?.balance !== undefined ? wallet.balance : 0,
-          usedCredits: wallet?.usedCredits !== undefined ? wallet.usedCredits : 0,
-          currency: wallet?.currency || 'INR'
+          balance: metaLiveBal,
+          usedCredits: (usage?.messagesSent || 0) * 0.40,
+          currency: 'INR',
+          displayBalance: `₹ ${metaLiveBal.toFixed(2)}`
         },
         plan: {
           name: subscription?.planId?.name || 'Starter Trial',

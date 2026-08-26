@@ -142,6 +142,7 @@ export function initCampaignWorker() {
         if (conversation) {
           emitToOrganization(organizationId, 'conversation.message', {
             conversationId: conversation._id,
+            contactId: recipient.contactId,
             message: outboundMsg
           });
           emitToOrganization(organizationId, 'conversation.updated', {
@@ -202,7 +203,8 @@ export function initCampaignWorker() {
         const updatedCampaign = await Campaign.findByIdAndUpdate(
           campaignId,
           {
-            $inc: { 'stats.failed': 1, 'stats.queued': -1 }
+            $inc: { 'stats.failed': 1, 'stats.queued': -1 },
+            $set: { lastErrorMessage: error.message }
           },
           { new: true }
         );
@@ -211,7 +213,8 @@ export function initCampaignWorker() {
           emitToOrganization(organizationId, 'campaign.progress', {
             campaignId,
             stats: updatedCampaign.stats,
-            status: updatedCampaign.status
+            status: updatedCampaign.status,
+            lastErrorMessage: error.message
           });
         }
 

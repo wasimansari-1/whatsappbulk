@@ -104,6 +104,32 @@ export class MetaWhatsAppProvider extends WhatsAppProvider {
     return this._request(`/${wabaId}?fields=id,name,currency,timezone_id,account_review_status,message_template_namespace,business_verification_status`, {}, token);
   }
 
+  async getMetaBillingBalance(adAccountId = null, customToken = null) {
+    const targetAdAccount = adAccountId || process.env.META_AD_ACCOUNT_ID || 'act_681426903930095';
+    try {
+      const data = await this._request(`/${targetAdAccount}?fields=id,name,balance,amount_spent,currency,funding_source_details,account_status`, {}, customToken);
+      const rawBalance = data?.balance ? parseFloat(data.balance) / 100 : 0;
+      return {
+        success: true,
+        adAccountId: targetAdAccount,
+        balance: rawBalance,
+        currency: data?.currency || 'INR',
+        displayBalance: `₹ ${rawBalance.toFixed(2)}`,
+        displayString: data?.funding_source_details?.display_string || `Available balance (₹${rawBalance.toFixed(2)})`,
+        accountStatus: data?.account_status === 1 ? 'ACTIVE' : 'NEEDS_ATTENTION'
+      };
+    } catch (err) {
+      console.warn('[MetaProvider] getMetaBillingBalance warning:', err.message);
+      return {
+        success: false,
+        balance: 0,
+        currency: 'INR',
+        displayBalance: '₹ 0.00',
+        error: err.message
+      };
+    }
+  }
+
   async getPhoneNumberDetails(phoneId, token = null) {
     return this._request(`/${phoneId}?fields=id,verified_name,display_phone_number,quality_rating,code_verification_status,platform_type,throughput,status,certificate,name_status`, {}, token);
   }

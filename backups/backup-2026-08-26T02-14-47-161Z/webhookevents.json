@@ -1,0 +1,4217 @@
+[
+  {
+    "_id": "6a87fbca1d6401a9a0636b5f",
+    "provider": "META",
+    "providerEventId": "wamid.HBgL17872970001111TESTINCOMING",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgL17872970001111TESTINCOMING",
+      "from": "918292463648",
+      "messageType": "TEXT",
+      "text": "Hi, I am interested in your WhatsApp Bulk SaaS software!",
+      "timestamp": "2026-08-21T07:23:20.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-21T07:18:34.548Z",
+    "updatedAt": "2026-08-21T07:18:34.548Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89c6baad26ebf01d252c48",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM4NzhDQkFDMkU5MEFCREE1RkVBMjg0M0I2RTEzREIA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM4NzhDQkFDMkU5MEFCREE1RkVBMjg0M0I2RTEzREIA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-22T15:56:41.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T15:56:42.847Z",
+    "updatedAt": "2026-08-22T15:56:42.847Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89c6c5ad26ebf01d252c98",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMkUzMTBGRTAzRUI3NkY0QUE5AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMkUzMTBGRTAzRUI3NkY0QUE5AA==",
+      "recipientId": "918292463648",
+      "status": "READ",
+      "timestamp": "2026-08-22T15:56:52.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T15:56:53.138Z",
+    "updatedAt": "2026-08-22T15:56:53.138Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89c710ad26ebf01d252cd7",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5Nzk4NTk3OTc0FQIAEhgUM0FEQjBGQTZGRDA3MzdEMzRENzgA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE5Nzk4NTk3OTc0FQIAEhgUM0FEQjBGQTZGRDA3MzdEMzRENzgA",
+      "from": "919798597974",
+      "name": "Harry",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-22T15:58:03.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T15:58:08.803Z",
+    "updatedAt": "2026-08-22T15:58:08.803Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89c71dad26ebf01d252d28",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5Nzk4NTk3OTc0FQIAERgSRDYxNUUxNEQyOUMyQTAwNEVDAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5Nzk4NTk3OTc0FQIAERgSRDYxNUUxNEQyOUMyQTAwNEVDAA==",
+      "recipientId": "919798597974",
+      "status": "SENT",
+      "timestamp": "2026-08-22T15:58:20.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T15:58:21.231Z",
+    "updatedAt": "2026-08-22T15:58:21.231Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89c722ad26ebf01d252d69",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5Nzk4NTk3OTc0FQIAERgSRDk5QkMzN0RFMUU5RTA3MjY5AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5Nzk4NTk3OTc0FQIAERgSRDk5QkMzN0RFMUU5RTA3MjY5AA==",
+      "recipientId": "919798597974",
+      "status": "SENT",
+      "timestamp": "2026-08-22T15:58:25.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T15:58:26.475Z",
+    "updatedAt": "2026-08-22T15:58:26.475Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89c72aad26ebf01d252d98",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5Nzk4NTk3OTc0FQIAEhgUM0EyQTg5NDlCRTNCNjM2RkQwRTAA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE5Nzk4NTk3OTc0FQIAEhgUM0EyQTg5NDlCRTNCNjM2RkQwRTAA",
+      "from": "919798597974",
+      "name": "Harry",
+      "messageType": "TEXT",
+      "text": "Han",
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-22T15:58:32.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T15:58:34.169Z",
+    "updatedAt": "2026-08-22T15:58:34.169Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89c733ad26ebf01d252dda",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5Nzk4NTk3OTc0FQIAERgSODZCNTMyNTAyNEUzNUQyNzZGAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5Nzk4NTk3OTc0FQIAERgSODZCNTMyNTAyNEUzNUQyNzZGAA==",
+      "recipientId": "919798597974",
+      "status": "SENT",
+      "timestamp": "2026-08-22T15:58:42.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T15:58:43.309Z",
+    "updatedAt": "2026-08-22T15:58:43.309Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89ca40a51ebedfd05c575a",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNDRDlFQzUzNzFGNDNGOTNFNzE0NkU1Rjk3MTA0OUMA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNDRDlFQzUzNzFGNDNGOTNFNzE0NkU1Rjk3MTA0OUMA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hlo",
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-22T16:06:29.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:11:44.894Z",
+    "updatedAt": "2026-08-22T16:11:44.894Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89ca4ba51ebedfd05c5780",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNGMTU3N0U3NjY4OUY4NDUzQjhBN0I5Qzc1NjkzRkQA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNGMTU3N0U3NjY4OUY4NDUzQjhBN0I5Qzc1NjkzRkQA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-22T16:11:54.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:11:55.824Z",
+    "updatedAt": "2026-08-22T16:11:55.824Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89ca54a51ebedfd05c5798",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM2RUIwOThBMTUyMUEyN0I5OTUxNjgyQjU0MzlFMEMA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM2RUIwOThBMTUyMUEyN0I5OTUxNjgyQjU0MzlFMEMA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hlo",
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-22T16:12:03.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:12:04.733Z",
+    "updatedAt": "2026-08-22T16:12:04.733Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89ca58a51ebedfd05c57b0",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQ0FFNUQyQjcwMEQyRjQ5NzUwAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQ0FFNUQyQjcwMEQyRjQ5NzUwAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-22T16:09:08.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:12:08.104Z",
+    "updatedAt": "2026-08-22T16:12:08.104Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89ca5aa51ebedfd05c57bb",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM3RkFEQ0UxN0FENzk5MDYyNkQzMkE1RDg0NjcyOTUA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM3RkFEQ0UxN0FENzk5MDYyNkQzMkE1RDg0NjcyOTUA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hlo",
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-22T16:06:11.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:12:10.234Z",
+    "updatedAt": "2026-08-22T16:12:10.234Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89ca67a51ebedfd05c57e1",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQzI4QkNBRkU0NjYxM0UwNUY5AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQzI4QkNBRkU0NjYxM0UwNUY5AA==",
+      "recipientId": "918292463648",
+      "status": "READ",
+      "timestamp": "2026-08-22T16:09:05.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:12:23.212Z",
+    "updatedAt": "2026-08-22T16:12:23.212Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89ca73a51ebedfd05c57ed",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNzYwNEY4RjczQTczNEFFQzRFAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNzYwNEY4RjczQTczNEFFQzRFAA==",
+      "recipientId": "918292463648",
+      "status": "DELIVERED",
+      "timestamp": "2026-08-22T16:10:30.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:12:35.210Z",
+    "updatedAt": "2026-08-22T16:12:35.210Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89cb45bfb12fb91ef879bf",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUMzNzkzRDhBM0U5N0QyNzVFNUY5NEUxQjA1NDI3QzIA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUMzNzkzRDhBM0U5N0QyNzVFNUY5NEUxQjA1NDI3QzIA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hy",
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-22T16:16:03.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:16:05.299Z",
+    "updatedAt": "2026-08-22T16:16:05.299Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89cb58bfb12fb91ef87a0f",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSOTJFMzUwNTJEOEYzQzE3RjI2AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSOTJFMzUwNTJEOEYzQzE3RjI2AA==",
+      "recipientId": "918292463648",
+      "status": "DELIVERED",
+      "timestamp": "2026-08-22T16:16:23.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:16:24.759Z",
+    "updatedAt": "2026-08-22T16:16:24.759Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89cd30cfd184fe0342ce7d",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNDNzlCMTM4NDhENkUxMkE0Nzk3MjA0N0U0RDEwNDgA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNDNzlCMTM4NDhENkUxMkE0Nzk3MjA0N0U0RDEwNDgA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hlo check",
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-22T16:24:15.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:24:16.757Z",
+    "updatedAt": "2026-08-22T16:24:16.757Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89cd63cfd184fe0342cec6",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM5RUM3QTVFRTAwRDEzRDM2ODNDRUJBQjEwMTAwNjQA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM5RUM3QTVFRTAwRDEzRDM2ODNDRUJBQjEwMTAwNjQA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "IMAGE",
+      "text": "📷 Photo",
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-22T16:25:04.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:25:07.983Z",
+    "updatedAt": "2026-08-22T16:25:07.983Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89ce333687f38b275d1f81",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM1MDAwQzlDREU5MUQ4MzA4RDI4NjBFMkYxQjc0NEIA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM1MDAwQzlDREU5MUQ4MzA4RDI4NjBFMkYxQjc0NEIA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "IMAGE",
+      "text": "📷 Photo",
+      "caption": "",
+      "mediaId": "1719392162614114",
+      "mediaMimeType": "image/jpeg",
+      "filename": "image.jpg",
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-22T16:28:33.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:28:35.210Z",
+    "updatedAt": "2026-08-22T16:28:35.210Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89ceea366c91de486bfcf2",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSOUIxNDhFNTNGNzI3Q0FFMzZBAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSOUIxNDhFNTNGNzI3Q0FFMzZBAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-22T16:31:37.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:31:38.011Z",
+    "updatedAt": "2026-08-22T16:31:38.011Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89d222958549661d939d92",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQTdDRDE1QkNFNEQ1NTY2MDM1AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQTdDRDE1QkNFNEQ1NTY2MDM1AA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-22T16:45:21.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:45:22.735Z",
+    "updatedAt": "2026-08-22T16:45:22.735Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89d2a5958549661d939e5e",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNGRTZFQkE0Rjc4M0E2RTEwQzEzQjFGREM3RDMyRDkA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNGRTZFQkE0Rjc4M0E2RTEwQzEzQjFGREM3RDMyRDkA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "caption": "Hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-22T16:08:16.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:47:33.628Z",
+    "updatedAt": "2026-08-22T16:47:33.628Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89d2b3958549661d939e76",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNUEwMzQ2MEU1OUJBOTFFQTYwAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNUEwMzQ2MEU1OUJBOTFFQTYwAA==",
+      "recipientId": "918292463648",
+      "status": "FAILED",
+      "timestamp": "2026-08-22T15:46:57.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131047,
+          "title": "Re-engagement message",
+          "message": "Re-engagement message",
+          "error_data": {
+            "details": "Message failed to send because more than 24 hours have passed since the customer last replied to this number."
+          },
+          "href": "https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes/"
+        }
+      ]
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:47:47.249Z",
+    "updatedAt": "2026-08-22T16:47:47.249Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89d2b6958549661d939e8f",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNGRjhCODU1MjI3QTlBMzkwQUY1NURDMzFEOEE5QTEA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNGRjhCODU1MjI3QTlBMzkwQUY1NURDMzFEOEE5QTEA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hi",
+      "caption": "Hi",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-22T16:47:49.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:47:50.274Z",
+    "updatedAt": "2026-08-22T16:47:50.274Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a89d3ee6eaee504fc80115d",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSODk5NjAyRUY0Mjg3NTc1ODJDAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSODk5NjAyRUY0Mjg3NTc1ODJDAA==",
+      "recipientId": "918292463648",
+      "status": "READ",
+      "timestamp": "2026-08-22T16:53:01.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-22T16:53:02.374Z",
+    "updatedAt": "2026-08-22T16:53:02.374Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b24f4e49c158699f72b68",
+    "provider": "META",
+    "providerEventId": "wamid.TEST_INCOMING_WEBHOOK_1787503860",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.TEST_INCOMING_WEBHOOK_1787503860",
+      "from": "918292463648",
+      "name": "Wasim Ansari",
+      "messageType": "TEXT",
+      "text": "Testing incoming message live from WhatsApp!",
+      "caption": "Testing incoming message live from WhatsApp!",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "timestamp": "2026-08-23T16:51:00.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T16:51:00.270Z",
+    "updatedAt": "2026-08-23T16:51:00.270Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b258bd2f73e0459b6cc88",
+    "provider": "META",
+    "providerEventId": "wamid.LIVE_TEST_1787504011",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.LIVE_TEST_1787504011",
+      "from": "918292463648",
+      "name": "Wasim Customer",
+      "messageType": "TEXT",
+      "text": "Bhai live incoming test message successful!",
+      "caption": "Bhai live incoming test message successful!",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T16:53:31.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T16:53:31.102Z",
+    "updatedAt": "2026-08-23T16:53:31.102Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b268dd2f73e0459b6cdcc",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNEOUM1MkFCNENCNDRCMDRGOUE5N0JFODE1QTNGMUYA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNEOUM1MkFCNENCNDRCMDRGOUE5N0JFODE1QTNGMUYA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "caption": "Hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T16:57:48.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T16:57:49.323Z",
+    "updatedAt": "2026-08-23T16:57:49.323Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2693d2f73e0459b6cdf1",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM0RDYyQTdDQ0YyQTM1RjUxRjg1MUU5M0E3MEM1QzEA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM0RDYyQTdDQ0YyQTM1RjUxRjg1MUU5M0E3MEM1QzEA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hlo",
+      "caption": "Hlo",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T16:57:53.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T16:57:55.081Z",
+    "updatedAt": "2026-08-23T16:57:55.081Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b26a0d2f73e0459b6ce51",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQkExRUM4NDY0RDRGRDc4RDI5AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQkExRUM4NDY0RDRGRDc4RDI5AA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-23T16:58:07.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T16:58:08.236Z",
+    "updatedAt": "2026-08-23T16:58:08.236Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b26aad2f73e0459b6ce91",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSODEzMTg1MDczQjkyRUUyQTU4AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSODEzMTg1MDczQjkyRUUyQTU4AA==",
+      "recipientId": "918292463648",
+      "status": "DELIVERED",
+      "timestamp": "2026-08-23T16:51:41.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T16:58:18.374Z",
+    "updatedAt": "2026-08-23T16:58:18.374Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b26aed2f73e0459b6cea2",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNENzgwRDc3RkZCRUM2NEI4NDIyNDgzMjc1MjM3MzAA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNENzgwRDc3RkZCRUM2NEI4NDIyNDgzMjc1MjM3MzAA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "caption": "Hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T16:54:23.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T16:58:22.643Z",
+    "updatedAt": "2026-08-23T16:58:22.643Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2800d2f73e0459b6cf0d",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE3OTAzNTkwNDUxFQIAEhgUM0E3NkY3ODcwQkE4OTEwNEU2RTIA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE3OTAzNTkwNDUxFQIAEhgUM0E3NkY3ODcwQkE4OTEwNEU2RTIA",
+      "from": "917903590451",
+      "name": "Seven </>",
+      "messageType": "TEXT",
+      "text": "Hi",
+      "caption": "Hi",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:03:56.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:04:00.539Z",
+    "updatedAt": "2026-08-23T17:04:00.539Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2808d2f73e0459b6cf6b",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE3OTAzNTkwNDUxFQIAERgSODg2ODkyM0NDODk1ODY2MkVBAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE3OTAzNTkwNDUxFQIAERgSODg2ODkyM0NDODk1ODY2MkVBAA==",
+      "recipientId": "917903590451",
+      "status": "SENT",
+      "timestamp": "2026-08-23T17:04:07.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:04:08.540Z",
+    "updatedAt": "2026-08-23T17:04:08.540Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2bbdd2f73e0459b6cff0",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMDFDNzY0MkNFNkUyOTJBQzY1AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMDFDNzY0MkNFNkUyOTJBQzY1AA==",
+      "recipientId": "918292463648",
+      "status": "READ",
+      "timestamp": "2026-08-23T16:48:07.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:19:57.085Z",
+    "updatedAt": "2026-08-23T17:19:57.085Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2df3b3b163bfdef67c4d",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAEhggQUNCNDYyNzQ0RDZFQUJBMDExQjE2NzNBOURFQTMwQTEA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAEhggQUNCNDYyNzQ0RDZFQUJBMDExQjE2NzNBOURFQTMwQTEA",
+      "from": "919113313764",
+      "name": "itsme",
+      "messageType": "TEXT",
+      "text": "Hey",
+      "caption": "Hey",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:29:21.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:29:23.768Z",
+    "updatedAt": "2026-08-23T17:29:23.768Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2df4b3b163bfdef67c5a",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAEhggQUM1MzY3RjZGMzRBOTc1NDA5MjNDNkEyQzBCMTkzMjEA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAEhggQUM1MzY3RjZGMzRBOTc1NDA5MjNDNkEyQzBCMTkzMjEA",
+      "from": "919113313764",
+      "name": "itsme",
+      "messageType": "TEXT",
+      "text": "Wasim.boi",
+      "caption": "Wasim.boi",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:29:23.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:29:24.214Z",
+    "updatedAt": "2026-08-23T17:29:24.214Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2dfab3b163bfdef67c69",
+    "provider": "META",
+    "providerEventId": "wamid.OPT_OUT_TEST_1787506170",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.OPT_OUT_TEST_1787506170",
+      "from": "918292463648",
+      "name": "Wasim Ansari",
+      "messageType": "TEXT",
+      "text": "STOP",
+      "caption": "STOP",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:29:30.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:29:30.207Z",
+    "updatedAt": "2026-08-23T17:29:30.207Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2e0dbde611795f5d03a5",
+    "provider": "META",
+    "providerEventId": "wamid.OPT_OUT_TEST_1787506189",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.OPT_OUT_TEST_1787506189",
+      "from": "918292463648",
+      "name": "Wasim Ansari",
+      "messageType": "TEXT",
+      "text": "STOP",
+      "caption": "STOP",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:29:49.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:29:49.249Z",
+    "updatedAt": "2026-08-23T17:29:49.249Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2f4e4d988444b903fae2",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506510958_1",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506510958_1",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #1",
+      "caption": "Live Verification Inbound Message #1",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:35:11.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:35:10.996Z",
+    "updatedAt": "2026-08-23T17:35:10.996Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2f4f4d988444b903fae4",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506510992_2",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506510992_2",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #2",
+      "caption": "Live Verification Inbound Message #2",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:35:12.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:35:11.001Z",
+    "updatedAt": "2026-08-23T17:35:11.001Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2f4f4d988444b903fae6",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506511000_3",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506511000_3",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #3",
+      "caption": "Live Verification Inbound Message #3",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:35:14.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:35:11.002Z",
+    "updatedAt": "2026-08-23T17:35:11.002Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2f4f4d988444b903fae9",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506511002_4",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506511002_4",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #4",
+      "caption": "Live Verification Inbound Message #4",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:35:15.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:35:11.008Z",
+    "updatedAt": "2026-08-23T17:35:11.008Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2f4f4d988444b903faed",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506511008_5",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506511008_5",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #5",
+      "caption": "Live Verification Inbound Message #5",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:35:16.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:35:11.010Z",
+    "updatedAt": "2026-08-23T17:35:11.010Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2f4f4d988444b903faf2",
+    "provider": "META",
+    "providerEventId": "wamid.STATUS_TEST_1787506511011",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.STATUS_TEST_1787506511011",
+      "recipientId": "918292463648",
+      "status": "DELIVERED",
+      "timestamp": "2026-08-23T17:35:11.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:35:11.015Z",
+    "updatedAt": "2026-08-23T17:35:11.015Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fad4d988444b903fb34",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNzI3RkM4RDE4RjVEQTQwMUUwAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNzI3RkM4RDE4RjVEQTQwMUUwAA==",
+      "recipientId": "918292463648",
+      "status": "FAILED",
+      "timestamp": "2026-08-23T17:36:44.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because your WhatsApp Business account currency is not configured. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=CHANGE_COUNTRY_CURRENCY&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=CHANGE_COUNTRY_CURRENCY&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:36:45.800Z",
+    "updatedAt": "2026-08-23T17:36:45.800Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fc521892a7b49154beb",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506629172_1",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506629172_1",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #1",
+      "caption": "Live Verification Inbound Message #1",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:37:10.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:09.174Z",
+    "updatedAt": "2026-08-23T17:37:09.174Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fc521892a7b49154bf5",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506629191_2",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506629191_2",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #2",
+      "caption": "Live Verification Inbound Message #2",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:37:11.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:09.191Z",
+    "updatedAt": "2026-08-23T17:37:09.191Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fc521892a7b49154bff",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506629199_3",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506629199_3",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #3",
+      "caption": "Live Verification Inbound Message #3",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:37:12.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:09.200Z",
+    "updatedAt": "2026-08-23T17:37:09.200Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fc521892a7b49154c09",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506629206_4",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506629206_4",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #4",
+      "caption": "Live Verification Inbound Message #4",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:37:13.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:09.207Z",
+    "updatedAt": "2026-08-23T17:37:09.207Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fc521892a7b49154c13",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506629216_5",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506629216_5",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #5",
+      "caption": "Live Verification Inbound Message #5",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:37:14.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:09.216Z",
+    "updatedAt": "2026-08-23T17:37:09.216Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fc521892a7b49154c1e",
+    "provider": "META",
+    "providerEventId": "wamid.STATUS_TEST_1787506629224",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.STATUS_TEST_1787506629224",
+      "recipientId": "918292463648",
+      "status": "DELIVERED",
+      "timestamp": "2026-08-23T17:37:09.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:09.225Z",
+    "updatedAt": "2026-08-23T17:37:09.225Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fc500a6c154c5810cfd",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTEwMDAwMDAwMDAwFQIAERgSQzIwQjFDQzhEMTJDMzRCODg2AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTEwMDAwMDAwMDAwFQIAERgSQzIwQjFDQzhEMTJDMzRCODg2AA==",
+      "recipientId": "910000000000",
+      "status": "FAILED",
+      "timestamp": "2026-08-23T17:37:09.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131026,
+          "title": "Message undeliverable",
+          "message": "Message undeliverable",
+          "error_data": {
+            "details": "Message Undeliverable."
+          }
+        }
+      ]
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:09.897Z",
+    "updatedAt": "2026-08-23T17:37:09.897Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fc600a6c154c5810d03",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSRUEzRjkyODJERkRFNEU5NzVGAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSRUEzRjkyODJERkRFNEU5NzVGAA==",
+      "recipientId": "918292463648",
+      "status": "FAILED",
+      "timestamp": "2026-08-23T17:37:07.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because your WhatsApp Business account currency is not configured. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=CHANGE_COUNTRY_CURRENCY&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=CHANGE_COUNTRY_CURRENCY&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:10.238Z",
+    "updatedAt": "2026-08-23T17:37:10.238Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fda791844d0b6d2f026",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNjJDRkM5MjI2QkYxNzNDNDY0AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNjJDRkM5MjI2QkYxNzNDNDY0AA==",
+      "recipientId": "918292463648",
+      "status": "FAILED",
+      "timestamp": "2026-08-23T17:37:29.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because your WhatsApp Business account currency is not configured. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=CHANGE_COUNTRY_CURRENCY&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=CHANGE_COUNTRY_CURRENCY&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:30.316Z",
+    "updatedAt": "2026-08-23T17:37:30.316Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fda903ae3012773b42e",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506650353_1",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506650353_1",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #1",
+      "caption": "Live Verification Inbound Message #1",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:37:31.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:30.354Z",
+    "updatedAt": "2026-08-23T17:37:30.354Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fda903ae3012773b438",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506650363_2",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506650363_2",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #2",
+      "caption": "Live Verification Inbound Message #2",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:37:32.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:30.363Z",
+    "updatedAt": "2026-08-23T17:37:30.363Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fda903ae3012773b442",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506650369_3",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506650369_3",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #3",
+      "caption": "Live Verification Inbound Message #3",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:37:33.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:30.369Z",
+    "updatedAt": "2026-08-23T17:37:30.369Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fda903ae3012773b44c",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506650375_4",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506650375_4",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #4",
+      "caption": "Live Verification Inbound Message #4",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:37:34.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:30.375Z",
+    "updatedAt": "2026-08-23T17:37:30.375Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fda903ae3012773b456",
+    "provider": "META",
+    "providerEventId": "wamid.PROD_VERIFY_INBOUND_1787506650380_5",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.PROD_VERIFY_INBOUND_1787506650380_5",
+      "from": "918292463648",
+      "name": "Wasim Live Verified",
+      "messageType": "TEXT",
+      "text": "Live Verification Inbound Message #5",
+      "caption": "Live Verification Inbound Message #5",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:37:35.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:30.380Z",
+    "updatedAt": "2026-08-23T17:37:30.380Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fda903ae3012773b461",
+    "provider": "META",
+    "providerEventId": "wamid.STATUS_TEST_1787506650387",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.STATUS_TEST_1787506650387",
+      "recipientId": "918292463648",
+      "status": "DELIVERED",
+      "timestamp": "2026-08-23T17:37:30.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:30.388Z",
+    "updatedAt": "2026-08-23T17:37:30.388Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b2fda791844d0b6d2f02c",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTEwMDAwMDAwMDAwFQIAERgSOTlFQzJGNEE2QjQ4NzAzODc3AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTEwMDAwMDAwMDAwFQIAERgSOTlFQzJGNEE2QjQ4NzAzODc3AA==",
+      "recipientId": "910000000000",
+      "status": "FAILED",
+      "timestamp": "2026-08-23T17:37:30.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131026,
+          "title": "Message undeliverable",
+          "message": "Message undeliverable",
+          "error_data": {
+            "details": "Message Undeliverable."
+          }
+        }
+      ]
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:37:30.899Z",
+    "updatedAt": "2026-08-23T17:37:30.899Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b30f4be5a9023280c50f9",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM0ODlEQzk5MUFFQTQ4MzgyRjhCMTgwQ0E0RkMxNkIA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM0ODlEQzk5MUFFQTQ4MzgyRjhCMTgwQ0E0RkMxNkIA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "caption": "Hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T16:48:27.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:42:12.940Z",
+    "updatedAt": "2026-08-23T17:42:12.940Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b31dec29d9c43dbb0e541",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSN0JGODg4NjU3NEZGMUNGQjdDAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSN0JGODg4NjU3NEZGMUNGQjdDAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-23T17:46:05.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:46:06.342Z",
+    "updatedAt": "2026-08-23T17:46:06.342Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b31ecc29d9c43dbb0e555",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNBRDU4Q0ExMzJFOEMyMkZENUEwODcyQzcwNjUyQTkA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNBRDU4Q0ExMzJFOEMyMkZENUEwODcyQzcwNjUyQTkA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "caption": "Hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:46:19.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:46:20.691Z",
+    "updatedAt": "2026-08-23T17:46:20.691Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b3207c29d9c43dbb0e597",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM1OTIzNzM4QTdGNUU4NUU0RjNFQkQ3NjdDN0U2MTAA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM1OTIzNzM4QTdGNUU4NUU0RjNFQkQ3NjdDN0U2MTAA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "caption": "Hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:46:46.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:46:47.802Z",
+    "updatedAt": "2026-08-23T17:46:47.802Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b3262c29d9c43dbb0e5fa",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNBNzQ2NEFFRDk2OTZGQ0I0ODdBMDMxRjY3QTkwMUEA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNBNzQ2NEFFRDk2OTZGQ0I0ODdBMDMxRjY3QTkwMUEA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hi",
+      "caption": "Hi",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:48:16.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:48:18.010Z",
+    "updatedAt": "2026-08-23T17:48:18.010Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b32689e629f12a2306fc1",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUMyRDA2Q0VEM0VFRTI1NDhGNkNBODQ4NEM4RDIzMTYA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUMyRDA2Q0VEM0VFRTI1NDhGNkNBODQ4NEM4RDIzMTYA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hlo",
+      "caption": "Hlo",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:48:23.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:48:24.851Z",
+    "updatedAt": "2026-08-23T17:48:24.851Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b32a19e629f12a2307011",
+    "provider": "META",
+    "providerEventId": "wamid.LIVE_TEST_1787507361886",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.LIVE_TEST_1787507361886",
+      "from": "918292463648",
+      "name": "Live Realtime Tester",
+      "messageType": "TEXT",
+      "text": "⚡ Live Zero-Refresh Realtime WhatsApp Message Test!",
+      "caption": "⚡ Live Zero-Refresh Realtime WhatsApp Message Test!",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:49:21.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:49:21.910Z",
+    "updatedAt": "2026-08-23T17:49:21.910Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b32f39e629f12a2307114",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSRkM0OTM1OTI1MTI2Mzk1MEU0AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSRkM0OTM1OTI1MTI2Mzk1MEU0AA==",
+      "recipientId": "918292463648",
+      "status": "READ",
+      "timestamp": "2026-08-23T17:50:43.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:50:43.854Z",
+    "updatedAt": "2026-08-23T17:50:43.854Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b32f69e629f12a2307205",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNBNzkyNTczQzMwRkQ1RkE5OEJBRTI0NDQ4MTc5MkQA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNBNzkyNTczQzMwRkQ1RkE5OEJBRTI0NDQ4MTc5MkQA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hlo",
+      "caption": "Hlo",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:50:45.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:50:46.352Z",
+    "updatedAt": "2026-08-23T17:50:46.352Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b33249e629f12a23073ba",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAERgSRjZDRDE2NDZGRDdDRTQ1ODYxAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAERgSRjZDRDE2NDZGRDdDRTQ1ODYxAA==",
+      "recipientId": "919113313764",
+      "status": "SENT",
+      "timestamp": "2026-08-23T17:51:32.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:51:32.961Z",
+    "updatedAt": "2026-08-23T17:51:32.961Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b332e9e629f12a23074c3",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAEhggQUMyOTk1RDgxMDU3QUFBQ0E2MjE1MUQxQzVBODA0QkEA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAEhggQUMyOTk1RDgxMDU3QUFBQ0E2MjE1MUQxQzVBODA0QkEA",
+      "from": "919113313764",
+      "name": "itsme",
+      "messageType": "TEXT",
+      "text": "Bolye",
+      "caption": "Bolye",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:51:41.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:51:42.919Z",
+    "updatedAt": "2026-08-23T17:51:42.919Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b33369e629f12a2307538",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAEhggQUMwOEI1MzBDNDgyOUNCQUNCRkUzOTc2QTRDN0Y2NEQA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAEhggQUMwOEI1MzBDNDgyOUNCQUNCRkUzOTc2QTRDN0Y2NEQA",
+      "from": "919113313764",
+      "name": "itsme",
+      "messageType": "TEXT",
+      "text": "Kaise h",
+      "caption": "Kaise h",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T17:51:49.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:51:50.271Z",
+    "updatedAt": "2026-08-23T17:51:50.271Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b335b9e629f12a23076ae",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAERgSRjFGOUMyNkExRjc3NjAzOEEyAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAERgSRjFGOUMyNkExRjc3NjAzOEEyAA==",
+      "recipientId": "919113313764",
+      "status": "SENT",
+      "timestamp": "2026-08-23T17:52:27.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:52:27.729Z",
+    "updatedAt": "2026-08-23T17:52:27.729Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b340e9e629f12a230793c",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNFMUYzNzM2MUU5NzE4MTRDRTAxMDI1NEM0NjE2REIA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNFMUYzNzM2MUU5NzE4MTRDRTAxMDI1NEM0NjE2REIA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "caption": "Hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T16:48:11.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T17:55:26.869Z",
+    "updatedAt": "2026-08-23T17:55:26.869Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b3781d48e202169c937b3",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNFNDk3ODE3Qjk1NkM2Rjg4REU2MEFCODY4MEUwOUYA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNFNDk3ODE3Qjk1NkM2Rjg4REU2MEFCODY4MEUwOUYA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "caption": "Hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T16:51:31.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T18:10:09.720Z",
+    "updatedAt": "2026-08-23T18:10:09.720Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b3c0ec44078de7c27952b",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUMwOTZEMTc5NzVEOEY4QzhERjA4MUNFOUQ2N0ZFNzYA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUMwOTZEMTc5NzVEOEY4QzhERjA4MUNFOUQ2N0ZFNzYA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "caption": "Hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T16:51:20.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T18:29:34.345Z",
+    "updatedAt": "2026-08-23T18:29:34.345Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b3c78c44078de7c2798ee",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSNzNENDA4OUY2MkY5MzhFRjc2AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSNzNENDA4OUY2MkY5MzhFRjc2AA==",
+      "recipientId": "919876543210",
+      "status": "FAILED",
+      "timestamp": "2026-08-22T15:45:38.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131047,
+          "title": "Re-engagement message",
+          "message": "Re-engagement message",
+          "error_data": {
+            "details": "Message failed to send because more than 24 hours have passed since the customer last replied to this number."
+          },
+          "href": "https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes/"
+        }
+      ]
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T18:31:20.284Z",
+    "updatedAt": "2026-08-23T18:31:20.284Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b4f9e538f89587d7b808c",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMjUzRDVEQkE5MzNBNUZBRUNDAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMjUzRDVEQkE5MzNBNUZBRUNDAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-23T19:53:01.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T19:53:02.727Z",
+    "updatedAt": "2026-08-23T19:53:02.727Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b4fa8538f89587d7b812e",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM2NzUzNjIxNTFDMUExMTM0MTY0NzM1MkNFMTI0RkYA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM2NzUzNjIxNTFDMUExMTM0MTY0NzM1MkNFMTI0RkYA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "caption": "Hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-23T19:53:11.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T19:53:12.786Z",
+    "updatedAt": "2026-08-23T19:53:12.786Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b6ea7ad0e58876fbb0bcf",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMkEzODQ5MDM2MzhBQjM2RjlEAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMkEzODQ5MDM2MzhBQjM2RjlEAA==",
+      "recipientId": "918292463648",
+      "status": "FAILED",
+      "timestamp": "2026-08-23T22:05:25.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because your WhatsApp Business account currency is not configured. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=CHANGE_COUNTRY_CURRENCY&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=CHANGE_COUNTRY_CURRENCY&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T22:05:27.331Z",
+    "updatedAt": "2026-08-23T22:05:27.331Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8b6ed9ad0e58876fbb0c36",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSM0ZBNkVFRjZFREQyM0NEMTRFAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSM0ZBNkVFRjZFREQyM0NEMTRFAA==",
+      "recipientId": "918292463648",
+      "status": "FAILED",
+      "timestamp": "2026-08-23T22:06:16.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because your WhatsApp Business account currency is not configured. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=CHANGE_COUNTRY_CURRENCY&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=CHANGE_COUNTRY_CURRENCY&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-23T22:06:17.157Z",
+    "updatedAt": "2026-08-23T22:06:17.157Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8d30d533ba410d088a7235",
+    "provider": "META",
+    "providerEventId": "wamid.test_1787637973406",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.test_1787637973406",
+      "from": "918292463648",
+      "name": "Wasim Ansari",
+      "messageType": "TEXT",
+      "text": "Live WhatsApp incoming response received!",
+      "caption": "Live WhatsApp incoming response received!",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T06:06:13.000Z"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-08-25T06:06:13.411Z",
+    "updatedAt": "2026-08-25T06:06:13.411Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8d319c7574440f376d4d24",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMThCREFEMTY0MEM4QTcxRTA0AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMThCREFEMTY0MEM4QTcxRTA0AA==",
+      "recipientId": "918292463648",
+      "status": "READ",
+      "timestamp": "2026-08-25T06:09:31.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T06:09:32.857Z",
+    "updatedAt": "2026-08-25T06:09:32.878Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T06:09:32.878Z"
+  },
+  {
+    "_id": "6a8d319f7574440f376d4d58",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM0N0VFRDRCNzY3OURBQzYzQjZEQTBERjVCRDYyQjUA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM0N0VFRDRCNzY3OURBQzYzQjZEQTBERjVCRDYyQjUA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hlo",
+      "caption": "Hlo",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T06:09:34.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T06:09:35.106Z",
+    "updatedAt": "2026-08-25T06:09:35.132Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T06:09:35.132Z"
+  },
+  {
+    "_id": "6a8d31a57574440f376d4daa",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM3RTM1REQ5Q0YxQTBFRUFDQjhFMEM3RTY0ODk4OUEA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM3RTM1REQ5Q0YxQTBFRUFDQjhFMEM3RTY0ODk4OUEA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "caption": "Hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T06:09:40.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T06:09:41.653Z",
+    "updatedAt": "2026-08-25T06:09:41.673Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T06:09:41.673Z"
+  },
+  {
+    "_id": "6a8d31ac7574440f376d4e41",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQUYxOTc2NzlCMUQ1REQxNzgyAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQUYxOTc2NzlCMUQ1REQxNzgyAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T06:09:48.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T06:09:48.862Z",
+    "updatedAt": "2026-08-25T06:09:48.875Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T06:09:48.875Z"
+  },
+  {
+    "_id": "6a8d31b37574440f376d4eea",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM3RjQxODZDRTIyNUVEQ0Q3NTM0NDM3ODY5REVBQjcA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM3RjQxODZDRTIyNUVEQ0Q3NTM0NDM3ODY5REVBQjcA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "hii",
+      "caption": "hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T06:09:54.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T06:09:55.873Z",
+    "updatedAt": "2026-08-25T06:09:55.885Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T06:09:55.885Z"
+  },
+  {
+    "_id": "6a8d3aec7d4ddf51a3e1eb3d",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSREZCNDhDMkEyOTk4QjI2QzVGAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSREZCNDhDMkEyOTk4QjI2QzVGAA==",
+      "recipientId": "918292463648",
+      "status": "DELIVERED",
+      "timestamp": "2026-08-25T06:49:15.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T06:49:16.423Z",
+    "updatedAt": "2026-08-25T06:49:16.442Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T06:49:16.442Z"
+  },
+  {
+    "_id": "6a8d3af47d4ddf51a3e1ec0f",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUMwNjYyNjQxM0E0REYwNDkyMjM0NTU3RDI3NzAwQTMA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUMwNjYyNjQxM0E0REYwNDkyMjM0NTU3RDI3NzAwQTMA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Ji",
+      "caption": "Ji",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T06:49:22.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T06:49:24.478Z",
+    "updatedAt": "2026-08-25T06:49:24.504Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T06:49:24.504Z"
+  },
+  {
+    "_id": "6a8d3d0957074198e64d929b",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSN0U5NDkxMzcyODc2RkRGOUIxAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSN0U5NDkxMzcyODc2RkRGOUIxAA==",
+      "recipientId": "919876543210",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T06:58:16.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131047,
+          "title": "Re-engagement message",
+          "message": "Re-engagement message",
+          "error_data": {
+            "details": "Message failed to send because more than 24 hours have passed since the customer last replied to this number."
+          },
+          "href": "https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes/"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T06:58:17.681Z",
+    "updatedAt": "2026-08-25T06:58:17.700Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T06:58:17.700Z"
+  },
+  {
+    "_id": "6a8d3d0a57074198e64d92cd",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSNDAxOEY3MDVBQTkxRkJERTkxAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSNDAxOEY3MDVBQTkxRkJERTkxAA==",
+      "recipientId": "919876543210",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T06:58:17.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131047,
+          "title": "Re-engagement message",
+          "message": "Re-engagement message",
+          "error_data": {
+            "details": "Message failed to send because more than 24 hours have passed since the customer last replied to this number."
+          },
+          "href": "https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes/"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T06:58:18.548Z",
+    "updatedAt": "2026-08-25T06:58:18.557Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T06:58:18.557Z"
+  },
+  {
+    "_id": "6a8d3fba238c1bde12510bd5",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSMEVGQ0RENjI3NEU3QjRDQTYxAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSMEVGQ0RENjI3NEU3QjRDQTYxAA==",
+      "recipientId": "919876543210",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T07:09:45.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131047,
+          "title": "Re-engagement message",
+          "message": "Re-engagement message",
+          "error_data": {
+            "details": "Message failed to send because more than 24 hours have passed since the customer last replied to this number."
+          },
+          "href": "https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes/"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:09:46.514Z",
+    "updatedAt": "2026-08-25T07:09:46.550Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:09:46.550Z"
+  },
+  {
+    "_id": "6a8d3fbb238c1bde12510c00",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSOUVENDk3RUYyOUMxNDAxMEMzAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSOUVENDk3RUYyOUMxNDAxMEMzAA==",
+      "recipientId": "919876543210",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T07:09:46.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131047,
+          "title": "Re-engagement message",
+          "message": "Re-engagement message",
+          "error_data": {
+            "details": "Message failed to send because more than 24 hours have passed since the customer last replied to this number."
+          },
+          "href": "https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes/"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:09:47.052Z",
+    "updatedAt": "2026-08-25T07:09:47.062Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:09:47.062Z"
+  },
+  {
+    "_id": "6a8d4144b5088cb897d99852",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSODdDQzUwMTM4OTgzRjBFMUM1AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSODdDQzUwMTM4OTgzRjBFMUM1AA==",
+      "recipientId": "919876543210",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T07:16:19.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131047,
+          "title": "Re-engagement message",
+          "message": "Re-engagement message",
+          "error_data": {
+            "details": "Message failed to send because more than 24 hours have passed since the customer last replied to this number."
+          },
+          "href": "https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes/"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:16:20.295Z",
+    "updatedAt": "2026-08-25T07:16:20.317Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:16:20.317Z"
+  },
+  {
+    "_id": "6a8d4145b5088cb897d9985b",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSQjRGMTEwNzg0MEVGOTQzRDIzAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSQjRGMTEwNzg0MEVGOTQzRDIzAA==",
+      "recipientId": "919876543210",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T07:16:20.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131047,
+          "title": "Re-engagement message",
+          "message": "Re-engagement message",
+          "error_data": {
+            "details": "Message failed to send because more than 24 hours have passed since the customer last replied to this number."
+          },
+          "href": "https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes/"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:16:21.128Z",
+    "updatedAt": "2026-08-25T07:16:21.140Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:16:21.140Z"
+  },
+  {
+    "_id": "6a8d421eb5088cb897d998a1",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM4NzRCMURFMjY0NjMwRDIzQkZEODcyQThBRTFFQUYA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM4NzRCMURFMjY0NjMwRDIzQkZEODcyQThBRTFFQUYA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hi",
+      "caption": "Hi",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T05:57:58.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:19:58.359Z",
+    "updatedAt": "2026-08-25T07:19:59.629Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:19:59.629Z"
+  },
+  {
+    "_id": "6a8d4221b5088cb897d998c2",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMDc0NjRGMzMzMUIwODUyMjg3AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMDc0NjRGMzMzMUIwODUyMjg3AA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T07:20:00.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:20:01.097Z",
+    "updatedAt": "2026-08-25T07:20:01.113Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:20:01.113Z"
+  },
+  {
+    "_id": "6a8d43de615a26ca5f08e615",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSRDg4RDk0QUMyQjVBRkNGMzIwAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSRDg4RDk0QUMyQjVBRkNGMzIwAA==",
+      "recipientId": "919876543210",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T07:27:25.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131047,
+          "title": "Re-engagement message",
+          "message": "Re-engagement message",
+          "error_data": {
+            "details": "Message failed to send because more than 24 hours have passed since the customer last replied to this number."
+          },
+          "href": "https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes/"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:27:26.592Z",
+    "updatedAt": "2026-08-25T07:27:26.608Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:27:26.608Z"
+  },
+  {
+    "_id": "6a8d45a7615a26ca5f08e768",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNBM0JCQUE1MTBGMzQ5NTYwNkM1RDk1QUVDRUNFQjkA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNBM0JCQUE1MTBGMzQ5NTYwNkM1RDk1QUVDRUNFQjkA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "caption": "Hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T07:35:01.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:35:03.241Z",
+    "updatedAt": "2026-08-25T07:35:04.365Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:35:04.365Z"
+  },
+  {
+    "_id": "6a8d45a9615a26ca5f08e77c",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMDUwRUZDM0Q5MDBEN0E1MDE3AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMDUwRUZDM0Q5MDBEN0E1MDE3AA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T07:35:04.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:35:05.901Z",
+    "updatedAt": "2026-08-25T07:35:05.915Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:35:05.915Z"
+  },
+  {
+    "_id": "6a8d45ae615a26ca5f08e791",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNGQzlEM0I0M0UwMDk3MEY5NDcyNTk1MEE4NDU4OTcA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNGQzlEM0I0M0UwMDk3MEY5NDcyNTk1MEE4NDU4OTcA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "INTERACTIVE",
+      "text": "Raise a Request",
+      "caption": "",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": "opt_1787641191151",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T07:35:09.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:35:10.391Z",
+    "updatedAt": "2026-08-25T07:35:11.459Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:35:11.459Z"
+  },
+  {
+    "_id": "6a8d45b0615a26ca5f08e7a4",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSODREQjYwMjExMDk0N0VBOUNGAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSODREQjYwMjExMDk0N0VBOUNGAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T07:35:12.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:35:12.862Z",
+    "updatedAt": "2026-08-25T07:35:12.875Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:35:12.875Z"
+  },
+  {
+    "_id": "6a8d45ce615a26ca5f08e7d2",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM2RjNFRDY2MjE1RTJFQzJCOEU2MzU3ODlFQjRBNkMA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM2RjNFRDY2MjE1RTJFQzJCOEU2MzU3ODlFQjRBNkMA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hi",
+      "caption": "Hi",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T07:35:41.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:35:42.470Z",
+    "updatedAt": "2026-08-25T07:35:42.487Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:35:42.487Z"
+  },
+  {
+    "_id": "6a8d4633615a26ca5f08e833",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNCMDBDQUVBRUNBMTg4RkNFQTlBRTdBN0QwN0I4NUEA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNCMDBDQUVBRUNBMTg4RkNFQTlBRTdBN0QwN0I4NUEA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hi",
+      "caption": "Hi",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T07:37:22.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:37:23.677Z",
+    "updatedAt": "2026-08-25T07:37:24.586Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:37:24.586Z"
+  },
+  {
+    "_id": "6a8d4635615a26ca5f08e847",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMjI1QTUwQzRDNkNENDhCODI2AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMjI1QTUwQzRDNkNENDhCODI2AA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T07:37:25.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:37:25.989Z",
+    "updatedAt": "2026-08-25T07:37:26.006Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:37:26.006Z"
+  },
+  {
+    "_id": "6a8d4639615a26ca5f08e85c",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNBNTJFQjY2NkFGNUJDQUZGNzU1MTJCQ0JERDM1QkMA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNBNTJFQjY2NkFGNUJDQUZGNzU1MTJCQ0JERDM1QkMA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "INTERACTIVE",
+      "text": "Raise a Request",
+      "caption": "",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": "opt_1787641191151",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T07:37:28.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:37:29.849Z",
+    "updatedAt": "2026-08-25T07:37:30.813Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:37:30.813Z"
+  },
+  {
+    "_id": "6a8d463c615a26ca5f08e880",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMEZFMkM1ODdENkM5ODgwRDkzAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMEZFMkM1ODdENkM5ODgwRDkzAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T07:37:31.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:37:32.138Z",
+    "updatedAt": "2026-08-25T07:37:32.152Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:37:32.152Z"
+  },
+  {
+    "_id": "6a8d466f615a26ca5f08e8b6",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM3MEZFNDRFMUE0RkExQzQwREVDMUY5NTI2MkEzREUA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM3MEZFNDRFMUE0RkExQzQwREVDMUY5NTI2MkEzREUA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "INTERACTIVE",
+      "text": "Digital & Web",
+      "caption": "",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": "btn_1787643185745",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T07:38:22.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:38:23.954Z",
+    "updatedAt": "2026-08-25T07:38:24.982Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:38:24.982Z"
+  },
+  {
+    "_id": "6a8d4672615a26ca5f08e8c9",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMUU2Mzk5NzQ4NzEzNzU1QzVFAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMUU2Mzk5NzQ4NzEzNzU1QzVFAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T07:38:25.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:38:26.255Z",
+    "updatedAt": "2026-08-25T07:38:26.263Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:38:26.263Z"
+  },
+  {
+    "_id": "6a8d4676615a26ca5f08e8de",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM4OEFBMUY2OTREODgyODJGN0VFNTNCMjdDNDBCODUA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM4OEFBMUY2OTREODgyODJGN0VFNTNCMjdDNDBCODUA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "INTERACTIVE",
+      "text": "Option 2Automation &",
+      "caption": "",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": "btn_1787643227762",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T07:38:29.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:38:30.101Z",
+    "updatedAt": "2026-08-25T07:38:31.022Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:38:31.021Z"
+  },
+  {
+    "_id": "6a8d4678615a26ca5f08e8ff",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSRjFGNDIxNDBDRDg2MTE0NDUzAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSRjFGNDIxNDBDRDg2MTE0NDUzAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T07:38:31.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:38:32.443Z",
+    "updatedAt": "2026-08-25T07:38:32.456Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:38:32.455Z"
+  },
+  {
+    "_id": "6a8d4805615a26ca5f08e94c",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNjg1NzRFNDIwMkQ5QTY5OTJEAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNjg1NzRFNDIwMkQ5QTY5OTJEAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-24T07:04:21.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T07:45:09.377Z",
+    "updatedAt": "2026-08-25T07:45:09.394Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T07:45:09.394Z"
+  },
+  {
+    "_id": "6a8d4c37615a26ca5f08ea34",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM3M0Y5RUZCNEQ2MzFBN0Y4NUFFOTNDRDNGNjNDNTUA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM3M0Y5RUZCNEQ2MzFBN0Y4NUFFOTNDRDNGNjNDNTUA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Bddhd",
+      "caption": "Bddhd",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T08:03:01.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T08:03:03.022Z",
+    "updatedAt": "2026-08-25T08:03:04.060Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T08:03:04.060Z"
+  },
+  {
+    "_id": "6a8d4c39615a26ca5f08ea96",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNjBDNzBDMzFDQzMzRTg0MDk4AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNjBDNzBDMzFDQzMzRTg0MDk4AA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T08:03:04.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T08:03:05.457Z",
+    "updatedAt": "2026-08-25T08:03:05.469Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T08:03:05.467Z"
+  },
+  {
+    "_id": "6a8d4c41615a26ca5f08eb3f",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM1ODE5NEJGRTY5QjE1NDJEMURERUM3RDk1QkI1NkMA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM1ODE5NEJGRTY5QjE1NDJEMURERUM3RDk1QkI1NkMA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "INTERACTIVE",
+      "text": "Raise a Request",
+      "caption": "",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": "opt_1787641191151",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T08:03:12.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T08:03:13.213Z",
+    "updatedAt": "2026-08-25T08:03:14.155Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T08:03:14.155Z"
+  },
+  {
+    "_id": "6a8d4c43615a26ca5f08eba3",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQzU5MzAxQzVEN0RDRTRGN0Q2AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQzU5MzAxQzVEN0RDRTRGN0Q2AA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T08:03:14.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T08:03:15.447Z",
+    "updatedAt": "2026-08-25T08:03:15.456Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T08:03:15.455Z"
+  },
+  {
+    "_id": "6a8d4c49615a26ca5f08ec48",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM2Q0ZCRERCN0ZEQzk3RTdBMEQxMDQyM0Q1RkZCMUQA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM2Q0ZCRERCN0ZEQzk3RTdBMEQxMDQyM0Q1RkZCMUQA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "INTERACTIVE",
+      "text": "Digital & Web",
+      "caption": "",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": "btn_1787643185745",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T08:03:20.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T08:03:21.854Z",
+    "updatedAt": "2026-08-25T08:03:22.899Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T08:03:22.899Z"
+  },
+  {
+    "_id": "6a8d4c4c615a26ca5f08eca9",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMkNGQTUwOEEzOTEzQjBDMTE4AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMkNGQTUwOEEzOTEzQjBDMTE4AA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T08:03:23.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T08:03:24.120Z",
+    "updatedAt": "2026-08-25T08:03:24.133Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T08:03:24.133Z"
+  },
+  {
+    "_id": "6a8d4cb8615a26ca5f08edeb",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSNDREMEI4MEQ0NTI5MzFFMEU4AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSNDREMEI4MEQ0NTI5MzFFMEU4AA==",
+      "recipientId": "919876543210",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T08:05:11.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T08:05:12.271Z",
+    "updatedAt": "2026-08-25T08:05:12.287Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T08:05:12.286Z"
+  },
+  {
+    "_id": "6a8d4cb9615a26ca5f08ee0d",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5OTk5ODg4ODAxFQIAERgSRTRBMjk1ODBEQzk2MjYyODZGAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5OTk5ODg4ODAxFQIAERgSRTRBMjk1ODBEQzk2MjYyODZGAA==",
+      "recipientId": "919999888801",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T08:05:12.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T08:05:13.582Z",
+    "updatedAt": "2026-08-25T08:05:13.590Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T08:05:13.590Z"
+  },
+  {
+    "_id": "6a8d4cba615a26ca5f08ee16",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAERgSOEUyMDkzODE2NzZBRjc2ODhDAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAERgSOEUyMDkzODE2NzZBRjc2ODhDAA==",
+      "recipientId": "919113313764",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T08:05:12.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T08:05:14.199Z",
+    "updatedAt": "2026-08-25T08:05:14.205Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T08:05:14.205Z"
+  },
+  {
+    "_id": "6a8d4cba615a26ca5f08ee1f",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE3OTAzNTkwNDUxFQIAERgSNEI3MEUyMTAxMTUxOTA5NUM1AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE3OTAzNTkwNDUxFQIAERgSNEI3MEUyMTAxMTUxOTA5NUM1AA==",
+      "recipientId": "917903590451",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T08:05:13.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T08:05:14.224Z",
+    "updatedAt": "2026-08-25T08:05:14.229Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T08:05:14.229Z"
+  },
+  {
+    "_id": "6a8d5d53615a26ca5f08f98f",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSRTQ3RkU5MkNDQzI3MjVFODM0AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSRTQ3RkU5MkNDQzI3MjVFODM0AA==",
+      "recipientId": "918292463648",
+      "status": "DELIVERED",
+      "timestamp": "2026-08-24T08:27:10.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T09:16:03.266Z",
+    "updatedAt": "2026-08-25T09:16:03.287Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T09:16:03.287Z"
+  },
+  {
+    "_id": "6a8d705b615a26ca5f08fcf7",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNCMUIyNTY1QTE1RDE1NjMzRDAyQTY4MjFBNDcxQ0IA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNCMUIyNTY1QTE1RDE1NjMzRDAyQTY4MjFBNDcxQ0IA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hlo",
+      "caption": "Hlo",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T10:37:14.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T10:37:15.337Z",
+    "updatedAt": "2026-08-25T10:37:16.464Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T10:37:16.464Z"
+  },
+  {
+    "_id": "6a8d705d615a26ca5f08fdb1",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQ0IwRkM5OEQ3MzVCQTU2MjAxAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQ0IwRkM5OEQ3MzVCQTU2MjAxAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T10:37:17.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T10:37:17.977Z",
+    "updatedAt": "2026-08-25T10:37:17.989Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T10:37:17.989Z"
+  },
+  {
+    "_id": "6a8d7063615a26ca5f08feb0",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM0REJCMEU1MURDQkMzQjM0RjcxMkY1NzUyMTY0QTUA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM0REJCMEU1MURDQkMzQjM0RjcxMkY1NzUyMTY0QTUA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "INTERACTIVE",
+      "text": "Sevice/Feadback",
+      "caption": "",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": "opt_1787641361659",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T10:37:23.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T10:37:23.999Z",
+    "updatedAt": "2026-08-25T10:37:24.953Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T10:37:24.953Z"
+  },
+  {
+    "_id": "6a8d7066615a26ca5f08ff5f",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNTA1RUYwQUFFN0Q4ODI2MzVCAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNTA1RUYwQUFFN0Q4ODI2MzVCAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T10:37:25.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T10:37:26.317Z",
+    "updatedAt": "2026-08-25T10:37:26.326Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T10:37:26.326Z"
+  },
+  {
+    "_id": "6a8d706b615a26ca5f09006c",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUMxRjFEQTcwRTQ0QjM2RTA5MTE0NkYyQTg3RkI3M0QA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUMxRjFEQTcwRTQ0QjM2RTA5MTE0NkYyQTg3RkI3M0QA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "INTERACTIVE",
+      "text": "Raise a Request",
+      "caption": "",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": "opt_1787641191151",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T10:37:30.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T10:37:31.203Z",
+    "updatedAt": "2026-08-25T10:37:32.097Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T10:37:32.097Z"
+  },
+  {
+    "_id": "6a8d706d615a26ca5f09011e",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQjkyRjA2QjY2NEI0RkU3MEQ3AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQjkyRjA2QjY2NEI0RkU3MEQ3AA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T10:37:32.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T10:37:33.444Z",
+    "updatedAt": "2026-08-25T10:37:33.456Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T10:37:33.455Z"
+  },
+  {
+    "_id": "6a8d707f615a26ca5f090226",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNBNjNENTM4NDMxMjEwQzY3NDAxNDUzMzQ1NkNERjMA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNBNjNENTM4NDMxMjEwQzY3NDAxNDUzMzQ1NkNERjMA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "INTERACTIVE",
+      "text": "Option 2Automation &",
+      "caption": "",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": "btn_1787643227762",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T10:37:50.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T10:37:51.334Z",
+    "updatedAt": "2026-08-25T10:37:52.273Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T10:37:52.273Z"
+  },
+  {
+    "_id": "6a8d7081615a26ca5f0902d5",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSODM4NUMzQUJFNjk4M0Y3ODZGAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSODM4NUMzQUJFNjk4M0Y3ODZGAA==",
+      "recipientId": "918292463648",
+      "status": "DELIVERED",
+      "timestamp": "2026-08-25T10:37:53.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T10:37:53.816Z",
+    "updatedAt": "2026-08-25T10:37:53.832Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T10:37:53.832Z"
+  },
+  {
+    "_id": "6a8d7f3643ba815ec5ae52a0",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSNjlBNEJDQUM1OUQ0RUNBRTVEAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSNjlBNEJDQUM1OUQ0RUNBRTVEAA==",
+      "recipientId": "919876543210",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:40:37.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:40:38.836Z",
+    "updatedAt": "2026-08-25T11:40:38.851Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:40:38.851Z"
+  },
+  {
+    "_id": "6a8d7f3743ba815ec5ae530b",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5OTk5ODg4ODAxFQIAERgSOTc0QUVCMzg5NjhBMEZGNEZBAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5OTk5ODg4ODAxFQIAERgSOTc0QUVCMzg5NjhBMEZGNEZBAA==",
+      "recipientId": "919999888801",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:40:38.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:40:39.581Z",
+    "updatedAt": "2026-08-25T11:40:39.599Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:40:39.599Z"
+  },
+  {
+    "_id": "6a8d7f3843ba815ec5ae5371",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAERgSMUVDRThGRUVEMDVBOEMzNDlBAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAERgSMUVDRThGRUVEMDVBOEMzNDlBAA==",
+      "recipientId": "919113313764",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:40:39.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:40:40.284Z",
+    "updatedAt": "2026-08-25T11:40:40.293Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:40:40.292Z"
+  },
+  {
+    "_id": "6a8d7f3843ba815ec5ae53a1",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE3OTAzNTkwNDUxFQIAERgSMkI0RDc2QkZCQkIwQTc4MTE2AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE3OTAzNTkwNDUxFQIAERgSMkI0RDc2QkZCQkIwQTc4MTE2AA==",
+      "recipientId": "917903590451",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:40:39.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:40:40.711Z",
+    "updatedAt": "2026-08-25T11:40:40.718Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:40:40.718Z"
+  },
+  {
+    "_id": "6a8d8051bd84a6529e17d5a6",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQzg4RkFEMzEzMEVGQ0VGM0IzAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQzg4RkFEMzEzMEVGQ0VGM0IzAA==",
+      "recipientId": "918292463648",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:45:19.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:45:21.021Z",
+    "updatedAt": "2026-08-25T11:45:21.032Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:45:21.032Z"
+  },
+  {
+    "_id": "6a8d80db78fc7711824357d9",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMzgyQjE2RTk3QUJFOTA5OTA1AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMzgyQjE2RTk3QUJFOTA5OTA1AA==",
+      "recipientId": "918292463648",
+      "status": "DELIVERED",
+      "timestamp": "2026-08-25T11:47:38.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:47:39.588Z",
+    "updatedAt": "2026-08-25T11:47:39.607Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:47:39.606Z"
+  },
+  {
+    "_id": "6a8d80e478fc77118243581a",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM5N0IzNjI0NEQ1QjU5RENBMjA3Mjk2M0IxRTk2QTIA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM5N0IzNjI0NEQ1QjU5RENBMjA3Mjk2M0IxRTk2QTIA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Yes",
+      "caption": "Yes",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T11:47:47.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:47:48.777Z",
+    "updatedAt": "2026-08-25T11:47:49.709Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:47:49.709Z"
+  },
+  {
+    "_id": "6a8d80e678fc77118243583b",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSRTQ0ODQ3Qzc0MDkwNDU2MTRDAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSRTQ0ODQ3Qzc0MDkwNDU2MTRDAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T11:47:50.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:47:50.923Z",
+    "updatedAt": "2026-08-25T11:47:50.933Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:47:50.933Z"
+  },
+  {
+    "_id": "6a8d817278fc771182435c62",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSMzUzRTFFMTU4RjE3QUUzRDQyAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSMzUzRTFFMTU4RjE3QUUzRDQyAA==",
+      "recipientId": "919876543210",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:50:09.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:50:10.204Z",
+    "updatedAt": "2026-08-25T11:50:10.223Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:50:10.223Z"
+  },
+  {
+    "_id": "6a8d817378fc771182435c71",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5OTk5ODg4ODAxFQIAERgSNTE0QjI5RDM4QTNEMTA0Nzg1AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5OTk5ODg4ODAxFQIAERgSNTE0QjI5RDM4QTNEMTA0Nzg1AA==",
+      "recipientId": "919999888801",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:50:10.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:50:11.019Z",
+    "updatedAt": "2026-08-25T11:50:11.032Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:50:11.032Z"
+  },
+  {
+    "_id": "6a8d817378fc771182435c8a",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSOEJDMTY3NDYxOUI5NTA0M0Y0AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSOEJDMTY3NDYxOUI5NTA0M0Y0AA==",
+      "recipientId": "918292463648",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:50:11.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:50:11.989Z",
+    "updatedAt": "2026-08-25T11:50:12.010Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:50:12.009Z"
+  },
+  {
+    "_id": "6a8d817478fc771182435ca3",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAERgSNEUzRDI3NjkyRDJENEQ3MDU3AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAERgSNEUzRDI3NjkyRDJENEQ3MDU3AA==",
+      "recipientId": "919113313764",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:50:12.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:50:12.966Z",
+    "updatedAt": "2026-08-25T11:50:12.982Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:50:12.982Z"
+  },
+  {
+    "_id": "6a8d817678fc771182435cb7",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE3OTAzNTkwNDUxFQIAERgSRENDQUNDQUY0MTVEQTAzNzYxAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE3OTAzNTkwNDUxFQIAERgSRENDQUNDQUY0MTVEQTAzNzYxAA==",
+      "recipientId": "917903590451",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:50:13.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:50:14.057Z",
+    "updatedAt": "2026-08-25T11:50:14.070Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:50:14.070Z"
+  },
+  {
+    "_id": "6a8d828425557c5ed795d168",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSOTE2RDlFMTc3QUM3NEIwMkUyAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSOTE2RDlFMTc3QUM3NEIwMkUyAA==",
+      "recipientId": "919876543210",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:54:44.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:54:44.947Z",
+    "updatedAt": "2026-08-25T11:54:44.977Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:54:44.977Z"
+  },
+  {
+    "_id": "6a8d828625557c5ed795d19d",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5OTk5ODg4ODAxFQIAERgSMTgzOTk3MTZDNjMwOTBFMkRBAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5OTk5ODg4ODAxFQIAERgSMTgzOTk3MTZDNjMwOTBFMkRBAA==",
+      "recipientId": "919999888801",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:54:45.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:54:46.294Z",
+    "updatedAt": "2026-08-25T11:54:46.315Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:54:46.315Z"
+  },
+  {
+    "_id": "6a8d828725557c5ed795d235",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNzAzMzdDNDY1MUQ3RENBNUFEAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSNzAzMzdDNDY1MUQ3RENBNUFEAA==",
+      "recipientId": "918292463648",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:54:46.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:54:47.316Z",
+    "updatedAt": "2026-08-25T11:54:47.334Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:54:47.334Z"
+  },
+  {
+    "_id": "6a8d828725557c5ed795d269",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAERgSRkUwMDBFNTM3RDYxRTREQUI3AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE5MTEzMzEzNzY0FQIAERgSRkUwMDBFNTM3RDYxRTREQUI3AA==",
+      "recipientId": "919113313764",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:54:47.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:54:47.872Z",
+    "updatedAt": "2026-08-25T11:54:47.886Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:54:47.886Z"
+  },
+  {
+    "_id": "6a8d828825557c5ed795d2d0",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE3OTAzNTkwNDUxFQIAERgSQjQ5NTkzMTQxMDE3N0ZEMTY5AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE3OTAzNTkwNDUxFQIAERgSQjQ5NTkzMTQxMDE3N0ZEMTY5AA==",
+      "recipientId": "917903590451",
+      "status": "FAILED",
+      "timestamp": "2026-08-25T11:54:48.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": [
+        {
+          "code": 131042,
+          "title": "Business eligibility payment issue",
+          "message": "Business eligibility payment issue",
+          "error_data": {
+            "details": "Message failed to send because no payment method is set up for your WhatsApp Business account. Visit https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account to resolve this issue."
+          },
+          "href": "https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+        }
+      ]
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:54:48.980Z",
+    "updatedAt": "2026-08-25T11:54:49.001Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:54:49.001Z"
+  },
+  {
+    "_id": "6a8d82a425557c5ed795d39d",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNDMjZGMURGNDNCMzgwMjUzNTYzREQ3RTVCQ0VGMUIA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNDMjZGMURGNDNCMzgwMjUzNTYzREQ3RTVCQ0VGMUIA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hi",
+      "caption": "Hi",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T11:55:15.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:55:16.501Z",
+    "updatedAt": "2026-08-25T11:55:17.470Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:55:17.470Z"
+  },
+  {
+    "_id": "6a8d82a725557c5ed795d3ff",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMEJBMUI0NTFDNENDNTRCQjdGAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSMEJBMUI0NTFDNENDNTRCQjdGAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T11:55:18.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T11:55:19.044Z",
+    "updatedAt": "2026-08-25T11:55:19.058Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T11:55:19.058Z"
+  },
+  {
+    "_id": "6a8d8a952aec7db3ce907188",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUMzMTQ0N0Y3RUY2NTQ2QTU4QzNCQ0UxMzg3RkVBQjIA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUMzMTQ0N0Y3RUY2NTQ2QTU4QzNCQ0UxMzg3RkVBQjIA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "TEXT",
+      "text": "Hii",
+      "caption": "Hii",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": null,
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T12:29:08.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T12:29:09.650Z",
+    "updatedAt": "2026-08-25T12:29:10.687Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T12:29:10.687Z"
+  },
+  {
+    "_id": "6a8d8a982aec7db3ce9071ea",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQ0NGNDhCQkI5QkQzNTk0M0IwAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSQ0NGNDhCQkI5QkQzNTk0M0IwAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T12:29:11.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T12:29:12.111Z",
+    "updatedAt": "2026-08-25T12:29:12.119Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T12:29:12.118Z"
+  },
+  {
+    "_id": "6a8d8ac52aec7db3ce907370",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM4QUFBQ0I3NTlDMDI2QTYzQzA4NjFDQUY2MDkzMTAA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM4QUFBQ0I3NTlDMDI2QTYzQzA4NjFDQUY2MDkzMTAA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "INTERACTIVE",
+      "text": "Raise a Request",
+      "caption": "",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": "opt_1787641191151",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T12:29:56.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T12:29:57.723Z",
+    "updatedAt": "2026-08-25T12:29:58.522Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T12:29:58.522Z"
+  },
+  {
+    "_id": "6a8d8ac82aec7db3ce9073d4",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSRjA3Q0QxMjA2NDkwMDRGNEQzAA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSRjA3Q0QxMjA2NDkwMDRGNEQzAA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T12:29:59.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T12:30:00.078Z",
+    "updatedAt": "2026-08-25T12:30:00.101Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T12:30:00.101Z"
+  },
+  {
+    "_id": "6a8d8acb2aec7db3ce90746c",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNGNUI0MkVGNUUyMzFBN0IxMTcyOEYwNkRERDNDREQA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUNGNUI0MkVGNUUyMzFBN0IxMTcyOEYwNkRERDNDREQA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "INTERACTIVE",
+      "text": "Digital & Web",
+      "caption": "",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": "btn_1787643185745",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T12:30:02.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T12:30:03.790Z",
+    "updatedAt": "2026-08-25T12:30:04.750Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T12:30:04.749Z"
+  },
+  {
+    "_id": "6a8d8acb2aec7db3ce907486",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM1MjUzRTRBQjQ4QjM0ODJERjkzRDJCQ0VFQkU2RTMA",
+    "eventType": "INCOMING_MESSAGE",
+    "payload": {
+      "type": "INCOMING_MESSAGE",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAEhggQUM1MjUzRTRBQjQ4QjM0ODJERjkzRDJCQ0VFQkU2RTMA",
+      "from": "918292463648",
+      "name": "Wasim",
+      "messageType": "INTERACTIVE",
+      "text": "Option 3Business Sol",
+      "caption": "",
+      "mediaId": null,
+      "mediaMimeType": null,
+      "filename": null,
+      "location": null,
+      "buttonPayload": "btn_1787643248226",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "wabaId": "1066070962481909",
+      "timestamp": "2026-08-25T12:30:02.000Z"
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T12:30:03.856Z",
+    "updatedAt": "2026-08-25T12:30:05.477Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T12:30:05.476Z"
+  },
+  {
+    "_id": "6a8d8ace2aec7db3ce90752e",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSOTU3RTgzMDczRjI0NzY2NTA4AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSOTU3RTgzMDczRjI0NzY2NTA4AA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T12:30:05.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T12:30:06.469Z",
+    "updatedAt": "2026-08-25T12:30:06.482Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T12:30:06.482Z"
+  },
+  {
+    "_id": "6a8d8acf2aec7db3ce90758a",
+    "provider": "META",
+    "providerEventId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSN0RBQjA4NTU0RkRENDMyQzY3AA==",
+    "eventType": "MESSAGE_STATUS",
+    "payload": {
+      "type": "MESSAGE_STATUS",
+      "providerMessageId": "wamid.HBgMOTE4MjkyNDYzNjQ4FQIAERgSN0RBQjA4NTU0RkRENDMyQzY3AA==",
+      "recipientId": "918292463648",
+      "status": "SENT",
+      "timestamp": "2026-08-25T12:30:06.000Z",
+      "phoneNumberId": "1252085087993302",
+      "displayPhoneNumber": "919155534309",
+      "errors": null
+    },
+    "status": "PROCESSED",
+    "createdAt": "2026-08-25T12:30:07.406Z",
+    "updatedAt": "2026-08-25T12:30:07.411Z",
+    "__v": 0,
+    "processedAt": "2026-08-25T12:30:07.411Z"
+  }
+]

@@ -20,6 +20,15 @@ export class CampaignController {
     }
   }
 
+  async getCampaignRecipients(req, res, next) {
+    try {
+      const recipients = await campaignService.getCampaignRecipients(req.organizationId, req.params.id, req.query);
+      res.status(200).json(apiSuccess(recipients));
+    } catch (error) {
+      next(error);
+    }
+  }
+
   async createCampaign(req, res, next) {
     try {
       const campaign = await campaignService.createCampaign(req.organizationId, req.user._id, req.body);

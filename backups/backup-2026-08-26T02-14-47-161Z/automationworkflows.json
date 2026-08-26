@@ -1,0 +1,158 @@
+[
+  {
+    "_id": "6a8d338c4a912faf61592f38",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "PROD-PERSIST-WORKFLOW",
+    "channel": "WHATSAPP",
+    "type": "AUTOMATION",
+    "isDefault": false,
+    "triggerType": "ANY_MESSAGE",
+    "nodes": [
+      {
+        "id": "n1",
+        "type": "START_TRIGGER",
+        "position": {
+          "x": 20,
+          "y": 40
+        },
+        "config": {
+          "label": "Start",
+          "triggerMode": "Any Message",
+          "keyword": "*",
+          "targetNodeId": "node_list_message_1787641191151",
+          "buttons": [
+            {
+              "id": "trigger_out",
+              "text": "Start",
+              "targetNodeId": "node_list_message_1787641191151"
+            }
+          ]
+        },
+        "_id": "6a8d704f615a26ca5f08fced"
+      },
+      {
+        "id": "node_list_message_1787641191151",
+        "type": "LIST_MESSAGE",
+        "position": {
+          "x": 280.3982659275889,
+          "y": 226
+        },
+        "config": {
+          "bodyText": "Namaste {{name}}! 🙏 Welcome to IGlobal Tech. How can we help you today? ⭐ ",
+          "charCount": "0/1024",
+          "buttonTitle": "Select Services",
+          "buttons": [],
+          "items": [
+            {
+              "id": "opt_1787641191151",
+              "title": "Raise a Request",
+              "subtitle": "Description (optional)",
+              "targetNodeId": "node_button_message_1787643185745"
+            },
+            {
+              "id": "opt_1787641361659",
+              "title": "Sevice/Feadback",
+              "subtitle": "Description (optional)",
+              "targetNodeId": "node_text_message_1787654179145"
+            },
+            {
+              "id": "opt_1787641381610",
+              "title": "Exciting Offers",
+              "subtitle": "Description (optional)",
+              "targetNodeId": "node_text_message_1787654205094"
+            }
+          ],
+          "targetNodeId": "node_button_message_1787642195600"
+        },
+        "_id": "6a8d704f615a26ca5f08fcee"
+      },
+      {
+        "id": "node_text_message_1787642676164",
+        "type": "TEXT_MESSAGE",
+        "position": {
+          "x": 1000.2165143087898,
+          "y": 134.86445926199053
+        },
+        "config": {
+          "bodyText": "Our Team Contact You As Soon As Possible 🙏",
+          "charCount": "0/1024",
+          "buttons": [],
+          "items": []
+        },
+        "_id": "6a8d704f615a26ca5f08fcef"
+      },
+      {
+        "id": "node_button_message_1787643185745",
+        "type": "BUTTON_MESSAGE",
+        "position": {
+          "x": 629.1442217923923,
+          "y": 67.1300822176409
+        },
+        "config": {
+          "bodyText": "Let’s raise a Service Request.\n\nPlease click below to raise a new Service Request",
+          "charCount": "0/1024",
+          "buttons": [
+            {
+              "id": "btn_1787643185745",
+              "text": "Digital & Web",
+              "targetNodeId": "node_text_message_1787642676164"
+            },
+            {
+              "id": "btn_1787643227762",
+              "text": "Option 2Automation & AI",
+              "targetNodeId": "node_text_message_1787642676164"
+            },
+            {
+              "id": "btn_1787643248226",
+              "text": "Option 3Business Solutions",
+              "targetNodeId": "node_text_message_1787642676164"
+            }
+          ],
+          "items": []
+        },
+        "_id": "6a8d704f615a26ca5f08fcf0"
+      },
+      {
+        "id": "node_text_message_1787654179145",
+        "type": "TEXT_MESSAGE",
+        "position": {
+          "x": 770.3187609983902,
+          "y": 496.33023387982917
+        },
+        "config": {
+          "bodyText": "Thanks for Feadback",
+          "charCount": "0/1024",
+          "buttons": [],
+          "items": []
+        },
+        "_id": "6a8d704f615a26ca5f08fcf1"
+      },
+      {
+        "id": "node_text_message_1787654205094",
+        "type": "TEXT_MESSAGE",
+        "position": {
+          "x": 1093.4874902878641,
+          "y": 616.0623896260406
+        },
+        "config": {
+          "bodyText": "Comming Soon",
+          "charCount": "0/1024",
+          "buttons": [],
+          "items": []
+        },
+        "_id": "6a8d704f615a26ca5f08fcf2"
+      }
+    ],
+    "isActive": true,
+    "executionCount": 21,
+    "createdBy": "WA",
+    "connections": [],
+    "createdAt": "2026-08-25T06:17:48.224Z",
+    "updatedAt": "2026-08-25T12:30:05.472Z",
+    "__v": 0,
+    "triggerConfig": {
+      "templateName": "custom_flow",
+      "keyword": "*"
+    }
+  }
+]

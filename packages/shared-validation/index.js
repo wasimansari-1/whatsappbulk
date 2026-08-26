@@ -97,7 +97,7 @@ export const createCampaignSchema = z.object({
   whatsappPhoneNumberId: z.string().optional().nullable(),
   templateId: z.string().min(1, 'Template selection is required'),
   templateName: z.string().optional(),
-  audienceType: z.enum(['ALL', 'TAGS', 'LISTS', 'CUSTOM']).default('ALL'),
+  audienceType: z.enum(['ALL', 'TAGS', 'LISTS', 'CUSTOM', 'GROUP', 'CONTACTS']).default('ALL'),
   targetTag: z.string().optional(),
   targetTags: z.array(z.string()).default([]),
   targetListIds: z.array(z.string()).default([]),

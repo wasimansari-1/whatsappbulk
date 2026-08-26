@@ -66,6 +66,10 @@ const messageSchema = new mongoose.Schema(
       default: MessageStatus.SENT,
       index: true
     },
+    errorMessage: {
+      type: String,
+      default: null
+    },
     providerMessageId: {
       type: String,
       unique: true,

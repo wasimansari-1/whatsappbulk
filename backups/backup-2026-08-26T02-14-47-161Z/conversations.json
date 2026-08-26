@@ -1,0 +1,96 @@
+[
+  {
+    "_id": "6a8d30254eef3e90414781cb",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "contactId": "6a8b2dfab3b163bfdef67c6f",
+    "channel": "WHATSAPP",
+    "status": "ACTIVE",
+    "isPinned": true,
+    "unreadCount": 0,
+    "assignedTo": "6a8b1d85d8761c6ddf09a798",
+    "lastMessage": {
+      "text": "Our Team Contact You As Soon As Possible 🙏",
+      "sender": "BOT",
+      "sentAt": "2026-08-25T12:30:05.468Z",
+      "status": "READ"
+    },
+    "createdAt": "2026-08-25T06:03:17.099Z",
+    "updatedAt": "2026-08-25T12:43:53.668Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8d30254eef3e90414781ce",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "contactId": "6a8b2df3b3b163bfdef67c53",
+    "channel": "WHATSAPP",
+    "status": "ACTIVE",
+    "isPinned": true,
+    "unreadCount": 0,
+    "assignedTo": "6a8b1d85d8761c6ddf09a798",
+    "lastMessage": {
+      "text": "Hello! Thank you for connecting with Iglobal Tech. We are here to assist you.",
+      "sender": "AGENT",
+      "sentAt": "2026-08-25T11:54:47.214Z",
+      "status": "FAILED"
+    },
+    "createdAt": "2026-08-25T06:03:17.102Z",
+    "updatedAt": "2026-08-25T11:54:50.790Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8d30254eef3e90414781d1",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "contactId": "6a8b2800d2f73e0459b6cf13",
+    "channel": "WHATSAPP",
+    "status": "ACTIVE",
+    "isPinned": true,
+    "unreadCount": 0,
+    "assignedTo": "6a8b1d85d8761c6ddf09a798",
+    "lastMessage": {
+      "text": "Hello! Thank you for connecting with Iglobal Tech. We are here to assist you.",
+      "sender": "AGENT",
+      "sentAt": "2026-08-25T11:54:48.024Z",
+      "status": "FAILED"
+    },
+    "createdAt": "2026-08-25T06:03:17.103Z",
+    "updatedAt": "2026-08-25T12:43:54.940Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8d3368aaa736237c5fb09a",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "contactId": "6a8d3368aaa736237c5fb078",
+    "channel": "WHATSAPP",
+    "status": "ACTIVE",
+    "isPinned": false,
+    "unreadCount": 0,
+    "assignedTo": "6a8b1d85d8761c6ddf09a798",
+    "lastMessage": {
+      "text": "Hello! Thank you for connecting with Iglobal Tech. We are here to assist you.",
+      "sender": "AGENT",
+      "sentAt": "2026-08-25T11:54:45.254Z",
+      "status": "FAILED"
+    },
+    "createdAt": "2026-08-25T06:17:12.757Z",
+    "updatedAt": "2026-08-25T11:54:46.552Z",
+    "__v": 0
+  },
+  {
+    "_id": "6a8d3d0826cbae608d5500c9",
+    "contactId": "6a8d3d07095700c41016f1e0",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "__v": 0,
+    "channel": "WHATSAPP",
+    "createdAt": "2026-08-25T06:58:16.707Z",
+    "isPinned": false,
+    "lastMessage": {
+      "text": "Hello! Thank you for connecting with Iglobal Tech. We are here to assist you.",
+      "sender": "AGENT",
+      "sentAt": "2026-08-25T11:54:44.124Z",
+      "status": "FAILED"
+    },
+    "status": "ACTIVE",
+    "unreadCount": 0,
+    "updatedAt": "2026-08-25T11:54:44.975Z"
+  }
+]

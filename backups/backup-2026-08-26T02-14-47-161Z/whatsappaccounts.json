@@ -1,0 +1,33 @@
+[
+  {
+    "_id": "6a8b1d85d8761c6ddf09a7a9",
+    "organizationId": "6a8b1d85d8761c6ddf09a79a",
+    "name": "Iglobal Tech",
+    "wabaId": "1066070962481909",
+    "businessId": "",
+    "provider": "META",
+    "onboardingMethod": "MANUAL",
+    "status": "CONNECTED",
+    "coexistenceStatus": "ENABLED",
+    "accountReviewStatus": "APPROVED",
+    "createdAt": "2026-08-23T16:19:17.702Z",
+    "updatedAt": "2026-08-25T12:45:04.960Z",
+    "__v": 0,
+    "encryptedAccessToken": {
+      "encrypted": "f58a4f2f2761eff6e8e6111471d3b3d0cdbe8de81feb2800614f10376463a38d39c06229c0b4af621be5f5149f18b84f5c0ae777caa7ac5784d430990a4f1d181c9e0b95430d865f6234751c97c59431c48a77cb9201845d891d4bac239351b2e983cc7ae1fe2342dacef949ce0b771f9aee78537932813ae97826a53ac5f182b5f8c2a399b0783b9ddc0190e12feb41b82b41a6131d0ed195fff09971c54653118c618d83d980b6922fed8d0d8f8d0be0f0718b08b167f2239b8d169ba11eafb85c7b8f68157edb4020680c0e93ee0e",
+      "iv": "9871fa0d90a015a2dea4158254e2b83c",
+      "authTag": "3a0ab7c2874acb12211278affdbc3a8c",
+      "_id": "6a8d3aa17d4ddf51a3e1e952"
+    },
+    "businessPortfolioId": "",
+    "createdBy": "6a8b1d85d8761c6ddf09a798",
+    "lastError": null,
+    "lastVerifiedAt": "2026-08-25T06:48:01.503Z",
+    "metaErrorCode": null,
+    "metaErrorSubcode": null,
+    "tokenMetadata": {
+      "configuredAt": "2026-08-25T06:48:01.503Z",
+      "method": "MANUAL"
+    }
+  }
+]

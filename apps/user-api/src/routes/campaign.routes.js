@@ -12,6 +12,7 @@ router.use(authGuard);
 
 router.get('/', rbacGuard(Permissions.CAMPAIGNS_READ), campaignController.getCampaigns);
 router.get('/:id', rbacGuard(Permissions.CAMPAIGNS_READ), campaignController.getCampaign);
+router.get('/:id/recipients', rbacGuard(Permissions.CAMPAIGNS_READ), campaignController.getCampaignRecipients);
 router.post('/', rbacGuard(Permissions.CAMPAIGNS_CREATE), validateBody(createCampaignSchema), campaignController.createCampaign);
 router.post('/:id/pause', rbacGuard(Permissions.CAMPAIGNS_PAUSE), campaignController.pauseCampaign);
 router.post('/:id/resume', rbacGuard(Permissions.CAMPAIGNS_PAUSE), campaignController.resumeCampaign);

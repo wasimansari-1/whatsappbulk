@@ -129,14 +129,7 @@ export default function TemplatesPage() {
   });
   const contacts = contactsRes?.data?.items || contactsRes?.data || [];
 
-  // 3. Fetch Organization Wallet / Quota
-  const { data: walletRes } = useQuery({
-    queryKey: ['wallet'],
-    queryFn: () => api.get('/billing/wallet')
-  });
-  const wallet = walletRes?.data || { balance: 91.13, remainingQuota: 10000 };
-
-  // 4. Sync with Meta Graph API Mutation
+  // 3. Sync with Meta Graph API Mutation
   const syncMutation = useMutation({
     mutationFn: async (templateName) => {
       const loadToastId = toast.loading(

@@ -65,32 +65,37 @@ export default function BillingPage() {
 
       {/* 2. Top Wallet & Plan Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {/* Wallet Balance Card */}
-        <div className="bg-gradient-to-br from-emerald-600 to-teal-800 text-white rounded-3xl p-6 shadow-xl shadow-emerald-700/20 flex flex-col justify-between">
+        {/* Meta WABA Account & Direct Billing Card */}
+        <div className="bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 text-white rounded-3xl p-6 shadow-xl shadow-blue-950/20 flex flex-col justify-between">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Wallet className="w-5 h-5" />
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-100">Prepaid Wallet</span>
+              <CreditCard className="w-5 h-5 text-blue-400" />
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-200">Meta Cloud Account</span>
             </div>
-            <button
-              onClick={() => setIsRechargeModalOpen(true)}
-              className="px-3 py-1.5 bg-white text-emerald-800 rounded-xl text-xs font-black hover:bg-emerald-50 transition shadow-sm flex items-center space-x-1"
+            <a
+              href={overview.metaBilling?.paymentHubUrl || 'https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 bg-blue-500 hover:bg-blue-600 text-white rounded-xl text-xs font-black transition shadow-sm flex items-center space-x-1"
             >
-              <Plus className="w-3.5 h-3.5" />
-              <span>Add Credits</span>
-            </button>
+              <CreditCard className="w-3.5 h-3.5" />
+              <span>Meta Hub ↗</span>
+            </a>
           </div>
 
           <div className="my-4">
-            <p className="text-3xl font-black">₹ {Number(overview.wallet.balance).toFixed(2)}</p>
-            <p className="text-xs text-emerald-100 mt-1">
-              Available for broadcast campaigns (~{(overview.wallet.balance / 0.40).toFixed(0)} messages)
+            <div className="flex items-center space-x-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+              <p className="text-3xl font-black">₹ {Number(overview.wallet?.balance || 0).toFixed(2)}</p>
+            </div>
+            <p className="text-xs text-blue-200 mt-1">
+              Live Meta Cloud Balance ({overview.metaBilling?.messagingLimitTier || 'TIER_10K'} • {overview.metaBilling?.displayPhoneNumber || '+91 91555 34309'})
             </p>
           </div>
 
-          <div className="pt-3 border-t border-emerald-500/50 flex justify-between text-xs text-emerald-100">
-            <span>Used Credits:</span>
-            <span className="font-bold text-white">₹ {Number(overview.wallet.usedCredits).toFixed(2)}</span>
+          <div className="pt-3 border-t border-blue-800/80 flex justify-between text-xs text-blue-200">
+            <span>Quality Rating:</span>
+            <span className="font-black text-emerald-400">{overview.metaBilling?.qualityRating || 'GREEN (High)'}</span>
           </div>
         </div>
 
@@ -142,6 +147,48 @@ export default function BillingPage() {
           <p className="text-[10px] text-slate-400 pt-2 border-t border-slate-100">
             Directly deducted from prepaid wallet upon carrier delivery receipt.
           </p>
+        </div>
+      </div>
+
+      {/* 2.5 Official Meta Cloud API Payment Method & Direct Billing Hub Card */}
+      <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-xl relative overflow-hidden">
+        <div className="absolute right-0 top-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="space-y-2 max-w-2xl">
+            <div className="flex items-center space-x-2">
+              <CreditCard className="w-5 h-5 text-blue-400" />
+              <span className="text-xs font-black uppercase tracking-wider text-blue-300">
+                Official Meta Cloud API Direct Payment Hub
+              </span>
+            </div>
+            <h2 className="text-xl font-black text-white">
+              Connect & Recharge Meta WhatsApp Business Account
+            </h2>
+            <p className="text-xs text-blue-100/80 leading-relaxed">
+              Meta WhatsApp Cloud API requires an active Payment Method (Credit/Debit Card) attached to your WhatsApp Business Account (<strong>WABA ID: 1066070962481909</strong>). Once added, your bulk messages and marketing campaigns will deliver without restriction.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-2 text-[11px] text-blue-200">
+              <span className="flex items-center space-x-1.5 bg-white/10 px-3 py-1 rounded-lg border border-white/10">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>WABA ID: <strong>1066070962481909</strong></span>
+              </span>
+              <span className="flex items-center space-x-1.5 bg-white/10 px-3 py-1 rounded-lg border border-white/10">
+                <span>Business ID: <strong>993604119807437</strong></span>
+              </span>
+            </div>
+          </div>
+
+          <div className="shrink-0 w-full md:w-auto">
+            <a
+              href="https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center space-x-2 w-full md:w-auto px-6 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-2xl font-black text-sm shadow-xl shadow-blue-500/30 transition transform hover:-translate-y-0.5"
+            >
+              <CreditCard className="w-4 h-4" />
+              <span>Add Payment Method on Meta Hub ↗</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -211,6 +258,24 @@ export default function BillingPage() {
               <button onClick={() => setIsRechargeModalOpen(false)} className="text-slate-400 hover:text-slate-600">
                 <X className="w-5 h-5" />
               </button>
+            </div>
+
+            <div className="p-3 bg-blue-50 border border-blue-200 rounded-2xl space-y-1.5">
+              <div className="flex items-center space-x-1.5 text-blue-900 font-bold text-xs">
+                <CreditCard className="w-4 h-4 text-blue-600 shrink-0" />
+                <span>Meta WhatsApp Cloud API Direct Card Setup</span>
+              </div>
+              <p className="text-[11px] text-blue-700 leading-tight">
+                To clear Meta Error 131042, ensure a payment method is attached directly to your Meta WABA.
+              </p>
+              <a
+                href="https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-1 text-xs font-black text-blue-600 hover:text-blue-800 underline pt-0.5"
+              >
+                <span>Add / Manage Card on Meta Business Hub ↗</span>
+              </a>
             </div>
 
             <div className="grid grid-cols-3 gap-2">

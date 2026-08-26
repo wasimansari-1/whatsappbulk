@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import api from '../services/api';
 import { useSocket } from '../hooks/useSocket';
+import { useToast } from '../context/ToastContext';
 import {
   Megaphone,
   Plus,
@@ -12,6 +13,7 @@ import {
   CheckCircle2,
   Clock,
   AlertTriangle,
+  AlertCircle,
   ArrowRight,
   ArrowLeft,
   Smartphone,
@@ -19,13 +21,22 @@ import {
   Send,
   Zap,
   Users,
-  CheckCheck
+  CheckCheck,
+  RefreshCw,
+  Eye,
+  CreditCard,
+  X
 } from 'lucide-react';
 
 export default function CampaignsPage() {
+  const toast = useToast();
   const queryClient = useQueryClient();
   const [isBuilderOpen, setIsBuilderOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
+  const [launchError, setLaunchError] = useState(null);
+
+  // Failure details modal state
+  const [selectedCampaignForErrors, setSelectedCampaignForErrors] = useState(null);
 
   // Campaign Form State (9 Steps)
   const [formData, setFormData] = useState({
@@ -54,6 +65,7 @@ export default function CampaignsPage() {
   });
   const statusData = statusRes?.data || null;
   const isWhatsAppConnected = statusData?.connected === true;
+  const activePhoneNumber = statusData?.phoneNumber || null;
 
   // 2. Fetch Templates & Phone numbers for builder
   const { data: templatesRes } = useQuery({
@@ -65,7 +77,15 @@ export default function CampaignsPage() {
   const templates = templatesRes?.data || [];
   const selectedTemplate = templates.find((t) => t._id === formData.templateId) || templates[0] || null;
 
-  // 3. Socket.IO Real-time Campaign Progress Listeners
+  // 3. Failed Recipients Query
+  const { data: failedRecipientsRes, isLoading: isLoadingFailedRecipients } = useQuery({
+    queryKey: ['campaign-failed-recipients', selectedCampaignForErrors?._id],
+    queryFn: () => api.get(`/campaigns/${selectedCampaignForErrors._id}/recipients?status=FAILED`),
+    enabled: Boolean(selectedCampaignForErrors?._id)
+  });
+  const failedRecipients = failedRecipientsRes?.data || [];
+
+  // 4. Socket.IO Real-time Campaign Progress Listeners
   useSocket({
     'campaign.progress': (payload) => {
       queryClient.setQueryData(['campaigns'], (old) => {
@@ -74,7 +94,12 @@ export default function CampaignsPage() {
           ...old,
           data: old.data.map((camp) =>
             camp._id === payload.campaignId
-              ? { ...camp, stats: payload.stats, status: payload.status }
+              ? {
+                  ...camp,
+                  stats: payload.stats,
+                  status: payload.status,
+                  lastErrorMessage: payload.lastErrorMessage || camp.lastErrorMessage
+                }
               : camp
           )
         };
@@ -82,19 +107,43 @@ export default function CampaignsPage() {
     }
   });
 
-  // 4. Launch Campaign Mutation
+  // 5. Launch Campaign Mutation
   const launchMutation = useMutation({
     mutationFn: (payload) => api.post('/campaigns', payload),
     onSuccess: () => {
       setIsBuilderOpen(false);
       setCurrentStep(1);
+      setLaunchError(null);
       queryClient.invalidateQueries({ queryKey: ['campaigns'] });
       queryClient.invalidateQueries({ queryKey: ['dashboard-data'] });
-      alert('Campaign launched successfully into background processing queue!');
+      toast.success('Campaign launched successfully into background processing queue!', 'Campaign Dispatched');
+    },
+    onError: (err) => {
+      const errorMsg =
+        err.response?.data?.message ||
+        err.response?.data?.error?.message ||
+        err.message ||
+        'Failed to launch campaign.';
+      setLaunchError(errorMsg);
+      toast.error(errorMsg, 'Campaign Launch Failed');
+    }
+  });
+
+  // 6. Retry Failed Campaign Mutation
+  const retryMutation = useMutation({
+    mutationFn: (campaignId) => api.post(`/campaigns/${campaignId}/retry`),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['campaigns'] });
+      toast.success('Retry initiated for failed recipients!', 'Retry In Progress');
+    },
+    onError: (err) => {
+      const errorMsg = err.response?.data?.message || err.message || 'Retry failed.';
+      toast.error(errorMsg, 'Retry Failed');
     }
   });
 
   const handleLaunch = () => {
+    setLaunchError(null);
     launchMutation.mutate({
       name: formData.name || `Broadcast Campaign ${new Date().toLocaleDateString()}`,
       whatsappPhoneNumberId: activePhoneNumber?._id || formData.whatsappPhoneNumberId,
@@ -264,6 +313,44 @@ export default function CampaignsPage() {
                     <p className="font-bold text-rose-900 mt-0.5">{stats.failed}</p>
                   </div>
                 </div>
+
+                {/* EXACT META / SYSTEM ERROR BANNER ON FAILURE */}
+                {(stats.failed > 0 || camp.lastErrorMessage) && (
+                  <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl space-y-2">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex items-start space-x-2">
+                        <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                        <div>
+                          <p className="text-xs font-bold text-rose-900">
+                            Meta Cloud API Error / Delivery Failure ({stats.failed} failed)
+                          </p>
+                          <p className="text-[11px] text-rose-700 font-mono mt-0.5 break-all">
+                            {camp.lastErrorMessage || 'Message dispatch rejected by Meta Cloud API. Check recipient phone format or template status.'}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-2 shrink-0">
+                        <button
+                          type="button"
+                          onClick={() => setSelectedCampaignForErrors(camp)}
+                          className="px-2.5 py-1 bg-white border border-rose-300 hover:bg-rose-100 text-rose-800 rounded-lg text-xs font-bold transition flex items-center space-x-1 shadow-2xs"
+                        >
+                          <Eye className="w-3.5 h-3.5" />
+                          <span>View Error Logs</span>
+                        </button>
+                        <button
+                          type="button"
+                          disabled={retryMutation.isPending}
+                          onClick={() => retryMutation.mutate(camp._id)}
+                          className="px-2.5 py-1 bg-rose-600 hover:bg-rose-700 text-white rounded-lg text-xs font-bold transition flex items-center space-x-1 shadow-2xs"
+                        >
+                          <RefreshCw className={`w-3.5 h-3.5 ${retryMutation.isPending ? 'animate-spin' : ''}`} />
+                          <span>Retry Failed</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             );
           })
@@ -471,14 +558,29 @@ export default function CampaignsPage() {
 
             {/* Step 9: Review & Launch */}
             {currentStep === 9 && (
-              <div className="space-y-4 bg-emerald-50/50 p-4 rounded-2xl border border-emerald-200">
-                <h3 className="text-xs font-bold text-emerald-900">Campaign Summary Review</h3>
-                <div className="text-xs space-y-1.5 text-slate-700">
-                  <p><strong>Campaign Name:</strong> {formData.name || 'Special Broadcast'}</p>
-                  <p><strong>Audience:</strong> 2,223 Recipients</p>
-                  <p><strong>Template:</strong> {selectedTemplate?.name}</p>
-                  <p><strong>Estimated Cost:</strong> ₹{(2223 * 0.40).toFixed(2)} (Deducted from prepaid wallet)</p>
+              <div className="space-y-4">
+                <div className="space-y-4 bg-emerald-50/50 p-4 rounded-2xl border border-emerald-200">
+                  <h3 className="text-xs font-bold text-emerald-900">Campaign Summary Review</h3>
+                  <div className="text-xs space-y-1.5 text-slate-700">
+                    <p><strong>Campaign Name:</strong> {formData.name || 'Special Broadcast'}</p>
+                    <p><strong>Template:</strong> {selectedTemplate?.name || 'Selected Template'}</p>
+                    <p><strong>Audience Type:</strong> {formData.audienceType}</p>
+                    <p><strong>Rate Limit:</strong> {formData.sendSpeedPerMinute} messages / minute</p>
+                  </div>
                 </div>
+
+                {/* EXACT ERROR BANNER IN STEP 9 IF LAUNCH FAILS */}
+                {launchError && (
+                  <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-2xl space-y-1.5 animate-in fade-in duration-200">
+                    <div className="flex items-center space-x-2 text-rose-800 font-bold text-xs">
+                      <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                      <span>Campaign Dispatch Blocked / Meta API Error</span>
+                    </div>
+                    <p className="text-xs text-rose-700 font-mono break-all pl-6">
+                      {launchError}
+                    </p>
+                  </div>
+                )}
               </div>
             )}
 
@@ -514,6 +616,123 @@ export default function CampaignsPage() {
                   <span>{launchMutation.isPending ? 'Launching Queue...' : 'Confirm & Launch Campaign'}</span>
                 </button>
               )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 4. FAILED RECIPIENTS & EXACT ERROR LOGS MODAL */}
+      {selectedCampaignForErrors && (
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-4 animate-in fade-in duration-150">
+          <div className="bg-white rounded-3xl max-w-2xl w-full p-6 md:p-8 shadow-2xl space-y-5 max-h-[85vh] flex flex-col">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
+                  <AlertCircle className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-extrabold text-slate-900">Campaign Failure Error Logs</h3>
+                  <p className="text-xs text-slate-400">
+                    Campaign: <span className="font-semibold text-slate-700">{selectedCampaignForErrors.name}</span>
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setSelectedCampaignForErrors(null)}
+                className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Campaign-level last error message */}
+            {selectedCampaignForErrors.lastErrorMessage && (
+              <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-2xl space-y-2">
+                <div className="flex items-center justify-between">
+                  <p className="text-[11px] font-black uppercase text-rose-800 tracking-wider">Last Meta Cloud API Response:</p>
+                  {(selectedCampaignForErrors.lastErrorMessage.includes('131042') || selectedCampaignForErrors.lastErrorMessage.includes('billing_hub')) && (
+                    <span className="px-2 py-0.5 bg-rose-200 text-rose-900 rounded font-black text-[10px] uppercase">Payment Required</span>
+                  )}
+                </div>
+                <p className="text-xs text-rose-900 font-mono break-all font-semibold leading-relaxed">
+                  {selectedCampaignForErrors.lastErrorMessage}
+                </p>
+                {(selectedCampaignForErrors.lastErrorMessage.includes('131042') || selectedCampaignForErrors.lastErrorMessage.includes('billing_hub')) && (
+                  <div className="pt-2 border-t border-rose-200">
+                    <a
+                      href="https://business.facebook.com/billing_hub/accounts/details/?business_id=993604119807437&asset_id=1066070962481909&wizard_name=ADD_PM&account_type=whatsapp-business-account"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-black text-xs shadow-md shadow-blue-500/20 transition transform hover:-translate-y-0.5"
+                    >
+                      <CreditCard className="w-3.5 h-3.5" />
+                      <span>Fix Payment Method on Meta Hub ↗</span>
+                    </a>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Failed Recipients List */}
+            <div className="flex-1 overflow-y-auto space-y-2 pr-1">
+              {isLoadingFailedRecipients ? (
+                <div className="py-8 text-center text-xs text-slate-400">Loading recipient failure logs...</div>
+              ) : failedRecipients.length === 0 ? (
+                <div className="py-8 text-center text-xs text-slate-500">
+                  No individual recipient logs found. Check campaign-level error above.
+                </div>
+              ) : (
+                failedRecipients.map((rec) => (
+                  <div
+                    key={rec._id}
+                    className="p-3 bg-slate-50 border border-slate-200/80 rounded-xl space-y-1 text-xs"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-slate-800">
+                        {rec.name || 'Customer'} ({rec.phone})
+                      </span>
+                      <span className="px-2 py-0.5 bg-rose-100 text-rose-700 rounded-md text-[10px] font-bold">
+                        FAILED
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-rose-700 font-mono break-all">
+                      {rec.errorMessage || 'Rejected by Meta Graph API'}
+                    </p>
+                    {rec.failedAt && (
+                      <p className="text-[10px] text-slate-400">
+                        Failed at: {new Date(rec.failedAt).toLocaleString()}
+                      </p>
+                    )}
+                  </div>
+                ))
+              )}
+            </div>
+
+            <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+              <span className="text-xs text-slate-400">
+                Total Failed: <strong className="text-rose-600">{selectedCampaignForErrors.stats?.failed || 0}</strong>
+              </span>
+              <div className="flex items-center space-x-2">
+                <button
+                  type="button"
+                  onClick={() => setSelectedCampaignForErrors(null)}
+                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  disabled={retryMutation.isPending}
+                  onClick={() => {
+                    retryMutation.mutate(selectedCampaignForErrors._id);
+                    setSelectedCampaignForErrors(null);
+                  }}
+                  className="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold transition flex items-center space-x-1.5 shadow-md shadow-rose-500/20"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 ${retryMutation.isPending ? 'animate-spin' : ''}`} />
+                  <span>Retry All Failed</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

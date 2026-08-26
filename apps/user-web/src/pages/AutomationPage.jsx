@@ -82,11 +82,13 @@ export default function AutomationPage() {
   const [draggingNodeId, setDraggingNodeId] = useState(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const canvasRef = useRef(null);
+  const dotPositionsRef = useRef({}); // Maps dotId -> {x, y} measured from canvas
 
   // LIVE WIRE CONNECTING STATE (Stretches arrow as you drag)
   const [connectingSource, setConnectingSource] = useState(null); // { nodeId, buttonId, startX, startY }
   const [currentMousePos, setCurrentMousePos] = useState({ x: 0, y: 0 });
   const [hoveredNodeId, setHoveredNodeId] = useState(null);
+  const mouseMovedRef = useRef(false); // Tracks if mouse moved since mouseDown (drag vs click)
 
   // Canonical WhatsApp Connection Status
   const { data: statusRes, isLoading: isLoadingStatus } = useQuery({
@@ -246,6 +248,7 @@ export default function AutomationPage() {
     e.stopPropagation();
     e.preventDefault();
     if (!canvasRef.current) return;
+    mouseMovedRef.current = false; // Reset move tracking on new connection start
 
     const rect = canvasRef.current.getBoundingClientRect();
     setConnectingSource({
@@ -287,21 +290,27 @@ export default function AutomationPage() {
         }
 
         if (node.type === 'LIST_MESSAGE') {
+          // Ensure every item has a stable id before matching
           const updatedItems = (node.config?.items || []).map((item, idx) => {
-            const itemId = item.id || `opt_${idx}_${node.id}`;
-            return (itemId === buttonId || item.id === buttonId)
-              ? { ...item, id: itemId, targetNodeId }
-              : item;
+            const stableId = item.id || `opt_${idx}_${node.id}`;
+            // Match by stable id OR by original item.id
+            if (stableId === buttonId || item.id === buttonId) {
+              return { ...item, id: stableId, targetNodeId };
+            }
+            return { ...item, id: stableId }; // Ensure id is always set
           });
           return { ...node, config: { ...node.config, items: updatedItems } };
         }
 
         if (node.type === 'BUTTON_MESSAGE') {
+          // Ensure every button has a stable id before matching
           const updatedButtons = (node.config?.buttons || []).map((b, idx) => {
-            const btnId = b.id || `btn_${idx}_${node.id}`;
-            return (btnId === buttonId || b.id === buttonId || String(idx) === String(buttonId))
-              ? { ...b, id: btnId, targetNodeId }
-              : b;
+            const stableId = b.id || `btn_${idx}_${node.id}`;
+            // Match ONLY by stable id — avoid index-based false matches
+            if (stableId === buttonId || b.id === buttonId) {
+              return { ...b, id: stableId, targetNodeId };
+            }
+            return { ...b, id: stableId }; // Ensure id is always set
           });
           return { ...node, config: { ...node.config, buttons: updatedButtons } };
         }
@@ -318,7 +327,7 @@ export default function AutomationPage() {
     );
 
     const targetNode = flowNodes.find((n) => n.id === targetNodeId);
-    toast.success(`Connected button to "${targetNode?.title || 'Next Message'}"!`, 'Wire Connected');
+    toast.success(`Connected to "${targetNode?.title || 'Next Message'}"!`, 'Wire Connected ✅');
     setConnectingSource(null);
   };
 
@@ -331,6 +340,7 @@ export default function AutomationPage() {
 
     if (connectingSource) {
       setCurrentMousePos({ x: mouseCanvasX, y: mouseCanvasY });
+      mouseMovedRef.current = true; // Mark that mouse moved during connection drag
     }
 
     if (draggingNodeId) {
@@ -346,33 +356,36 @@ export default function AutomationPage() {
   // 5. Canvas Mouse Up (Handles dropping wire onto a target node)
   const handleCanvasMouseUp = (e) => {
     if (connectingSource) {
-      if (!canvasRef.current) {
-        setConnectingSource(null);
-        return;
+      // Only try to auto-connect on drag (when mouse moved). On simple click, let the
+      // subsequent onClick event on the target card handle the connection.
+      if (mouseMovedRef.current) {
+        if (!canvasRef.current) {
+          setConnectingSource(null);
+          return;
+        }
+
+        const rect = canvasRef.current.getBoundingClientRect();
+        const dropX = e.clientX - rect.left;
+        const dropY = e.clientY - rect.top;
+
+        // Find node under mouse
+        const targetNode = flowNodes.find((node) => {
+          if (node.id === connectingSource.nodeId) return false;
+          const nodeLeft = node.position.x - 30;
+          const nodeRight = node.position.x + (node.width || 300) + 30;
+          const nodeTop = node.position.y - 30;
+          const nodeBottom = node.position.y + 450;
+          return dropX >= nodeLeft && dropX <= nodeRight && dropY >= nodeTop && dropY <= nodeBottom;
+        });
+
+        if (targetNode) {
+          handleConnectToTargetNode(targetNode.id);
+          setConnectingSource(null);
+        }
+        // If no target found on drag, DON'T cancel — let user click a target
+        mouseMovedRef.current = false;
       }
-
-      const rect = canvasRef.current.getBoundingClientRect();
-      const dropX = e.clientX - rect.left;
-      const dropY = e.clientY - rect.top;
-
-      // Find node under mouse
-      const targetNode = flowNodes.find((node) => {
-        if (node.id === connectingSource.nodeId) return false;
-        const nodeLeft = node.position.x - 30;
-        const nodeRight = node.position.x + (node.width || 300) + 30;
-        const nodeTop = node.position.y - 30;
-        const nodeBottom = node.position.y + 450;
-
-        return dropX >= nodeLeft && dropX <= nodeRight && dropY >= nodeTop && dropY <= nodeBottom;
-      });
-
-      if (targetNode) {
-        handleConnectToTargetNode(targetNode.id);
-      } else {
-        toast.info('Release arrow over a message card to connect.', 'Connection Incomplete');
-      }
-
-      setConnectingSource(null);
+      // If mouse didn't move (click), keep connectingSource alive for target card onClick
     }
 
     setDraggingNodeId(null);
@@ -553,6 +566,19 @@ export default function AutomationPage() {
     setCurrentView('CANVAS');
   };
 
+  // Helper: get real canvas-relative position of a green dot by querying DOM
+  const getDotCanvasPos = (dotId) => {
+    if (!canvasRef.current) return null;
+    const el = canvasRef.current.querySelector(`[data-dot-id="${dotId}"]`);
+    if (!el) return null;
+    const dotRect = el.getBoundingClientRect();
+    const canvasRect = canvasRef.current.getBoundingClientRect();
+    return {
+      x: dotRect.left + dotRect.width / 2 - canvasRect.left,
+      y: dotRect.top + dotRect.height / 2 - canvasRect.top
+    };
+  };
+
   // Calculate all active connections for rendering SVG lines
   const activeConnections = [];
   flowNodes.forEach((sourceNode) => {
@@ -562,11 +588,12 @@ export default function AutomationPage() {
       if (directTargetId) {
         const targetNode = flowNodes.find((n) => n.id === directTargetId);
         if (targetNode) {
-          const startX = sourceNode.position.x + (sourceNode.width || 300);
-          const startY = sourceNode.position.y + (sourceNode.type === 'START_TRIGGER' ? 115 : 75);
+          const dotId = `dot_out_${sourceNode.id}`;
+          const domPos = getDotCanvasPos(dotId);
+          const startX = domPos ? domPos.x : sourceNode.position.x + (sourceNode.width || 300);
+          const startY = domPos ? domPos.y : sourceNode.position.y + (sourceNode.type === 'START_TRIGGER' ? 115 : 75);
           const endX = targetNode.position.x;
           const endY = targetNode.position.y + 75;
-
           const midX = (startX + endX) / 2;
           const midY = (startY + endY) / 2;
 
@@ -574,75 +601,60 @@ export default function AutomationPage() {
             id: `${sourceNode.id}_direct_${targetNode.id}`,
             sourceNodeId: sourceNode.id,
             itemId: sourceNode.type === 'START_TRIGGER' ? 'trigger_out' : 'node_out',
-            startX,
-            startY,
-            endX,
-            endY,
-            midX,
-            midY
+            startX, startY, endX, endY, midX, midY
           });
         }
       }
     }
 
-    // 2. BUTTON MESSAGE (Per-button individual branch wires)
+    // 2. BUTTON MESSAGE (Per-button individual branch wires — DOM measured)
     if (sourceNode.type === 'BUTTON_MESSAGE') {
       (sourceNode.config?.buttons || []).forEach((btn, idx) => {
         if (btn.targetNodeId) {
           const targetNode = flowNodes.find((n) => n.id === btn.targetNodeId);
           if (targetNode) {
-            const startX = sourceNode.position.x + (sourceNode.width || 300);
-            const startY = sourceNode.position.y + 245 + idx * 46;
+            const btnItemId = btn.id || `btn_${idx}_${sourceNode.id}`;
+            const dotId = `dot_btn_${btnItemId}`;
+            const domPos = getDotCanvasPos(dotId);
+            const startX = domPos ? domPos.x : sourceNode.position.x + (sourceNode.width || 300);
+            const startY = domPos ? domPos.y : sourceNode.position.y + 245 + idx * 46;
             const endX = targetNode.position.x;
             const endY = targetNode.position.y + 75;
-
             const midX = (startX + endX) / 2;
             const midY = (startY + endY) / 2;
-
-            const btnItemId = btn.id || `btn_${idx}_${sourceNode.id}`;
 
             activeConnections.push({
               id: `${sourceNode.id}_${btnItemId}_${targetNode.id}`,
               sourceNodeId: sourceNode.id,
               itemId: btnItemId,
-              startX,
-              startY,
-              endX,
-              endY,
-              midX,
-              midY
+              startX, startY, endX, endY, midX, midY
             });
           }
         }
       });
     }
 
-    // 3. LIST MESSAGE (Per-item individual option wires)
+    // 3. LIST MESSAGE (Per-item individual option wires — DOM measured)
     if (sourceNode.type === 'LIST_MESSAGE') {
       (sourceNode.config?.items || []).forEach((item, idx) => {
         if (item.targetNodeId) {
           const targetNode = flowNodes.find((n) => n.id === item.targetNodeId);
           if (targetNode) {
-            const startX = sourceNode.position.x + (sourceNode.width || 300);
-            const startY = sourceNode.position.y + 295 + idx * 68;
+            const optItemId = item.id || `opt_${idx}_${sourceNode.id}`;
+            const dotId = `dot_opt_${optItemId}`;
+            const domPos = getDotCanvasPos(dotId);
+            const startX = domPos ? domPos.x : sourceNode.position.x + (sourceNode.width || 300);
+            const startY = domPos ? domPos.y : sourceNode.position.y + 295 + idx * 68;
             const endX = targetNode.position.x;
             const endY = targetNode.position.y + 75;
-
             const midX = (startX + endX) / 2;
             const midY = (startY + endY) / 2;
-
-            const optItemId = item.id || `opt_${idx}_${sourceNode.id}`;
 
             activeConnections.push({
               id: `${sourceNode.id}_${optItemId}_${targetNode.id}`,
               sourceNodeId: sourceNode.id,
               itemId: optItemId,
-              startX,
-              startY,
-              endX,
-              endY,
-              midX,
-              midY
+              startX, startY, endX, endY, midX, midY
             });
           }
         }
@@ -1016,7 +1028,21 @@ export default function AutomationPage() {
               ref={canvasRef}
               onMouseMove={handleCanvasMouseMove}
               onMouseUp={handleCanvasMouseUp}
-              className="flex-1 relative h-[820px] bg-[#FAFBFD] rounded-3xl border border-slate-200 overflow-hidden shadow-inner select-none"
+              onClick={(e) => {
+                // If user clicks on empty canvas area (not on any node), cancel pending connection
+                if (connectingSource && e.target === canvasRef.current) {
+                  setConnectingSource(null);
+                  mouseMovedRef.current = false;
+                }
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Escape' && connectingSource) {
+                  setConnectingSource(null);
+                  mouseMovedRef.current = false;
+                }
+              }}
+              tabIndex={0}
+              className="flex-1 relative h-[820px] bg-[#FAFBFD] rounded-3xl border border-slate-200 overflow-hidden shadow-inner select-none outline-none"
             >
               {/* Dot Grid Background */}
               <div
@@ -1031,26 +1057,31 @@ export default function AutomationPage() {
               <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
                 {/* 1. PERSISTENT CONNECTING DASHED GREEN LINES WITH CROSS 'x' MARKERS */}
                 {activeConnections.map((conn) => {
-                  const controlOffset = Math.max(60, Math.abs(conn.endX - conn.startX) * 0.5);
-                  const d = `M ${conn.startX} ${conn.startY} C ${conn.startX + controlOffset} ${conn.startY}, ${conn.endX - controlOffset} ${conn.endY}, ${conn.endX} ${conn.endY}`;
+                  // Smart bezier: if target is to the right, normal S-curve.
+                  // If target is to the left or above, loop the curve around gracefully.
+                  const dx = conn.endX - conn.startX;
+                  const dy = conn.endY - conn.startY;
+                  let cp1x, cp1y, cp2x, cp2y;
+                  if (dx > 20) {
+                    // Normal left-to-right: simple horizontal bezier
+                    const offset = Math.max(80, dx * 0.5);
+                    cp1x = conn.startX + offset;
+                    cp1y = conn.startY;
+                    cp2x = conn.endX - offset;
+                    cp2y = conn.endY;
+                  } else {
+                    // Loopback: curve goes right, bends around, comes from left
+                    const loopOut = 100 + Math.abs(dy) * 0.3;
+                    cp1x = conn.startX + loopOut;
+                    cp1y = conn.startY;
+                    cp2x = conn.endX - loopOut;
+                    cp2y = conn.endY;
+                  }
+                  const d = `M ${conn.startX} ${conn.startY} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${conn.endX} ${conn.endY}`;
 
                   return (
                     <g key={conn.id}>
-                      {/* Dashed Green Curve (Matching user uploaded zoomed-in image) */}
-                      <path d={d} fill="none" stroke="#65A30D" strokeWidth="2.5" strokeDasharray="4,4" />
-
-                      {/* Small Cross 'x' Markers along the curve */}
-                      <text
-                        x={conn.midX}
-                        y={conn.midY + 3}
-                        fill="#4D7C0F"
-                        fontSize="10"
-                        fontWeight="900"
-                        textAnchor="middle"
-                      >
-                        ×
-                      </text>
-
+                      <path d={d} fill="none" stroke="#65A30D" strokeWidth="2.5" strokeDasharray="5,4" />
                       {/* End Dots */}
                       <circle cx={conn.startX} cy={conn.startY} r="4" fill="#65A30D" />
                       <circle cx={conn.endX} cy={conn.endY} r="4.5" fill="#65A30D" />
@@ -1138,24 +1169,34 @@ export default function AutomationPage() {
                     {/* RIGHT OUTPUT CONNECTOR RING (For linear text/image messages only; Button/List messages use per-button dots) */}
                     {!isTrigger && node.type !== 'BUTTON_MESSAGE' && node.type !== 'LIST_MESSAGE' && (
                       <div
+                        data-dot-id={`dot_out_${node.id}`}
                         onClick={(e) => {
                           e.stopPropagation();
-                          const dotX = node.position.x + (node.width || 300);
-                          const dotY = node.position.y + 75;
+                          e.preventDefault();
+                          if (!canvasRef.current) return;
+                          const dotEl = e.currentTarget;
+                          const dotRect = dotEl.getBoundingClientRect();
+                          const canvasRect = canvasRef.current.getBoundingClientRect();
+                          const dotX = dotRect.left + dotRect.width / 2 - canvasRect.left;
+                          const dotY = dotRect.top + dotRect.height / 2 - canvasRect.top;
                           handleStartConnection(e, node.id, 'node_out', dotX, dotY);
                           toast.info('Now click or drag to any other message to connect them in sequence!', 'Connecting Next Message');
                         }}
                         onMouseDown={(e) => {
-                          const dotX = node.position.x + (node.width || 300);
-                          const dotY = node.position.y + 75;
+                          e.stopPropagation();
+                          e.preventDefault();
+                          if (!canvasRef.current) return;
+                          const dotEl = e.currentTarget;
+                          const dotRect = dotEl.getBoundingClientRect();
+                          const canvasRect = canvasRef.current.getBoundingClientRect();
+                          const dotX = dotRect.left + dotRect.width / 2 - canvasRect.left;
+                          const dotY = dotRect.top + dotRect.height / 2 - canvasRect.top;
                           handleStartConnection(e, node.id, 'node_out', dotX, dotY);
                         }}
-                        className="absolute -right-2.5 top-[75px] w-5 h-5 bg-[#16A34A] hover:bg-emerald-500 border-2 border-white rounded-full shadow-md flex items-center justify-center cursor-pointer transition transform hover:scale-125 z-30 group"
+                        className="absolute -right-2.5 top-[75px] w-5 h-5 bg-[#16A34A] hover:bg-emerald-500 border-2 border-white rounded-full shadow-md flex items-center justify-center cursor-crosshair transition transform hover:scale-125 z-30 group"
                         title="Click or drag to connect next message (Sequential flow)"
                       >
-                        <span className="text-white text-[10px] font-black opacity-0 group-hover:opacity-100 transition leading-none">
-                          +
-                        </span>
+                        <span className="text-white text-[10px] font-black opacity-0 group-hover:opacity-100 transition leading-none">+</span>
                         <span className="w-1.5 h-1.5 bg-white rounded-full group-hover:hidden" />
                       </div>
                     )}
@@ -1359,24 +1400,34 @@ export default function AutomationPage() {
 
                       {/* SINGLE RIGHT OUTPUT CONNECTOR DOT (Dashed curve directly to first message card!) */}
                       <div
+                        data-dot-id={`dot_out_${node.id}`}
                         onClick={(e) => {
                           e.stopPropagation();
-                          const dotX = node.position.x + (node.width || 300);
-                          const dotY = node.position.y + 115;
+                          e.preventDefault();
+                          if (!canvasRef.current) return;
+                          const dotEl = e.currentTarget;
+                          const dotRect = dotEl.getBoundingClientRect();
+                          const canvasRect = canvasRef.current.getBoundingClientRect();
+                          const dotX = dotRect.left + dotRect.width / 2 - canvasRect.left;
+                          const dotY = dotRect.top + dotRect.height / 2 - canvasRect.top;
                           handleStartConnection(e, node.id, 'trigger_out', dotX, dotY);
                           toast.info('Now click or drag to any message card to connect the arrow!', 'Connecting Arrow');
                         }}
                         onMouseDown={(e) => {
-                          const dotX = node.position.x + (node.width || 300);
-                          const dotY = node.position.y + 115;
+                          e.stopPropagation();
+                          e.preventDefault();
+                          if (!canvasRef.current) return;
+                          const dotEl = e.currentTarget;
+                          const dotRect = dotEl.getBoundingClientRect();
+                          const canvasRect = canvasRef.current.getBoundingClientRect();
+                          const dotX = dotRect.left + dotRect.width / 2 - canvasRect.left;
+                          const dotY = dotRect.top + dotRect.height / 2 - canvasRect.top;
                           handleStartConnection(e, node.id, 'trigger_out', dotX, dotY);
                         }}
-                        className="absolute -right-5 top-[105px] w-5 h-5 bg-[#16A34A] hover:bg-emerald-500 border-2 border-white rounded-full shadow-md flex items-center justify-center cursor-pointer transition transform hover:scale-125 z-30 group"
+                        className="absolute -right-5 top-[105px] w-5 h-5 bg-[#16A34A] hover:bg-emerald-500 border-2 border-white rounded-full shadow-md flex items-center justify-center cursor-crosshair transition transform hover:scale-125 z-30 group"
                         title="Click or drag arrow to connect"
                       >
-                        <span className="text-white text-[10px] font-black opacity-0 group-hover:opacity-100 transition leading-none">
-                          +
-                        </span>
+                        <span className="text-white text-[10px] font-black opacity-0 group-hover:opacity-100 transition leading-none">+</span>
                         <span className="w-1.5 h-1.5 bg-white rounded-full group-hover:hidden" />
                       </div>
                     </div>
@@ -1558,12 +1609,23 @@ export default function AutomationPage() {
                           {/* List Items / Rows (Teal Cards `#0D9488`) */}
                           <div className="space-y-1.5 pt-0.5">
                             {(node.config?.items || []).map((item, itmIdx) => {
-                              const dotX = node.position.x + (node.width || 300);
-                              const dotY = node.position.y + 295 + itmIdx * 68;
+                              const itemId = item.id || `opt_${itmIdx}_${node.id}`;
+
+                              const startConnFromItemDot = (e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                if (!canvasRef.current) return;
+                                const dotEl = e.currentTarget;
+                                const dotRect = dotEl.getBoundingClientRect();
+                                const canvasRect = canvasRef.current.getBoundingClientRect();
+                                const realDotX = dotRect.left + dotRect.width / 2 - canvasRect.left;
+                                const realDotY = dotRect.top + dotRect.height / 2 - canvasRect.top;
+                                handleStartConnection(e, node.id, itemId, realDotX, realDotY);
+                              };
 
                               return (
                                 <div
-                                  key={item.id}
+                                  key={itemId}
                                   className="relative flex flex-col p-2.5 bg-[#0D9488]/85 hover:bg-[#0D9488] text-white rounded-xl text-xs shadow-xs transition group"
                                 >
                                   <div className="flex items-center justify-between">
@@ -1637,20 +1699,18 @@ export default function AutomationPage() {
                                     </span>
                                   </div>
 
-                                  {/* Green Connector Dot (Turns into "+" cursor and stretches live arrow on drag!) */}
+                                  {/* Green Connector Dot — exact position via data-dot-id */}
                                   <div
+                                    data-dot-id={`dot_opt_${itemId}`}
                                     onClick={(e) => {
-                                      e.stopPropagation();
-                                      handleStartConnection(e, node.id, item.id, dotX, dotY);
-                                      toast.info('Now click or drag to any message card to connect the arrow!', 'Connecting Arrow');
+                                      startConnFromItemDot(e);
+                                      toast.info('Now click any message card to connect this option!', 'Connecting');
                                     }}
-                                    onMouseDown={(e) => handleStartConnection(e, node.id, item.id, dotX, dotY)}
-                                    className="absolute -right-2.5 top-1/2 -translate-y-1/2 w-5 h-5 bg-[#16A34A] hover:bg-emerald-500 border-2 border-white rounded-full shadow-md flex items-center justify-center cursor-pointer transition transform hover:scale-125 z-30 group"
-                                    title="Click & drag arrow to next message"
+                                    onMouseDown={startConnFromItemDot}
+                                    className="absolute -right-2.5 top-1/2 -translate-y-1/2 w-5 h-5 bg-[#16A34A] hover:bg-emerald-400 border-2 border-white rounded-full shadow-md flex items-center justify-center cursor-crosshair transition transform hover:scale-125 z-30 group"
+                                    title={`Connect "${item.title || `Option ${itmIdx + 1}`}" to next message`}
                                   >
-                                    <span className="text-white text-[10px] font-black opacity-0 group-hover:opacity-100 transition leading-none">
-                                      +
-                                    </span>
+                                    <span className="text-white text-[10px] font-black opacity-0 group-hover:opacity-100 transition leading-none">+</span>
                                     <span className="w-1.5 h-1.5 bg-white rounded-full group-hover:hidden" />
                                   </div>
                                 </div>
@@ -1824,8 +1884,18 @@ export default function AutomationPage() {
                           <div className="space-y-2 pt-1">
                             {(node.config?.buttons || []).map((btn, btnIdx) => {
                               const btnId = btn.id || `btn_${btnIdx}_${node.id}`;
-                              const dotX = node.position.x + (node.width || 300);
-                              const dotY = node.position.y + 245 + btnIdx * 46;
+
+                              const startConnFromDot = (e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                if (!canvasRef.current) return;
+                                const dotEl = e.currentTarget;
+                                const dotRect = dotEl.getBoundingClientRect();
+                                const canvasRect = canvasRef.current.getBoundingClientRect();
+                                const realDotX = dotRect.left + dotRect.width / 2 - canvasRect.left;
+                                const realDotY = dotRect.top + dotRect.height / 2 - canvasRect.top;
+                                handleStartConnection(e, node.id, btnId, realDotX, realDotY);
+                              };
 
                               return (
                                 <div
@@ -1849,8 +1919,8 @@ export default function AutomationPage() {
                                           })
                                         );
                                       }}
-                                      placeholder={`Button ${btnIdx + 1}`}
-                                      className="bg-transparent text-white font-bold text-xs focus:outline-hidden w-full placeholder-white/70"
+                                      placeholder={`Enter button text...`}
+                                      className="bg-transparent text-white font-bold text-xs focus:outline-hidden w-full placeholder-white/50"
                                     />
                                   </div>
 
@@ -1876,20 +1946,18 @@ export default function AutomationPage() {
                                     </button>
                                   </div>
 
-                                  {/* Button Right Output Connector Dot */}
+                                  {/* Button Right Output Connector Dot — exact position via data-dot-id */}
                                   <div
+                                    data-dot-id={`dot_btn_${btnId}`}
                                     onClick={(e) => {
-                                      e.stopPropagation();
-                                      handleStartConnection(e, node.id, btnId, dotX, dotY);
-                                      toast.info(`Now click or drag to any message to connect button "${btn.text || 'Option'}"!`, 'Connecting Button');
+                                      startConnFromDot(e);
+                                      toast.info(`Now click any message card to connect "${btn.text || `Button ${btnIdx + 1}`}"!`, 'Connecting Button');
                                     }}
-                                    onMouseDown={(e) => handleStartConnection(e, node.id, btnId, dotX, dotY)}
-                                    className="absolute -right-2.5 top-1/2 -translate-y-1/2 w-5 h-5 bg-[#16A34A] hover:bg-emerald-500 border-2 border-white rounded-full shadow-md flex items-center justify-center cursor-pointer transition transform hover:scale-125 z-30 group"
-                                    title="Click or drag to connect this button to next message"
+                                    onMouseDown={startConnFromDot}
+                                    className="absolute -right-2.5 top-1/2 -translate-y-1/2 w-5 h-5 bg-[#16A34A] hover:bg-emerald-400 border-2 border-white rounded-full shadow-md flex items-center justify-center cursor-crosshair transition transform hover:scale-125 z-30 group"
+                                    title={`Connect "${btn.text || `Button ${btnIdx + 1}`}" to next message`}
                                   >
-                                    <span className="text-white text-[10px] font-black opacity-0 group-hover:opacity-100 transition leading-none">
-                                      +
-                                    </span>
+                                    <span className="text-white text-[10px] font-black opacity-0 group-hover:opacity-100 transition leading-none">+</span>
                                     <span className="w-1.5 h-1.5 bg-white rounded-full group-hover:hidden" />
                                   </div>
                                 </div>

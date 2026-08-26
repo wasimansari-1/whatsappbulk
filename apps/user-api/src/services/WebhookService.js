@@ -122,6 +122,15 @@ export class WebhookService {
 
       if (!msg) return { skipped: true, reason: 'Message not found in database' };
 
+      let metaErrorText = null;
+      if (normalizedStatus === 'FAILED') {
+        const errObj = event.errors?.[0];
+        metaErrorText = errObj
+          ? `[Meta Cloud API Error ${errObj.code}]: ${errObj.message || errObj.title || 'Delivery failed'} ${errObj.error_data?.details || ''}`.trim()
+          : 'Message undeliverable on WhatsApp (Payment method not set up on Meta, recipient unreachable, or template error)';
+        msg.errorMessage = metaErrorText;
+      }
+
       msg.status = normalizedStatus;
       await msg.save();
 
@@ -138,6 +147,10 @@ export class WebhookService {
           recipient.status = normalizedStatus;
           if (normalizedStatus === 'DELIVERED') recipient.deliveredAt = new Date();
           if (normalizedStatus === 'READ') recipient.readAt = new Date();
+          if (normalizedStatus === 'FAILED') {
+            recipient.failedAt = new Date();
+            recipient.errorMessage = metaErrorText;
+          }
           await recipient.save();
 
           const statField = normalizedStatus.toLowerCase();
@@ -153,6 +166,24 @@ export class WebhookService {
                 campaignId: msg.campaignId,
                 stats: updatedCampaign.stats,
                 status: updatedCampaign.status
+              });
+            }
+          } else if (normalizedStatus === 'FAILED') {
+            const updatedCampaign = await Campaign.findByIdAndUpdate(
+              msg.campaignId,
+              {
+                $inc: { 'stats.failed': 1, 'stats.sent': -1 },
+                $set: { lastErrorMessage: metaErrorText }
+              },
+              { new: true }
+            );
+
+            if (updatedCampaign) {
+              emitToOrganization(orgId, 'campaign.progress', {
+                campaignId: msg.campaignId,
+                stats: updatedCampaign.stats,
+                status: updatedCampaign.status,
+                lastErrorMessage: metaErrorText
               });
             }
           }

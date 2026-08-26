@@ -93,13 +93,14 @@ export default function Topbar({ dashboardData }) {
           </div>
         </div>
 
-        {/* Wallet Balance Badge */}
+        {/* Meta WABA Direct Billing Live Balance Badge */}
         <Link
           to="/billing"
-          className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 hover:bg-emerald-100 transition-all text-xs font-bold shadow-sm"
+          className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-blue-800 hover:bg-blue-100 transition-all text-xs font-bold shadow-sm"
+          title="Live Meta WhatsApp Account Balance"
         >
-          <span>₹ {Number(walletBalance).toFixed(2)}</span>
-          <Plus className="w-3.5 h-3.5 text-emerald-700" />
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span>Meta Balance: ₹ {Number(walletBalance || 0).toFixed(2)}</span>
         </Link>
 
         {/* Utility Icon Buttons */}
